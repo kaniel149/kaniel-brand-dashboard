@@ -1,0 +1,48 @@
+# Video files (too large for git)
+*.mp4
+*.mov
+*.MOV
+*.MP4
+*.avi
+*.mkv
+
+# Audio files
+*.mp3
+*.wav
+*.m4a
+
+# Image files (keep thumbnails)
+*.png
+*.jpg
+*.jpeg
+!content/catalog/thumbnails/*.jpg
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Temporary files
+*.tmp
+*.temp
+/tmp/
+
+# Raw video folders
+rew video/
+פנמה /
+אבידן /
+תיקיה ללא שם/
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# Node
+node_modules/
+
+# IDE
+.idea/
+.vscode/
