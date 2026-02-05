@@ -40,7 +40,6 @@
             padding-bottom: 100px;
         }
 
-        /* Header */
         .header {
             position: sticky;
             top: 0;
@@ -49,22 +48,15 @@
             padding-top: max(16px, env(safe-area-inset-top));
             border-bottom: 1px solid var(--bg3);
             z-index: 100;
-        }
-
-        .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
-            font-size: 20px;
-            font-weight: 800;
-        }
-
+        .logo { font-size: 20px; font-weight: 800; }
         .logo span { color: var(--accent); }
 
-        .back-btn {
+        .header-btn {
             background: var(--bg3);
             border: none;
             color: var(--text);
@@ -75,12 +67,45 @@
             cursor: pointer;
         }
 
-        /* Content */
-        .content {
-            padding: 20px;
+        .header-btn.edit-mode {
+            background: var(--orange);
         }
 
-        /* Video Cards */
+        .content { padding: 20px; }
+
+        /* Stats */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .stat {
+            background: var(--bg2);
+            border-radius: 14px;
+            padding: 16px 10px;
+            text-align: center;
+        }
+
+        .stat-num { font-size: 28px; font-weight: 800; }
+        .stat-num.red { color: var(--red); }
+        .stat-label { font-size: 10px; color: var(--text2); margin-top: 4px; }
+
+        /* Section */
+        .section-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 24px 0 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Video Card */
         .video-card {
             background: var(--bg2);
             border-radius: 20px;
@@ -104,20 +129,10 @@
             margin-bottom: 8px;
         }
 
-        .video-title {
-            font-size: 22px;
-            font-weight: 800;
-            margin-bottom: 4px;
-        }
+        .video-title { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
+        .video-meta { font-size: 14px; opacity: 0.9; }
 
-        .video-meta {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        .video-body {
-            padding: 20px;
-        }
+        .video-body { padding: 20px; }
 
         .video-desc {
             font-size: 15px;
@@ -142,17 +157,7 @@
             text-align: center;
         }
 
-        /* Section Title */
-        .section-title {
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--text3);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 24px 0 16px;
-        }
-
-        /* Shot Card - Detailed */
+        /* Shot Card */
         .shot-card {
             background: var(--bg2);
             border-radius: 20px;
@@ -183,19 +188,9 @@
 
         .shot-number.broll { background: var(--orange); }
 
-        .shot-title-area {
-            flex: 1;
-        }
-
-        .shot-title {
-            font-size: 18px;
-            font-weight: 700;
-        }
-
-        .shot-duration {
-            font-size: 13px;
-            color: var(--text2);
-        }
+        .shot-title-area { flex: 1; }
+        .shot-title { font-size: 18px; font-weight: 700; }
+        .shot-duration { font-size: 13px; color: var(--text2); }
 
         .shot-check {
             width: 36px;
@@ -215,9 +210,7 @@
             color: white;
         }
 
-        .shot-body {
-            padding: 20px;
-        }
+        .shot-body { padding: 20px; }
 
         /* Detail Row */
         .detail-row {
@@ -242,11 +235,7 @@
             margin-bottom: 6px;
         }
 
-        .detail-value {
-            font-size: 14px;
-            font-weight: 600;
-        }
-
+        .detail-value { font-size: 14px; font-weight: 600; }
         .detail-value.emotion { color: var(--orange); }
         .detail-value.frame { color: var(--purple); }
         .detail-value.location { color: var(--green); }
@@ -258,6 +247,7 @@
             border-radius: 16px;
             padding: 20px;
             margin-bottom: 16px;
+            position: relative;
         }
 
         .script-label {
@@ -267,15 +257,63 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
         }
 
         .script-text {
             font-size: 18px;
             font-weight: 600;
             line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        /* Editable */
+        .editable {
+            position: relative;
+        }
+
+        .editable .edit-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--orange);
+            border: none;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .edit-mode .editable .edit-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .editable textarea {
+            display: none;
+            width: 100%;
+            background: var(--bg3);
+            border: 2px solid var(--orange);
+            border-radius: 12px;
+            padding: 14px;
+            color: var(--text);
+            font-size: 16px;
+            font-family: inherit;
+            line-height: 1.6;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .editable.editing .script-text,
+        .editable.editing .detail-value {
+            display: none;
+        }
+
+        .editable.editing textarea {
+            display: block;
         }
 
         /* Tips */
@@ -285,12 +323,7 @@
             padding: 16px;
         }
 
-        .tips-title {
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--text3);
-            margin-bottom: 10px;
-        }
+        .tips-title { font-size: 12px; font-weight: 700; color: var(--text3); margin-bottom: 10px; }
 
         .tip-item {
             display: flex;
@@ -300,9 +333,7 @@
             color: var(--text2);
         }
 
-        .tip-item:last-child { margin-bottom: 0; }
-
-        /* Progress Bar */
+        /* Progress */
         .progress-bar {
             background: var(--bg3);
             height: 8px;
@@ -324,7 +355,7 @@
             text-align: center;
         }
 
-        /* WhatsApp Button */
+        /* Buttons */
         .wa-btn {
             display: flex;
             align-items: center;
@@ -344,36 +375,78 @@
             margin-top: 20px;
         }
 
-        /* Stats */
-        .stats-row {
+        .save-btn {
+            background: var(--orange);
+            margin-bottom: 12px;
+        }
+
+        .quick-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-bottom: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
         }
 
-        .stat {
+        .quick-btn {
             background: var(--bg2);
-            border-radius: 14px;
-            padding: 16px 10px;
+            border: 1px solid var(--bg3);
+            border-radius: 16px;
+            padding: 20px;
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quick-btn .icon { font-size: 32px; }
+        .quick-btn:active { background: var(--bg3); }
+
+        /* Edit Mode Banner */
+        .edit-banner {
+            display: none;
+            background: var(--orange);
+            padding: 12px 20px;
             text-align: center;
+            font-size: 14px;
+            font-weight: 600;
         }
 
-        .stat-num {
-            font-size: 28px;
-            font-weight: 800;
+        .edit-mode .edit-banner {
+            display: block;
         }
 
-        .stat-num.red { color: var(--red); }
-        .stat-num.green { color: var(--green); }
-
-        .stat-label {
-            font-size: 10px;
-            color: var(--text2);
-            margin-top: 4px;
+        /* Changes Log */
+        .changes-log {
+            background: var(--bg2);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid var(--orange);
         }
 
-        /* Bottom Nav */
+        .changes-log h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: var(--orange);
+        }
+
+        .change-item {
+            background: var(--bg3);
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .change-item strong {
+            color: var(--accent);
+        }
+
+        /* Navbar */
         .navbar {
             position: fixed;
             bottom: 0;
@@ -431,55 +504,90 @@
             transition: transform 0.3s;
         }
 
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
+        .toast.show { transform: translateX(-50%) translateY(0); }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.9);
+            z-index: 300;
+            padding: 20px;
+            overflow-y: auto;
         }
 
-        /* Empty State */
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--text2);
+        .modal.show { display: block; }
+
+        .modal-content {
+            background: var(--bg2);
+            border-radius: 20px;
+            padding: 24px;
+            max-width: 500px;
+            margin: 0 auto;
+            margin-top: 50px;
         }
 
-        .empty-state .icon {
-            font-size: 60px;
+        .modal-title {
+            font-size: 20px;
+            font-weight: 800;
             margin-bottom: 16px;
         }
 
-        .empty-state h3 {
-            font-size: 18px;
+        .modal-input {
+            width: 100%;
+            background: var(--bg3);
+            border: 2px solid var(--bg3);
+            border-radius: 12px;
+            padding: 16px;
             color: var(--text);
+            font-size: 16px;
+            font-family: inherit;
+            margin-bottom: 12px;
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .modal-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .modal-label {
+            font-size: 12px;
+            color: var(--text2);
             margin-bottom: 8px;
+            display: block;
         }
 
-        /* Quick Actions */
-        .quick-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+        .modal-btns {
+            display: flex;
             gap: 12px;
+            margin-top: 20px;
         }
 
-        .quick-btn {
-            background: var(--bg2);
-            border: 1px solid var(--bg3);
-            border-radius: 16px;
-            padding: 20px;
-            color: var(--text);
-            font-size: 14px;
-            font-weight: 600;
+        .modal-btn {
+            flex: 1;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
             font-family: inherit;
             cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
         }
 
-        .quick-btn .icon { font-size: 32px; }
-
-        .quick-btn:active {
+        .modal-btn.cancel {
             background: var(--bg3);
+            color: var(--text);
+        }
+
+        .modal-btn.save {
+            background: var(--accent);
+            color: white;
         }
     </style>
 </head>
@@ -488,10 +596,11 @@
 <!-- ==================== HOME PAGE ==================== -->
 <div class="page active" id="page-home">
     <div class="header">
-        <div class="header-top">
-            <div class="logo">Kaniel <span>Brand</span></div>
-        </div>
+        <div class="logo">Kaniel <span>Brand</span></div>
+        <button class="header-btn" id="editModeBtn" onclick="toggleEditMode()">✏️ מצב עריכה</button>
     </div>
+
+    <div class="edit-banner">📝 מצב עריכה פעיל - לחץ על ✏️ כדי לערוך טקסט</div>
 
     <div class="content">
         <div class="stats-row">
@@ -508,14 +617,24 @@
                 <div class="stat-label">לעריכה</div>
             </div>
             <div class="stat">
-                <div class="stat-num">0</div>
-                <div class="stat-label">פורסמו</div>
+                <div class="stat-num" id="changesCount">0</div>
+                <div class="stat-label">שינויים</div>
+            </div>
+        </div>
+
+        <!-- Changes Pending -->
+        <div id="changesSection" style="display:none;">
+            <div class="changes-log">
+                <h3>📝 שינויים ממתינים לשליחה</h3>
+                <div id="changesList"></div>
+                <a id="sendChangesBtn" class="wa-btn save-btn" style="margin-top:16px;">
+                    📤 שלח שינויים ל-Claude
+                </a>
             </div>
         </div>
 
         <div class="section-title">🎬 סרטונים לצילום</div>
 
-        <!-- Video 1 -->
         <div class="video-card" onclick="showPage('video1')">
             <div class="video-header">
                 <div class="video-status">🔴 ממתין לצילום</div>
@@ -523,9 +642,7 @@
                 <div class="video-meta">45-60 שניות • 4 shots + B-roll</div>
             </div>
             <div class="video-body">
-                <div class="video-desc">
-                    סרטון היכרות - מי אתה, מה עברת, ולמה אתה בונה חיים עם AI. הסרטון הראשון שמציג את הברנד.
-                </div>
+                <div class="video-desc">סרטון היכרות - מי אתה, מה עברת, ולמה אתה בונה חיים עם AI.</div>
                 <button class="video-btn">📹 התחל לצלם</button>
             </div>
         </div>
@@ -549,13 +666,14 @@
     </div>
 </div>
 
-<!-- ==================== VIDEO 1: AI FIRST INTRO ==================== -->
+<!-- ==================== VIDEO 1 PAGE ==================== -->
 <div class="page" id="page-video1">
     <div class="header">
-        <div class="header-top">
-            <button class="back-btn" onclick="showPage('home')">← חזרה</button>
-        </div>
+        <button class="header-btn" onclick="showPage('home')">← חזרה</button>
+        <button class="header-btn" id="editModeBtn2" onclick="toggleEditMode()">✏️ ערוך</button>
     </div>
+
+    <div class="edit-banner">📝 מצב עריכה - לחץ על ✏️ ליד טקסט כדי לשנות</div>
 
     <div class="content">
         <div class="video-header" style="border-radius:20px;margin-bottom:20px;">
@@ -571,8 +689,8 @@
 
         <div class="section-title">📋 רשימת צילום מפורטת</div>
 
-        <!-- SHOT 1: HOOK -->
-        <div class="shot-card">
+        <!-- SHOT 1 -->
+        <div class="shot-card" id="shot1">
             <div class="shot-header">
                 <div class="shot-number">1</div>
                 <div class="shot-title-area">
@@ -583,24 +701,32 @@
             </div>
             <div class="shot-body">
                 <div class="detail-row">
-                    <div class="detail-box">
+                    <div class="detail-box editable" data-field="shot1-emotion">
                         <div class="detail-label">🎭 רגש</div>
                         <div class="detail-value emotion">אנרגיה גבוהה, נחוש, מסתורי קצת</div>
+                        <button class="edit-btn" onclick="openEditModal('shot1-emotion', 'רגש - Shot 1')">✏️</button>
+                        <textarea></textarea>
                     </div>
                 </div>
                 <div class="detail-row">
-                    <div class="detail-box">
+                    <div class="detail-box editable" data-field="shot1-frame">
                         <div class="detail-label">📐 פריים</div>
                         <div class="detail-value frame">חזה ומעלה, מבט ישר לעדשה</div>
+                        <button class="edit-btn" onclick="openEditModal('shot1-frame', 'פריים - Shot 1')">✏️</button>
+                        <textarea></textarea>
                     </div>
-                    <div class="detail-box">
+                    <div class="detail-box editable" data-field="shot1-location">
                         <div class="detail-label">📍 מיקום</div>
                         <div class="detail-value location">רקע נקי, ליד חלון</div>
+                        <button class="edit-btn" onclick="openEditModal('shot1-location', 'מיקום - Shot 1')">✏️</button>
+                        <textarea></textarea>
                     </div>
                 </div>
-                <div class="script-box">
+                <div class="script-box editable" data-field="shot1-script">
                     <div class="script-label">🎤 מה להגיד (בדיוק)</div>
                     <div class="script-text">"אני בונה חיים מחדש. הפעם עם סוכנים."</div>
+                    <button class="edit-btn" onclick="openEditModal('shot1-script', 'טקסט - Shot 1 HOOK')">✏️</button>
+                    <textarea></textarea>
                 </div>
                 <div class="tips-box">
                     <div class="tips-title">💡 טיפים</div>
@@ -611,8 +737,8 @@
             </div>
         </div>
 
-        <!-- SHOT 2: STORY -->
-        <div class="shot-card">
+        <!-- SHOT 2 -->
+        <div class="shot-card" id="shot2">
             <div class="shot-header">
                 <div class="shot-number">2</div>
                 <div class="shot-title-area">
@@ -623,22 +749,28 @@
             </div>
             <div class="shot-body">
                 <div class="detail-row">
-                    <div class="detail-box">
+                    <div class="detail-box editable" data-field="shot2-emotion">
                         <div class="detail-label">🎭 רגש</div>
                         <div class="detail-value emotion">כנה, פגיע, אמיתי. לא דרמטי מדי.</div>
+                        <button class="edit-btn" onclick="openEditModal('shot2-emotion', 'רגש - Shot 2')">✏️</button>
+                        <textarea></textarea>
                     </div>
                 </div>
                 <div class="detail-row">
-                    <div class="detail-box">
+                    <div class="detail-box editable" data-field="shot2-frame">
                         <div class="detail-label">📐 פריים</div>
                         <div class="detail-value frame">קצת יותר רחב, חצי גוף</div>
+                        <button class="edit-btn" onclick="openEditModal('shot2-frame', 'פריים - Shot 2')">✏️</button>
+                        <textarea></textarea>
                     </div>
-                    <div class="detail-box">
+                    <div class="detail-box editable" data-field="shot2-location">
                         <div class="detail-label">📍 מיקום</div>
                         <div class="detail-value location">אותו מקום או פינה אחרת</div>
+                        <button class="edit-btn" onclick="openEditModal('shot2-location', 'מיקום - Shot 2')">✏️</button>
+                        <textarea></textarea>
                     </div>
                 </div>
-                <div class="script-box">
+                <div class="script-box editable" data-field="shot2-script">
                     <div class="script-label">🎤 מה להגיד (בדיוק)</div>
                     <div class="script-text">"לפני שנה וחצי הייתי בעל עסק מצליח. עשר מיליון שקל בשנה.
 
@@ -647,6 +779,8 @@
 העסק? עצר. החיים? השתנו לגמרי.
 
 עברנו לקופנהגן. רציתי להתחיל מחדש."</div>
+                    <button class="edit-btn" onclick="openEditModal('shot2-script', 'טקסט - Shot 2 STORY')">✏️</button>
+                    <textarea></textarea>
                 </div>
                 <div class="tips-box">
                     <div class="tips-title">💡 טיפים</div>
@@ -657,8 +791,8 @@
             </div>
         </div>
 
-        <!-- SHOT 3: INSIGHT -->
-        <div class="shot-card">
+        <!-- SHOT 3 -->
+        <div class="shot-card" id="shot3">
             <div class="shot-header">
                 <div class="shot-number">3</div>
                 <div class="shot-title-area">
@@ -669,22 +803,28 @@
             </div>
             <div class="shot-body">
                 <div class="detail-row">
-                    <div class="detail-box">
+                    <div class="detail-box editable" data-field="shot3-emotion">
                         <div class="detail-label">🎭 רגש</div>
                         <div class="detail-value emotion">מתרגש! אנרגיה עולה, מאמין במה שאומר</div>
+                        <button class="edit-btn" onclick="openEditModal('shot3-emotion', 'רגש - Shot 3')">✏️</button>
+                        <textarea></textarea>
                     </div>
                 </div>
                 <div class="detail-row">
-                    <div class="detail-box">
+                    <div class="detail-box editable" data-field="shot3-frame">
                         <div class="detail-label">📐 פריים</div>
                         <div class="detail-value frame">חזרה לחזה ומעלה, קרוב יותר</div>
+                        <button class="edit-btn" onclick="openEditModal('shot3-frame', 'פריים - Shot 3')">✏️</button>
+                        <textarea></textarea>
                     </div>
-                    <div class="detail-box">
+                    <div class="detail-box editable" data-field="shot3-location">
                         <div class="detail-label">📍 מיקום</div>
                         <div class="detail-value location">אותו מקום כמו HOOK</div>
+                        <button class="edit-btn" onclick="openEditModal('shot3-location', 'מיקום - Shot 3')">✏️</button>
+                        <textarea></textarea>
                     </div>
                 </div>
-                <div class="script-box">
+                <div class="script-box editable" data-field="shot3-script">
                     <div class="script-label">🎤 מה להגיד (בדיוק)</div>
                     <div class="script-text">"אבל משהו היה שונה הפעם.
 
@@ -693,6 +833,8 @@
 היום? יש לי סוכן AI שמכין לי פודקאסט חדשות כל בוקר. סוכן שמנהל לי את האימונים והתזונה. סוכן שעוזר לי לבנות את התוכן הזה.
 
 אני בונה חיים AI First. חיים שבהם אני עושה את מה שאני טוב בו - והסוכנים עושים את השאר."</div>
+                    <button class="edit-btn" onclick="openEditModal('shot3-script', 'טקסט - Shot 3 INSIGHT')">✏️</button>
+                    <textarea></textarea>
                 </div>
                 <div class="tips-box">
                     <div class="tips-title">💡 טיפים</div>
@@ -703,8 +845,8 @@
             </div>
         </div>
 
-        <!-- SHOT 4: CTA -->
-        <div class="shot-card">
+        <!-- SHOT 4 -->
+        <div class="shot-card" id="shot4">
             <div class="shot-header">
                 <div class="shot-number">4</div>
                 <div class="shot-title-area">
@@ -715,28 +857,36 @@
             </div>
             <div class="shot-body">
                 <div class="detail-row">
-                    <div class="detail-box">
+                    <div class="detail-box editable" data-field="shot4-emotion">
                         <div class="detail-label">🎭 רגש</div>
                         <div class="detail-value emotion">בטוח, ישיר, חיוך קל בסוף</div>
+                        <button class="edit-btn" onclick="openEditModal('shot4-emotion', 'רגש - Shot 4')">✏️</button>
+                        <textarea></textarea>
                     </div>
                 </div>
                 <div class="detail-row">
-                    <div class="detail-box">
+                    <div class="detail-box editable" data-field="shot4-frame">
                         <div class="detail-label">📐 פריים</div>
                         <div class="detail-value frame">בדיוק כמו HOOK - חזה ומעלה</div>
+                        <button class="edit-btn" onclick="openEditModal('shot4-frame', 'פריים - Shot 4')">✏️</button>
+                        <textarea></textarea>
                     </div>
-                    <div class="detail-box">
+                    <div class="detail-box editable" data-field="shot4-location">
                         <div class="detail-label">📍 מיקום</div>
                         <div class="detail-value location">בדיוק כמו HOOK</div>
+                        <button class="edit-btn" onclick="openEditModal('shot4-location', 'מיקום - Shot 4')">✏️</button>
+                        <textarea></textarea>
                     </div>
                 </div>
-                <div class="script-box">
+                <div class="script-box editable" data-field="shot4-script">
                     <div class="script-label">🎤 מה להגיד (בדיוק)</div>
                     <div class="script-text">"הסוכנים מוכנים.
 
 השאלה היא אם אתה מוכן לתת להם לעבוד בשבילך.
 
 אני קניאל. עקבו - אני משתף את כל הדרך."</div>
+                    <button class="edit-btn" onclick="openEditModal('shot4-script', 'טקסט - Shot 4 CTA')">✏️</button>
+                    <textarea></textarea>
                 </div>
                 <div class="tips-box">
                     <div class="tips-title">💡 טיפים</div>
@@ -748,7 +898,7 @@
         </div>
 
         <!-- SHOT 5: B-ROLL -->
-        <div class="shot-card">
+        <div class="shot-card" id="shot5">
             <div class="shot-header">
                 <div class="shot-number broll">B</div>
                 <div class="shot-title-area">
@@ -758,13 +908,7 @@
                 <div class="shot-check" onclick="toggleShot(this)" data-shot="5"></div>
             </div>
             <div class="shot-body">
-                <div class="detail-row">
-                    <div class="detail-box">
-                        <div class="detail-label">🎭 סגנון</div>
-                        <div class="detail-value emotion">סינמטי, איטי, אסתטי</div>
-                    </div>
-                </div>
-                <div class="script-box" style="border-color: var(--orange);">
+                <div class="script-box editable" data-field="shot5-broll" style="border-color: var(--orange);">
                     <div class="script-label" style="color: var(--orange);">📹 מה לצלם</div>
                     <div class="script-text">1. הליכה ברחוב בקופנהגן (מאחור או מהצד)
 
@@ -775,20 +919,36 @@
 4. משהו "דני" - אופניים, בניין צבעוני, תעלה
 
 5. מבט מהחלון / נוף</div>
+                    <button class="edit-btn" onclick="openEditModal('shot5-broll', 'B-Roll - מה לצלם')">✏️</button>
+                    <textarea></textarea>
                 </div>
                 <div class="tips-box">
                     <div class="tips-title">💡 טיפים</div>
                     <div class="tip-item"><span>🐌</span> תנועות איטיות ויציבות</div>
                     <div class="tip-item"><span>⏱️</span> כל קליפ לפחות 10 שניות</div>
                     <div class="tip-item"><span>🚫</span> אל תזום תוך כדי צילום</div>
-                    <div class="tip-item"><span>📱</span> אפשר לצלם אופקי או אנכי</div>
                 </div>
             </div>
         </div>
 
-        <a href="https://wa.me/972502213948?text=צילמתי%20את%20הסרטון%20AI%20First%20Intro%20-%20מוכן%20לעריכה!" class="wa-btn">
+        <a href="https://wa.me/972502213948?text=צילמתי%20את%20AI%20First%20Intro!" class="wa-btn">
             ✅ סיימתי לצלם! שלח בוואצאפ
         </a>
+    </div>
+</div>
+
+<!-- ==================== EDIT MODAL ==================== -->
+<div class="modal" id="editModal">
+    <div class="modal-content">
+        <div class="modal-title" id="modalTitle">עריכה</div>
+        <label class="modal-label">ערוך את הטקסט:</label>
+        <textarea class="modal-input" id="modalInput"></textarea>
+        <label class="modal-label" style="margin-top:12px;">למה שינית? (אופציונלי - עוזר לי ללמוד)</label>
+        <textarea class="modal-input" id="modalReason" placeholder="למשל: זה יותר מתאים לסגנון שלי..." style="min-height:60px;"></textarea>
+        <div class="modal-btns">
+            <button class="modal-btn cancel" onclick="closeModal()">ביטול</button>
+            <button class="modal-btn save" onclick="saveEdit()">שמור</button>
+        </div>
     </div>
 </div>
 
@@ -804,11 +964,50 @@
     </button>
 </nav>
 
-<!-- Toast -->
 <div class="toast" id="toast">נשמר!</div>
 
 <script>
+    let editMode = false;
+    let changes = [];
     let completedShots = new Set();
+    let currentEditField = null;
+
+    // Load saved data
+    function loadData() {
+        const savedChanges = localStorage.getItem('pendingChanges');
+        if (savedChanges) {
+            changes = JSON.parse(savedChanges);
+            updateChangesUI();
+        }
+
+        const savedShots = localStorage.getItem('completedShots');
+        if (savedShots) {
+            completedShots = new Set(JSON.parse(savedShots));
+            completedShots.forEach(shot => {
+                const el = document.querySelector(`[data-shot="${shot}"]`);
+                if (el) {
+                    el.classList.add('done');
+                    el.innerHTML = '✓';
+                }
+            });
+            updateProgress();
+        }
+
+        // Load edited content
+        const savedContent = localStorage.getItem('editedContent');
+        if (savedContent) {
+            const content = JSON.parse(savedContent);
+            Object.keys(content).forEach(field => {
+                const el = document.querySelector(`[data-field="${field}"]`);
+                if (el) {
+                    const textEl = el.querySelector('.script-text, .detail-value');
+                    if (textEl) {
+                        textEl.textContent = content[field];
+                    }
+                }
+            });
+        }
+    }
 
     function showPage(id) {
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -816,7 +1015,6 @@
         document.getElementById('page-' + id).classList.add('active');
         window.scrollTo(0, 0);
 
-        // Update nav
         if (id === 'home') {
             document.querySelectorAll('.nav-btn')[0].classList.add('active');
         } else {
@@ -824,9 +1022,104 @@
         }
     }
 
+    function toggleEditMode() {
+        editMode = !editMode;
+        document.body.classList.toggle('edit-mode', editMode);
+
+        const btns = document.querySelectorAll('#editModeBtn, #editModeBtn2');
+        btns.forEach(btn => {
+            btn.classList.toggle('edit-mode', editMode);
+            btn.textContent = editMode ? '✅ סיום עריכה' : '✏️ מצב עריכה';
+        });
+
+        showToast(editMode ? 'מצב עריכה פעיל' : 'מצב עריכה כבוי');
+    }
+
+    function openEditModal(field, title) {
+        currentEditField = field;
+        const el = document.querySelector(`[data-field="${field}"]`);
+        const textEl = el.querySelector('.script-text, .detail-value');
+
+        document.getElementById('modalTitle').textContent = 'עריכה: ' + title;
+        document.getElementById('modalInput').value = textEl.textContent;
+        document.getElementById('modalReason').value = '';
+        document.getElementById('editModal').classList.add('show');
+    }
+
+    function closeModal() {
+        document.getElementById('editModal').classList.remove('show');
+        currentEditField = null;
+    }
+
+    function saveEdit() {
+        const newValue = document.getElementById('modalInput').value;
+        const reason = document.getElementById('modalReason').value;
+
+        const el = document.querySelector(`[data-field="${currentEditField}"]`);
+        const textEl = el.querySelector('.script-text, .detail-value');
+        const oldValue = textEl.textContent;
+
+        // Update UI
+        textEl.textContent = newValue;
+
+        // Save to localStorage
+        let editedContent = JSON.parse(localStorage.getItem('editedContent') || '{}');
+        editedContent[currentEditField] = newValue;
+        localStorage.setItem('editedContent', JSON.stringify(editedContent));
+
+        // Add to changes
+        changes.push({
+            field: currentEditField,
+            title: document.getElementById('modalTitle').textContent.replace('עריכה: ', ''),
+            oldValue: oldValue.substring(0, 50) + (oldValue.length > 50 ? '...' : ''),
+            newValue: newValue.substring(0, 50) + (newValue.length > 50 ? '...' : ''),
+            fullNewValue: newValue,
+            reason: reason,
+            timestamp: new Date().toISOString()
+        });
+
+        localStorage.setItem('pendingChanges', JSON.stringify(changes));
+        updateChangesUI();
+
+        closeModal();
+        showToast('נשמר! ✅');
+    }
+
+    function updateChangesUI() {
+        const count = changes.length;
+        document.getElementById('changesCount').textContent = count;
+
+        if (count > 0) {
+            document.getElementById('changesSection').style.display = 'block';
+
+            let html = '';
+            changes.forEach((change, i) => {
+                html += `<div class="change-item">
+                    <strong>${change.title}</strong><br>
+                    "${change.newValue}"
+                    ${change.reason ? `<br><em style="color:var(--text3);">סיבה: ${change.reason}</em>` : ''}
+                </div>`;
+            });
+            document.getElementById('changesList').innerHTML = html;
+
+            // Build WhatsApp message
+            let msg = '📝 שינויים בתסריט:\n\n';
+            changes.forEach(change => {
+                msg += `*${change.title}*\n`;
+                msg += `חדש: "${change.fullNewValue}"\n`;
+                if (change.reason) msg += `סיבה: ${change.reason}\n`;
+                msg += '\n';
+            });
+            msg += '\nתעדכן את הקבצים ותלמד מהשינויים שלי! 🙏';
+
+            document.getElementById('sendChangesBtn').href = 'https://wa.me/972502213948?text=' + encodeURIComponent(msg);
+        } else {
+            document.getElementById('changesSection').style.display = 'none';
+        }
+    }
+
     function toggleShot(el) {
         const shot = el.dataset.shot;
-
         if (el.classList.contains('done')) {
             el.classList.remove('done');
             el.innerHTML = '';
@@ -837,16 +1130,14 @@
             completedShots.add(shot);
             showToast('Shot ' + shot + ' סומן! 🎬');
         }
-
         updateProgress();
-        saveToStorage();
+        localStorage.setItem('completedShots', JSON.stringify([...completedShots]));
     }
 
     function updateProgress() {
         const total = 5;
         const done = completedShots.size;
         const percent = (done / total) * 100;
-
         document.getElementById('progress-fill').style.width = percent + '%';
         document.getElementById('progress-text').textContent = done + ' מתוך ' + total + ' צולמו';
     }
@@ -860,29 +1151,18 @@
 
     function copyText(text) {
         navigator.clipboard.writeText(text);
-        showToast('הועתק! הדבק ב-Claude');
+        showToast('הועתק!');
     }
 
-    function saveToStorage() {
-        localStorage.setItem('completedShots', JSON.stringify([...completedShots]));
+    // Clear changes after sending (call from Claude)
+    function clearChanges() {
+        changes = [];
+        localStorage.removeItem('pendingChanges');
+        updateChangesUI();
+        showToast('השינויים נשלחו!');
     }
 
-    function loadFromStorage() {
-        const saved = localStorage.getItem('completedShots');
-        if (saved) {
-            completedShots = new Set(JSON.parse(saved));
-            completedShots.forEach(shot => {
-                const el = document.querySelector(`[data-shot="${shot}"]`);
-                if (el) {
-                    el.classList.add('done');
-                    el.innerHTML = '✓';
-                }
-            });
-            updateProgress();
-        }
-    }
-
-    loadFromStorage();
+    loadData();
 </script>
 
 </body>
