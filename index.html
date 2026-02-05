@@ -9,942 +9,458 @@
     <title>Kaniel Brand</title>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg: #0A0A0A;
-            --bg2: #111111;
-            --bg3: #1A1A1A;
-            --bg4: #222222;
-            --text: #FFFFFF;
-            --text2: #888888;
-            --text3: #555555;
-            --accent: #0066FF;
-            --green: #00C853;
-            --orange: #FF9800;
-            --red: #FF3D00;
-            --purple: #9C27B0;
-            --whatsapp: #25D366;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            font-family: 'Heebo', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-            padding-bottom: 100px;
-        }
-
-        .header {
-            position: sticky;
-            top: 0;
-            background: var(--bg);
-            padding: 16px 20px;
-            padding-top: max(16px, env(safe-area-inset-top));
-            border-bottom: 1px solid var(--bg3);
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo { font-size: 20px; font-weight: 800; }
-        .logo span { color: var(--accent); }
-
-        .header-btn {
-            background: var(--bg3);
-            border: none;
-            color: var(--text);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-family: inherit;
-            cursor: pointer;
-        }
-
-        .header-btn.edit-mode {
-            background: var(--orange);
-        }
-
-        .content { padding: 20px; }
-
-        /* Stats */
-        .stats-row {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .stat {
-            background: var(--bg2);
-            border-radius: 14px;
-            padding: 16px 10px;
-            text-align: center;
-        }
-
-        .stat-num { font-size: 28px; font-weight: 800; }
-        .stat-num.red { color: var(--red); }
-        .stat-label { font-size: 10px; color: var(--text2); margin-top: 4px; }
-
-        /* Section */
-        .section-title {
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--text3);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 24px 0 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* Video Card */
-        .video-card {
-            background: var(--bg2);
-            border-radius: 20px;
-            overflow: hidden;
-            margin-bottom: 16px;
-            border: 1px solid var(--bg3);
-        }
-
-        .video-header {
-            padding: 20px;
-            background: linear-gradient(135deg, var(--accent), #0044AA);
-        }
-
-        .video-status {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .video-title { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
-        .video-meta { font-size: 14px; opacity: 0.9; }
-
-        .video-body { padding: 20px; }
-
-        .video-desc {
-            font-size: 15px;
-            color: var(--text2);
-            line-height: 1.6;
-            margin-bottom: 16px;
-        }
-
-        .video-btn {
-            display: block;
-            width: 100%;
-            background: var(--accent);
-            border: none;
-            border-radius: 14px;
-            padding: 16px;
-            color: white;
-            font-size: 16px;
-            font-weight: 700;
-            font-family: inherit;
-            cursor: pointer;
-            text-decoration: none;
-            text-align: center;
-        }
-
-        /* Shot Card */
-        .shot-card {
-            background: var(--bg2);
-            border-radius: 20px;
-            margin-bottom: 16px;
-            overflow: hidden;
-            border: 1px solid var(--bg3);
-        }
-
-        .shot-header {
-            padding: 16px 20px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            border-bottom: 1px solid var(--bg3);
-        }
-
-        .shot-number {
-            width: 48px;
-            height: 48px;
-            background: var(--accent);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: 800;
-        }
-
-        .shot-number.broll { background: var(--orange); }
-
-        .shot-title-area { flex: 1; }
-        .shot-title { font-size: 18px; font-weight: 700; }
-        .shot-duration { font-size: 13px; color: var(--text2); }
-
-        .shot-check {
-            width: 36px;
-            height: 36px;
-            border: 2px solid var(--text3);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        .shot-check.done {
-            background: var(--green);
-            border-color: var(--green);
-            color: white;
-        }
-
-        .shot-body { padding: 20px; }
-
-        /* Detail Row */
-        .detail-row {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .detail-box {
-            flex: 1;
-            background: var(--bg3);
-            border-radius: 12px;
-            padding: 14px;
-        }
-
-        .detail-label {
-            font-size: 10px;
-            font-weight: 700;
-            color: var(--text3);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 6px;
-        }
-
-        .detail-value { font-size: 14px; font-weight: 600; }
-        .detail-value.emotion { color: var(--orange); }
-        .detail-value.frame { color: var(--purple); }
-        .detail-value.location { color: var(--green); }
-
-        /* Script Box */
-        .script-box {
-            background: var(--bg);
-            border: 2px solid var(--accent);
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 16px;
-            position: relative;
-        }
-
-        .script-label {
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-
-        .script-text {
-            font-size: 18px;
-            font-weight: 600;
-            line-height: 1.6;
-            white-space: pre-wrap;
-        }
-
-        /* Editable */
-        .editable {
-            position: relative;
-        }
-
-        .editable .edit-btn {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: var(--orange);
-            border: none;
-            color: white;
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            display: none;
-        }
-
-        .edit-mode .editable .edit-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .editable textarea {
-            display: none;
-            width: 100%;
-            background: var(--bg3);
-            border: 2px solid var(--orange);
-            border-radius: 12px;
-            padding: 14px;
-            color: var(--text);
-            font-size: 16px;
-            font-family: inherit;
-            line-height: 1.6;
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .editable.editing .script-text,
-        .editable.editing .detail-value {
-            display: none;
-        }
-
-        .editable.editing textarea {
-            display: block;
-        }
-
-        /* Tips */
-        .tips-box {
-            background: var(--bg3);
-            border-radius: 14px;
-            padding: 16px;
-        }
-
-        .tips-title { font-size: 12px; font-weight: 700; color: var(--text3); margin-bottom: 10px; }
-
-        .tip-item {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 8px;
-            font-size: 14px;
-            color: var(--text2);
-        }
-
-        /* Progress */
-        .progress-bar {
-            background: var(--bg3);
-            height: 8px;
-            border-radius: 4px;
-            margin: 20px 0;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            background: var(--green);
-            height: 100%;
-            border-radius: 4px;
-            transition: width 0.3s;
-        }
-
-        .progress-text {
-            font-size: 14px;
-            color: var(--text2);
-            text-align: center;
-        }
-
-        /* Buttons */
-        .wa-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: var(--whatsapp);
-            color: white;
-            border: none;
-            border-radius: 16px;
-            padding: 20px;
-            font-size: 18px;
-            font-weight: 700;
-            font-family: inherit;
-            width: 100%;
-            cursor: pointer;
-            text-decoration: none;
-            margin-top: 20px;
-        }
-
-        .save-btn {
-            background: var(--orange);
-            margin-bottom: 12px;
-        }
-
-        .quick-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        .quick-btn {
-            background: var(--bg2);
-            border: 1px solid var(--bg3);
-            border-radius: 16px;
-            padding: 20px;
-            color: var(--text);
-            font-size: 14px;
-            font-weight: 600;
-            font-family: inherit;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .quick-btn .icon { font-size: 32px; }
-        .quick-btn:active { background: var(--bg3); }
-
-        /* Edit Mode Banner */
-        .edit-banner {
-            display: none;
-            background: var(--orange);
-            padding: 12px 20px;
-            text-align: center;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .edit-mode .edit-banner {
-            display: block;
-        }
-
-        /* Changes Log */
-        .changes-log {
-            background: var(--bg2);
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 2px solid var(--orange);
-        }
-
-        .changes-log h3 {
-            font-size: 16px;
-            margin-bottom: 12px;
-            color: var(--orange);
-        }
-
-        .change-item {
-            background: var(--bg3);
-            border-radius: 10px;
-            padding: 12px;
-            margin-bottom: 8px;
-            font-size: 13px;
-        }
-
-        .change-item strong {
-            color: var(--accent);
-        }
-
-        /* Navbar */
-        .navbar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--bg2);
-            border-top: 1px solid var(--bg3);
-            padding: 12px 16px;
-            padding-bottom: max(12px, env(safe-area-inset-bottom));
-            display: flex;
-            justify-content: space-around;
-            z-index: 100;
-        }
-
-        .nav-btn {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            background: none;
-            border: none;
-            color: var(--text3);
-            font-size: 11px;
-            font-weight: 600;
-            font-family: inherit;
-            padding: 8px 16px;
-            border-radius: 12px;
-            cursor: pointer;
-        }
-
-        .nav-btn.active {
-            color: var(--accent);
-            background: rgba(0,102,255,0.1);
-        }
-
-        .nav-btn .icon { font-size: 24px; }
-
-        /* Pages */
-        .page { display: none; }
-        .page.active { display: block; }
-
-        /* Toast */
-        .toast {
-            position: fixed;
-            bottom: 120px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: var(--green);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 14px;
-            font-size: 16px;
-            font-weight: 600;
-            z-index: 200;
-            transition: transform 0.3s;
-        }
-
-        .toast.show { transform: translateX(-50%) translateY(0); }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.9);
-            z-index: 300;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .modal.show { display: block; }
-
-        .modal-content {
-            background: var(--bg2);
-            border-radius: 20px;
-            padding: 24px;
-            max-width: 500px;
-            margin: 0 auto;
-            margin-top: 50px;
-        }
-
-        .modal-title {
-            font-size: 20px;
-            font-weight: 800;
-            margin-bottom: 16px;
-        }
-
-        .modal-input {
-            width: 100%;
-            background: var(--bg3);
-            border: 2px solid var(--bg3);
-            border-radius: 12px;
-            padding: 16px;
-            color: var(--text);
-            font-size: 16px;
-            font-family: inherit;
-            margin-bottom: 12px;
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .modal-input:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        .modal-label {
-            font-size: 12px;
-            color: var(--text2);
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .modal-btns {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .modal-btn {
-            flex: 1;
-            padding: 16px;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 700;
-            font-family: inherit;
-            cursor: pointer;
-        }
-
-        .modal-btn.cancel {
-            background: var(--bg3);
-            color: var(--text);
-        }
-
-        .modal-btn.save {
-            background: var(--accent);
-            color: white;
-        }
+        :root{--bg:#0A0A0A;--bg2:#111;--bg3:#1A1A1A;--text:#FFF;--text2:#888;--text3:#555;--accent:#0066FF;--green:#00C853;--orange:#FF9800;--red:#FF3D00;--purple:#9C27B0;--whatsapp:#25D366}
+        *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+        body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:90px}
+        .header{position:sticky;top:0;background:var(--bg);padding:16px 20px;padding-top:max(16px,env(safe-area-inset-top));border-bottom:1px solid var(--bg3);z-index:100;display:flex;justify-content:space-between;align-items:center}
+        .logo{font-size:20px;font-weight:800}.logo span{color:var(--accent)}
+        .header-btn{background:var(--bg3);border:none;color:var(--text);padding:8px 16px;border-radius:20px;font-size:14px;font-family:inherit;cursor:pointer}
+        .content{padding:20px}
+        .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px}
+        .stat{background:var(--bg2);border-radius:12px;padding:14px 8px;text-align:center}
+        .stat-num{font-size:26px;font-weight:800}.stat-num.red{color:var(--red)}.stat-num.green{color:var(--green)}
+        .stat-label{font-size:9px;color:var(--text2);margin-top:2px}
+        .section-title{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:2px;margin:20px 0 12px}
+        .card{background:var(--bg2);border-radius:16px;overflow:hidden;margin-bottom:14px;border:1px solid var(--bg3)}
+        .card-header{padding:18px;background:linear-gradient(135deg,var(--accent),#0044AA)}
+        .card-header.orange{background:linear-gradient(135deg,var(--orange),#E65100)}
+        .card-header.purple{background:linear-gradient(135deg,var(--purple),#6A1B9A)}
+        .card-status{display:inline-block;background:rgba(255,255,255,.2);padding:4px 10px;border-radius:20px;font-size:10px;font-weight:600;margin-bottom:6px}
+        .card-title{font-size:20px;font-weight:800;margin-bottom:2px}.card-meta{font-size:13px;opacity:.9}
+        .card-body{padding:16px}.card-desc{font-size:14px;color:var(--text2);line-height:1.5;margin-bottom:14px}
+        .card-btn{display:block;width:100%;background:var(--accent);border:none;border-radius:12px;padding:14px;color:#fff;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;text-align:center;text-decoration:none}
+        .shot-card{background:var(--bg2);border-radius:16px;margin-bottom:14px;overflow:hidden;border:1px solid var(--bg3)}
+        .shot-header{padding:14px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--bg3)}
+        .shot-number{width:42px;height:42px;background:var(--accent);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;flex-shrink:0}
+        .shot-number.broll{background:var(--orange)}
+        .shot-title{font-size:16px;font-weight:700}.shot-duration{font-size:12px;color:var(--text2)}
+        .shot-check{width:32px;height:32px;border:2px solid var(--text3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;flex-shrink:0}
+        .shot-check.done{background:var(--green);border-color:var(--green);color:#fff}
+        .shot-body{padding:16px}
+        .detail-row{display:flex;gap:10px;margin-bottom:14px}
+        .detail-box{flex:1;background:var(--bg3);border-radius:10px;padding:12px;position:relative}
+        .detail-label{font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+        .detail-value{font-size:13px;font-weight:600}
+        .detail-value.emotion{color:var(--orange)}.detail-value.frame{color:var(--purple)}.detail-value.location{color:var(--green)}
+        .script-box{background:var(--bg);border:2px solid var(--accent);border-radius:14px;padding:16px;margin-bottom:14px;position:relative}
+        .script-label{font-size:10px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+        .script-text{font-size:16px;font-weight:600;line-height:1.5;white-space:pre-wrap}
+        .tips-box{background:var(--bg3);border-radius:12px;padding:14px}
+        .tips-title{font-size:11px;font-weight:700;color:var(--text3);margin-bottom:8px}
+        .tip-item{display:flex;gap:8px;margin-bottom:6px;font-size:13px;color:var(--text2)}
+        .editable{position:relative}.editable .edit-btn{position:absolute;top:8px;left:8px;background:var(--orange);border:none;color:#fff;width:28px;height:28px;border-radius:6px;font-size:14px;cursor:pointer;display:none;align-items:center;justify-content:center}
+        .edit-mode .editable .edit-btn{display:flex}
+        .edit-banner{display:none;background:var(--orange);padding:10px;text-align:center;font-size:13px;font-weight:600}
+        .edit-mode .edit-banner{display:block}
+        .progress-bar{background:var(--bg3);height:6px;border-radius:3px;margin:16px 0;overflow:hidden}
+        .progress-fill{background:var(--green);height:100%;border-radius:3px;transition:width .3s}
+        .progress-text{font-size:13px;color:var(--text2);text-align:center}
+        .wa-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--whatsapp);color:#fff;border:none;border-radius:14px;padding:16px;font-size:16px;font-weight:700;font-family:inherit;width:100%;cursor:pointer;text-decoration:none;margin-top:16px}
+        .quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+        .quick-btn{background:var(--bg2);border:1px solid var(--bg3);border-radius:14px;padding:16px;color:var(--text);font-size:13px;font-weight:600;font-family:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px}
+        .quick-btn .icon{font-size:28px}.quick-btn:active{background:var(--bg3)}
+        .hook-item{background:var(--bg3);border-radius:12px;padding:14px;margin-bottom:10px;cursor:pointer;border:2px solid transparent}
+        .hook-item:active{transform:scale(.98)}.hook-item.selected{border-color:var(--accent);background:rgba(0,102,255,.1)}
+        .hook-category{font-size:9px;font-weight:700;color:var(--accent);text-transform:uppercase;margin-bottom:4px}
+        .hook-text{font-size:15px;font-weight:600;line-height:1.4}
+        .hook-example{font-size:12px;color:var(--text2);margin-top:6px;font-style:italic}
+        .template-card{background:var(--bg3);border-radius:14px;padding:16px;margin-bottom:10px;cursor:pointer;border:2px solid transparent}
+        .template-card:active{transform:scale(.98)}.template-card.selected{border-color:var(--purple)}
+        .template-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+        .template-icon{font-size:28px}.template-title{font-size:15px;font-weight:700}
+        .template-desc{font-size:12px;color:var(--text2);margin-bottom:10px}
+        .template-structure{background:var(--bg);border-radius:8px;padding:10px;font-size:11px;color:var(--text2)}
+        .template-structure div{padding:3px 0;border-bottom:1px solid var(--bg3)}.template-structure div:last-child{border:none}
+        .calendar-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+        .calendar-title{font-size:16px;font-weight:700}
+        .calendar-nav{display:flex;gap:6px}
+        .calendar-nav button{background:var(--bg3);border:none;color:var(--text);width:32px;height:32px;border-radius:8px;font-size:16px;cursor:pointer}
+        .calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+        .calendar-day-header{text-align:center;font-size:10px;font-weight:600;color:var(--text3);padding:6px 0}
+        .calendar-day{aspect-ratio:1;background:var(--bg3);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:13px;font-weight:600;cursor:pointer;position:relative}
+        .calendar-day.today{background:var(--accent)}
+        .calendar-day.has-content::after{content:'';position:absolute;bottom:4px;width:5px;height:5px;background:var(--green);border-radius:50%}
+        .calendar-day.past{opacity:.4}
+        .tabs{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;padding-bottom:4px}
+        .tab{padding:8px 14px;background:var(--bg3);border:none;border-radius:20px;color:var(--text2);font-size:12px;font-weight:600;font-family:inherit;white-space:nowrap;cursor:pointer}
+        .tab.active{background:var(--accent);color:#fff}
+        .navbar{position:fixed;bottom:0;left:0;right:0;background:var(--bg2);border-top:1px solid var(--bg3);padding:6px;padding-bottom:max(6px,env(safe-area-inset-bottom));display:flex;justify-content:space-around;z-index:100}
+        .nav-btn{display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:none;color:var(--text3);font-size:9px;font-weight:600;font-family:inherit;padding:6px 10px;border-radius:10px;cursor:pointer}
+        .nav-btn.active{color:var(--accent);background:rgba(0,102,255,.1)}.nav-btn .icon{font-size:20px}
+        .page{display:none}.page.active{display:block}
+        .toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--green);color:#fff;padding:14px 28px;border-radius:12px;font-size:15px;font-weight:600;z-index:200;transition:transform .3s}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        .modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.9);z-index:300;padding:20px;overflow-y:auto}
+        .modal.show{display:block}
+        .modal-content{background:var(--bg2);border-radius:18px;padding:20px;max-width:500px;margin:40px auto}
+        .modal-title{font-size:18px;font-weight:800;margin-bottom:14px}
+        .modal-input{width:100%;background:var(--bg3);border:2px solid var(--bg3);border-radius:10px;padding:14px;color:var(--text);font-size:15px;font-family:inherit;margin-bottom:10px;resize:vertical;min-height:100px}
+        .modal-input:focus{outline:none;border-color:var(--accent)}
+        .modal-label{font-size:11px;color:var(--text2);margin-bottom:6px;display:block}
+        .modal-btns{display:flex;gap:10px;margin-top:16px}
+        .modal-btn{flex:1;padding:14px;border:none;border-radius:10px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer}
+        .modal-btn.cancel{background:var(--bg3);color:var(--text)}.modal-btn.save{background:var(--accent);color:#fff}
+        .week-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--bg3)}
+        .week-item:last-child{border:none}
+        .week-day{font-weight:600}.week-content{font-size:13px}
+        .week-content.empty{color:var(--red)}.week-content.reel{color:var(--green)}.week-content.carousel{color:var(--purple)}
     </style>
 </head>
 <body>
 
-<!-- ==================== HOME PAGE ==================== -->
+<!-- HOME -->
 <div class="page active" id="page-home">
     <div class="header">
         <div class="logo">Kaniel <span>Brand</span></div>
-        <button class="header-btn" id="editModeBtn" onclick="toggleEditMode()">✏️ מצב עריכה</button>
+        <button class="header-btn" onclick="toggleEditMode()">✏️</button>
     </div>
-
-    <div class="edit-banner">📝 מצב עריכה פעיל - לחץ על ✏️ כדי לערוך טקסט</div>
-
+    <div class="edit-banner">מצב עריכה פעיל</div>
     <div class="content">
         <div class="stats-row">
-            <div class="stat">
-                <div class="stat-num red">0</div>
-                <div class="stat-label">מוכנים</div>
+            <div class="stat"><div class="stat-num red">0</div><div class="stat-label">מוכנים</div></div>
+            <div class="stat"><div class="stat-num">1</div><div class="stat-label">לצילום</div></div>
+            <div class="stat"><div class="stat-num green">12</div><div class="stat-label">Hooks</div></div>
+            <div class="stat"><div class="stat-num">5</div><div class="stat-label">תבניות</div></div>
+        </div>
+        <div class="section-title">🎬 לצילום</div>
+        <div class="card" onclick="showPage('video1')">
+            <div class="card-header">
+                <div class="card-status">🔴 ממתין</div>
+                <div class="card-title">AI First Intro</div>
+                <div class="card-meta">45-60 שניות • 4 shots</div>
             </div>
-            <div class="stat">
-                <div class="stat-num">1</div>
-                <div class="stat-label">לצילום</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num">0</div>
-                <div class="stat-label">לעריכה</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num" id="changesCount">0</div>
-                <div class="stat-label">שינויים</div>
+            <div class="card-body">
+                <div class="card-desc">סרטון היכרות - מי אתה ולמה AI First</div>
+                <button class="card-btn">📹 התחל לצלם</button>
             </div>
         </div>
-
-        <!-- Changes Pending -->
-        <div id="changesSection" style="display:none;">
-            <div class="changes-log">
-                <h3>📝 שינויים ממתינים לשליחה</h3>
-                <div id="changesList"></div>
-                <a id="sendChangesBtn" class="wa-btn save-btn" style="margin-top:16px;">
-                    📤 שלח שינויים ל-Claude
-                </a>
-            </div>
-        </div>
-
-        <div class="section-title">🎬 סרטונים לצילום</div>
-
-        <div class="video-card" onclick="showPage('video1')">
-            <div class="video-header">
-                <div class="video-status">🔴 ממתין לצילום</div>
-                <div class="video-title">AI First Intro</div>
-                <div class="video-meta">45-60 שניות • 4 shots + B-roll</div>
-            </div>
-            <div class="video-body">
-                <div class="video-desc">סרטון היכרות - מי אתה, מה עברת, ולמה אתה בונה חיים עם AI.</div>
-                <button class="video-btn">📹 התחל לצלם</button>
-            </div>
-        </div>
-
-        <div class="section-title">⚡ פעולות מהירות</div>
-
-        <a href="https://wa.me/972502213948?text=צילמתי%20סרטונים" class="wa-btn" style="margin-top:0;margin-bottom:16px;">
-            📹 שלח סרטונים בוואצאפ
-        </a>
-
+        <div class="section-title">⚡ מהיר</div>
+        <a href="https://wa.me/972502213948?text=צילמתי" class="wa-btn" style="margin:0 0 14px">📹 שלח סרטונים</a>
         <div class="quick-grid">
-            <button class="quick-btn" onclick="copyText('מה הסטטוס?')">
-                <span class="icon">📊</span>
-                מה הסטטוס?
-            </button>
-            <button class="quick-btn" onclick="copyText('כתוב תסריט על ')">
-                <span class="icon">📝</span>
-                תסריט חדש
-            </button>
+            <button class="quick-btn" onclick="copyText('מה הסטטוס?')"><span class="icon">📊</span>סטטוס</button>
+            <button class="quick-btn" onclick="copyText('כתוב תסריט על ')"><span class="icon">📝</span>תסריט</button>
         </div>
     </div>
 </div>
 
-<!-- ==================== VIDEO 1 PAGE ==================== -->
+<!-- VIDEO 1 -->
 <div class="page" id="page-video1">
     <div class="header">
         <button class="header-btn" onclick="showPage('home')">← חזרה</button>
-        <button class="header-btn" id="editModeBtn2" onclick="toggleEditMode()">✏️ ערוך</button>
+        <button class="header-btn" onclick="toggleEditMode()">✏️</button>
     </div>
-
-    <div class="edit-banner">📝 מצב עריכה - לחץ על ✏️ ליד טקסט כדי לשנות</div>
-
+    <div class="edit-banner">מצב עריכה</div>
     <div class="content">
-        <div class="video-header" style="border-radius:20px;margin-bottom:20px;">
-            <div class="video-status">🔴 ממתין לצילום</div>
-            <div class="video-title">AI First Intro</div>
-            <div class="video-meta">45-60 שניות • 4 shots + B-roll</div>
+        <div class="card-header" style="border-radius:16px;margin-bottom:16px">
+            <div class="card-status">🔴 ממתין</div>
+            <div class="card-title">AI First Intro</div>
+            <div class="card-meta">45-60 שניות</div>
         </div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+        <div class="progress-text" id="progress-text">0/5 צולמו</div>
+        <div class="section-title">📋 Shots</div>
 
-        <div class="progress-bar">
-            <div class="progress-fill" id="progress-fill" style="width: 0%;"></div>
-        </div>
-        <div class="progress-text" id="progress-text">0 מתוך 5 צולמו</div>
-
-        <div class="section-title">📋 רשימת צילום מפורטת</div>
-
-        <!-- SHOT 1 -->
-        <div class="shot-card" id="shot1">
+        <div class="shot-card">
             <div class="shot-header">
                 <div class="shot-number">1</div>
-                <div class="shot-title-area">
-                    <div class="shot-title">HOOK - פתיחה</div>
-                    <div class="shot-duration">3-4 שניות</div>
-                </div>
+                <div style="flex:1"><div class="shot-title">HOOK</div><div class="shot-duration">3-4 שניות</div></div>
                 <div class="shot-check" onclick="toggleShot(this)" data-shot="1"></div>
             </div>
             <div class="shot-body">
                 <div class="detail-row">
-                    <div class="detail-box editable" data-field="shot1-emotion">
-                        <div class="detail-label">🎭 רגש</div>
-                        <div class="detail-value emotion">אנרגיה גבוהה, נחוש, מסתורי קצת</div>
-                        <button class="edit-btn" onclick="openEditModal('shot1-emotion', 'רגש - Shot 1')">✏️</button>
-                        <textarea></textarea>
-                    </div>
+                    <div class="detail-box editable" data-field="s1-e"><div class="detail-label">🎭 רגש</div><div class="detail-value emotion">אנרגיה גבוהה, נחוש</div><button class="edit-btn" onclick="openEdit('s1-e','רגש')">✏️</button></div>
                 </div>
                 <div class="detail-row">
-                    <div class="detail-box editable" data-field="shot1-frame">
-                        <div class="detail-label">📐 פריים</div>
-                        <div class="detail-value frame">חזה ומעלה, מבט ישר לעדשה</div>
-                        <button class="edit-btn" onclick="openEditModal('shot1-frame', 'פריים - Shot 1')">✏️</button>
-                        <textarea></textarea>
-                    </div>
-                    <div class="detail-box editable" data-field="shot1-location">
-                        <div class="detail-label">📍 מיקום</div>
-                        <div class="detail-value location">רקע נקי, ליד חלון</div>
-                        <button class="edit-btn" onclick="openEditModal('shot1-location', 'מיקום - Shot 1')">✏️</button>
-                        <textarea></textarea>
-                    </div>
+                    <div class="detail-box editable" data-field="s1-f"><div class="detail-label">📐 פריים</div><div class="detail-value frame">חזה ומעלה</div><button class="edit-btn" onclick="openEdit('s1-f','פריים')">✏️</button></div>
+                    <div class="detail-box editable" data-field="s1-l"><div class="detail-label">📍 מיקום</div><div class="detail-value location">ליד חלון</div><button class="edit-btn" onclick="openEdit('s1-l','מיקום')">✏️</button></div>
                 </div>
-                <div class="script-box editable" data-field="shot1-script">
-                    <div class="script-label">🎤 מה להגיד (בדיוק)</div>
+                <div class="script-box editable" data-field="s1-t">
+                    <div class="script-label">🎤 להגיד</div>
                     <div class="script-text">"אני בונה חיים מחדש. הפעם עם סוכנים."</div>
-                    <button class="edit-btn" onclick="openEditModal('shot1-script', 'טקסט - Shot 1 HOOK')">✏️</button>
-                    <textarea></textarea>
+                    <button class="edit-btn" onclick="openEdit('s1-t','טקסט')">✏️</button>
                 </div>
-                <div class="tips-box">
-                    <div class="tips-title">💡 טיפים</div>
-                    <div class="tip-item"><span>👁️</span> תסתכל ישר לעדשה, לא למסך</div>
-                    <div class="tip-item"><span>⚡</span> תתחיל לדבר מיד, בלי "אממ"</div>
-                    <div class="tip-item"><span>🔄</span> צלם 3 takes לפחות</div>
-                </div>
+                <div class="tips-box"><div class="tips-title">💡 טיפים</div><div class="tip-item">👁️ מבט לעדשה</div><div class="tip-item">🔄 3 takes</div></div>
             </div>
         </div>
 
-        <!-- SHOT 2 -->
-        <div class="shot-card" id="shot2">
+        <div class="shot-card">
             <div class="shot-header">
                 <div class="shot-number">2</div>
-                <div class="shot-title-area">
-                    <div class="shot-title">STORY - הסיפור</div>
-                    <div class="shot-duration">15-18 שניות</div>
-                </div>
+                <div style="flex:1"><div class="shot-title">STORY</div><div class="shot-duration">15-18 שניות</div></div>
                 <div class="shot-check" onclick="toggleShot(this)" data-shot="2"></div>
             </div>
             <div class="shot-body">
                 <div class="detail-row">
-                    <div class="detail-box editable" data-field="shot2-emotion">
-                        <div class="detail-label">🎭 רגש</div>
-                        <div class="detail-value emotion">כנה, פגיע, אמיתי. לא דרמטי מדי.</div>
-                        <button class="edit-btn" onclick="openEditModal('shot2-emotion', 'רגש - Shot 2')">✏️</button>
-                        <textarea></textarea>
-                    </div>
+                    <div class="detail-box editable" data-field="s2-e"><div class="detail-label">🎭 רגש</div><div class="detail-value emotion">כנה, פגיע, אמיתי</div><button class="edit-btn" onclick="openEdit('s2-e','רגש')">✏️</button></div>
                 </div>
-                <div class="detail-row">
-                    <div class="detail-box editable" data-field="shot2-frame">
-                        <div class="detail-label">📐 פריים</div>
-                        <div class="detail-value frame">קצת יותר רחב, חצי גוף</div>
-                        <button class="edit-btn" onclick="openEditModal('shot2-frame', 'פריים - Shot 2')">✏️</button>
-                        <textarea></textarea>
-                    </div>
-                    <div class="detail-box editable" data-field="shot2-location">
-                        <div class="detail-label">📍 מיקום</div>
-                        <div class="detail-value location">אותו מקום או פינה אחרת</div>
-                        <button class="edit-btn" onclick="openEditModal('shot2-location', 'מיקום - Shot 2')">✏️</button>
-                        <textarea></textarea>
-                    </div>
-                </div>
-                <div class="script-box editable" data-field="shot2-script">
-                    <div class="script-label">🎤 מה להגיד (בדיוק)</div>
+                <div class="script-box editable" data-field="s2-t">
+                    <div class="script-label">🎤 להגיד</div>
                     <div class="script-text">"לפני שנה וחצי הייתי בעל עסק מצליח. עשר מיליון שקל בשנה.
 
 אז הגיע ה-7 באוקטובר. איבדתי את אחי. 400 יום מילואים.
 
-העסק? עצר. החיים? השתנו לגמרי.
+העסק עצר. החיים השתנו.
 
 עברנו לקופנהגן. רציתי להתחיל מחדש."</div>
-                    <button class="edit-btn" onclick="openEditModal('shot2-script', 'טקסט - Shot 2 STORY')">✏️</button>
-                    <textarea></textarea>
-                </div>
-                <div class="tips-box">
-                    <div class="tips-title">💡 טיפים</div>
-                    <div class="tip-item"><span>🎯</span> דבר לאט יותר מהרגיל</div>
-                    <div class="tip-item"><span>💔</span> זה בסדר להרגיש רגש - תהיה אותנטי</div>
-                    <div class="tip-item"><span>✋</span> אפשר לעצור בין משפטים</div>
+                    <button class="edit-btn" onclick="openEdit('s2-t','טקסט')">✏️</button>
                 </div>
             </div>
         </div>
 
-        <!-- SHOT 3 -->
-        <div class="shot-card" id="shot3">
+        <div class="shot-card">
             <div class="shot-header">
                 <div class="shot-number">3</div>
-                <div class="shot-title-area">
-                    <div class="shot-title">INSIGHT - התובנה</div>
-                    <div class="shot-duration">20 שניות</div>
-                </div>
+                <div style="flex:1"><div class="shot-title">INSIGHT</div><div class="shot-duration">20 שניות</div></div>
                 <div class="shot-check" onclick="toggleShot(this)" data-shot="3"></div>
             </div>
             <div class="shot-body">
                 <div class="detail-row">
-                    <div class="detail-box editable" data-field="shot3-emotion">
-                        <div class="detail-label">🎭 רגש</div>
-                        <div class="detail-value emotion">מתרגש! אנרגיה עולה, מאמין במה שאומר</div>
-                        <button class="edit-btn" onclick="openEditModal('shot3-emotion', 'רגש - Shot 3')">✏️</button>
-                        <textarea></textarea>
-                    </div>
+                    <div class="detail-box editable" data-field="s3-e"><div class="detail-label">🎭 רגש</div><div class="detail-value emotion">מתרגש, אנרגיה עולה</div><button class="edit-btn" onclick="openEdit('s3-e','רגש')">✏️</button></div>
                 </div>
-                <div class="detail-row">
-                    <div class="detail-box editable" data-field="shot3-frame">
-                        <div class="detail-label">📐 פריים</div>
-                        <div class="detail-value frame">חזרה לחזה ומעלה, קרוב יותר</div>
-                        <button class="edit-btn" onclick="openEditModal('shot3-frame', 'פריים - Shot 3')">✏️</button>
-                        <textarea></textarea>
-                    </div>
-                    <div class="detail-box editable" data-field="shot3-location">
-                        <div class="detail-label">📍 מיקום</div>
-                        <div class="detail-value location">אותו מקום כמו HOOK</div>
-                        <button class="edit-btn" onclick="openEditModal('shot3-location', 'מיקום - Shot 3')">✏️</button>
-                        <textarea></textarea>
-                    </div>
-                </div>
-                <div class="script-box editable" data-field="shot3-script">
-                    <div class="script-label">🎤 מה להגיד (בדיוק)</div>
+                <div class="script-box editable" data-field="s3-t">
+                    <div class="script-label">🎤 להגיד</div>
                     <div class="script-text">"אבל משהו היה שונה הפעם.
 
 הבנתי שאני לא צריך לעשות הכל לבד.
 
-היום? יש לי סוכן AI שמכין לי פודקאסט חדשות כל בוקר. סוכן שמנהל לי את האימונים והתזונה. סוכן שעוזר לי לבנות את התוכן הזה.
+היום יש לי סוכן AI שמכין לי פודקאסט כל בוקר. סוכן שמנהל את האימונים. סוכן שעוזר לי לבנות את התוכן הזה.
 
-אני בונה חיים AI First. חיים שבהם אני עושה את מה שאני טוב בו - והסוכנים עושים את השאר."</div>
-                    <button class="edit-btn" onclick="openEditModal('shot3-script', 'טקסט - Shot 3 INSIGHT')">✏️</button>
-                    <textarea></textarea>
-                </div>
-                <div class="tips-box">
-                    <div class="tips-title">💡 טיפים</div>
-                    <div class="tip-item"><span>📈</span> האנרגיה עולה לאורך הקטע</div>
-                    <div class="tip-item"><span>🤩</span> תחייך קצת כשמדבר על הסוכנים</div>
-                    <div class="tip-item"><span>✋</span> אפשר להשתמש בידיים</div>
+אני בונה חיים AI First."</div>
+                    <button class="edit-btn" onclick="openEdit('s3-t','טקסט')">✏️</button>
                 </div>
             </div>
         </div>
 
-        <!-- SHOT 4 -->
-        <div class="shot-card" id="shot4">
+        <div class="shot-card">
             <div class="shot-header">
                 <div class="shot-number">4</div>
-                <div class="shot-title-area">
-                    <div class="shot-title">CTA - קריאה לפעולה</div>
-                    <div class="shot-duration">8-10 שניות</div>
-                </div>
+                <div style="flex:1"><div class="shot-title">CTA</div><div class="shot-duration">8-10 שניות</div></div>
                 <div class="shot-check" onclick="toggleShot(this)" data-shot="4"></div>
             </div>
             <div class="shot-body">
-                <div class="detail-row">
-                    <div class="detail-box editable" data-field="shot4-emotion">
-                        <div class="detail-label">🎭 רגש</div>
-                        <div class="detail-value emotion">בטוח, ישיר, חיוך קל בסוף</div>
-                        <button class="edit-btn" onclick="openEditModal('shot4-emotion', 'רגש - Shot 4')">✏️</button>
-                        <textarea></textarea>
-                    </div>
-                </div>
-                <div class="detail-row">
-                    <div class="detail-box editable" data-field="shot4-frame">
-                        <div class="detail-label">📐 פריים</div>
-                        <div class="detail-value frame">בדיוק כמו HOOK - חזה ומעלה</div>
-                        <button class="edit-btn" onclick="openEditModal('shot4-frame', 'פריים - Shot 4')">✏️</button>
-                        <textarea></textarea>
-                    </div>
-                    <div class="detail-box editable" data-field="shot4-location">
-                        <div class="detail-label">📍 מיקום</div>
-                        <div class="detail-value location">בדיוק כמו HOOK</div>
-                        <button class="edit-btn" onclick="openEditModal('shot4-location', 'מיקום - Shot 4')">✏️</button>
-                        <textarea></textarea>
-                    </div>
-                </div>
-                <div class="script-box editable" data-field="shot4-script">
-                    <div class="script-label">🎤 מה להגיד (בדיוק)</div>
+                <div class="script-box editable" data-field="s4-t">
+                    <div class="script-label">🎤 להגיד</div>
                     <div class="script-text">"הסוכנים מוכנים.
 
 השאלה היא אם אתה מוכן לתת להם לעבוד בשבילך.
 
 אני קניאל. עקבו - אני משתף את כל הדרך."</div>
-                    <button class="edit-btn" onclick="openEditModal('shot4-script', 'טקסט - Shot 4 CTA')">✏️</button>
-                    <textarea></textarea>
-                </div>
-                <div class="tips-box">
-                    <div class="tips-title">💡 טיפים</div>
-                    <div class="tip-item"><span>👁️</span> מבט ישיר וממוקד לעדשה</div>
-                    <div class="tip-item"><span>😊</span> חיוך קטן בסוף על "כל הדרך"</div>
-                    <div class="tip-item"><span>⏸️</span> עצור 2 שניות בסוף לפני cut</div>
+                    <button class="edit-btn" onclick="openEdit('s4-t','טקסט')">✏️</button>
                 </div>
             </div>
         </div>
 
-        <!-- SHOT 5: B-ROLL -->
-        <div class="shot-card" id="shot5">
+        <div class="shot-card">
             <div class="shot-header">
                 <div class="shot-number broll">B</div>
-                <div class="shot-title-area">
-                    <div class="shot-title">B-ROLL - קטעי רקע</div>
-                    <div class="shot-duration">3-5 קליפים × 10 שניות</div>
-                </div>
+                <div style="flex:1"><div class="shot-title">B-ROLL</div><div class="shot-duration">3-5 קליפים</div></div>
                 <div class="shot-check" onclick="toggleShot(this)" data-shot="5"></div>
             </div>
             <div class="shot-body">
-                <div class="script-box editable" data-field="shot5-broll" style="border-color: var(--orange);">
-                    <div class="script-label" style="color: var(--orange);">📹 מה לצלם</div>
-                    <div class="script-text">1. הליכה ברחוב בקופנהגן (מאחור או מהצד)
-
-2. עבודה על מחשב (ידיים על מקלדת, מסך עם קוד/Claude)
-
-3. שתיית קפה / ישיבה בבית קפה
-
-4. משהו "דני" - אופניים, בניין צבעוני, תעלה
-
-5. מבט מהחלון / נוף</div>
-                    <button class="edit-btn" onclick="openEditModal('shot5-broll', 'B-Roll - מה לצלם')">✏️</button>
-                    <textarea></textarea>
-                </div>
-                <div class="tips-box">
-                    <div class="tips-title">💡 טיפים</div>
-                    <div class="tip-item"><span>🐌</span> תנועות איטיות ויציבות</div>
-                    <div class="tip-item"><span>⏱️</span> כל קליפ לפחות 10 שניות</div>
-                    <div class="tip-item"><span>🚫</span> אל תזום תוך כדי צילום</div>
+                <div class="script-box editable" data-field="s5-b" style="border-color:var(--orange)">
+                    <div class="script-label" style="color:var(--orange)">📹 לצלם</div>
+                    <div class="script-text">• הליכה ברחוב קופנהגן
+• עבודה על מחשב
+• שתיית קפה
+• אופניים / בניין דני</div>
+                    <button class="edit-btn" onclick="openEdit('s5-b','B-Roll')">✏️</button>
                 </div>
             </div>
         </div>
 
-        <a href="https://wa.me/972502213948?text=צילמתי%20את%20AI%20First%20Intro!" class="wa-btn">
-            ✅ סיימתי לצלם! שלח בוואצאפ
-        </a>
+        <a href="https://wa.me/972502213948?text=צילמתי%20AI%20First%20Intro!" class="wa-btn">✅ סיימתי! שלח</a>
     </div>
 </div>
 
-<!-- ==================== EDIT MODAL ==================== -->
-<div class="modal" id="editModal">
+<!-- HOOKS -->
+<div class="page" id="page-hooks">
+    <div class="header"><div class="logo">🎣 Hooks</div></div>
+    <div class="content">
+        <div class="tabs">
+            <button class="tab active" onclick="filterHooks('all',this)">הכל</button>
+            <button class="tab" onclick="filterHooks('curiosity',this)">סקרנות</button>
+            <button class="tab" onclick="filterHooks('pain',this)">כאב</button>
+            <button class="tab" onclick="filterHooks('story',this)">סיפור</button>
+            <button class="tab" onclick="filterHooks('authority',this)">סמכות</button>
+        </div>
+        <div id="hookGrid">
+            <div class="hook-item" data-cat="curiosity" onclick="selectHook(this)">
+                <div class="hook-category">🔮 סקרנות</div>
+                <div class="hook-text">"רוב האנשים לא יודעים ש..."</div>
+                <div class="hook-example">רוב האנשים לא יודעים ש-AI יכול לנהל להם את כל היום</div>
+            </div>
+            <div class="hook-item" data-cat="curiosity" onclick="selectHook(this)">
+                <div class="hook-category">🔮 סקרנות</div>
+                <div class="hook-text">"הדבר שאף אחד לא מספר לך על..."</div>
+                <div class="hook-example">הדבר שאף אחד לא מספר לך על בניית עסק</div>
+            </div>
+            <div class="hook-item" data-cat="curiosity" onclick="selectHook(this)">
+                <div class="hook-category">🔮 סקרנות</div>
+                <div class="hook-text">"עצור. זה ישנה לך הכל."</div>
+                <div class="hook-example">עצור. הפריימוורק הזה ישנה לך הכל.</div>
+            </div>
+            <div class="hook-item" data-cat="pain" onclick="selectHook(this)">
+                <div class="hook-category">💔 כאב</div>
+                <div class="hook-text">"אם אתה עדיין [בעיה], אתה מפסיד..."</div>
+                <div class="hook-example">אם אתה עדיין מכבה שריפות כל היום, אתה מפסיד</div>
+            </div>
+            <div class="hook-item" data-cat="pain" onclick="selectHook(this)">
+                <div class="hook-category">💔 כאב</div>
+                <div class="hook-text">"הטעות הכי גדולה שעשיתי..."</div>
+                <div class="hook-example">הטעות הכי גדולה שעשיתי בעסק שלי</div>
+            </div>
+            <div class="hook-item" data-cat="pain" onclick="selectHook(this)">
+                <div class="hook-category">💔 כאב</div>
+                <div class="hook-text">"למה [X] הורס לך את ה..."</div>
+                <div class="hook-example">למה מולטיטסקינג הורס לך את הפרודוקטיביות</div>
+            </div>
+            <div class="hook-item" data-cat="story" onclick="selectHook(this)">
+                <div class="hook-category">📖 סיפור</div>
+                <div class="hook-text">"לפני [זמן] הייתי... היום אני..."</div>
+                <div class="hook-example">לפני שנה הייתי שחוק. היום אני עובד 4 שעות.</div>
+            </div>
+            <div class="hook-item" data-cat="story" onclick="selectHook(this)">
+                <div class="hook-category">📖 סיפור</div>
+                <div class="hook-text">"הרגע שהכל השתנה..."</div>
+                <div class="hook-example">הרגע שהכל השתנה היה כשהבנתי ש...</div>
+            </div>
+            <div class="hook-item" data-cat="story" onclick="selectHook(this)">
+                <div class="hook-category">📖 סיפור</div>
+                <div class="hook-text">"3 דברים שלמדתי אחרי..."</div>
+                <div class="hook-example">3 דברים שלמדתי אחרי 400 יום מילואים</div>
+            </div>
+            <div class="hook-item" data-cat="authority" onclick="selectHook(this)">
+                <div class="hook-category">👑 סמכות</div>
+                <div class="hook-text">"אחרי [הישג], הנה מה שלמדתי..."</div>
+                <div class="hook-example">אחרי 10 מיליון ₪ במכירות, הנה מה שלמדתי</div>
+            </div>
+            <div class="hook-item" data-cat="authority" onclick="selectHook(this)">
+                <div class="hook-category">👑 סמכות</div>
+                <div class="hook-text">"הסיבה שאני [עושה X]..."</div>
+                <div class="hook-example">הסיבה שאני בונה הכל עם AI היא...</div>
+            </div>
+            <div class="hook-item" data-cat="authority" onclick="selectHook(this)">
+                <div class="hook-category">👑 סמכות</div>
+                <div class="hook-text">"מה שמצליחים עושים אחרת..."</div>
+                <div class="hook-example">מה שיזמים מצליחים עושים אחרת</div>
+            </div>
+        </div>
+        <a id="hookWa" href="#" class="wa-btn" style="display:none">📤 צור תסריט עם ה-Hook</a>
+    </div>
+</div>
+
+<!-- TEMPLATES -->
+<div class="page" id="page-templates">
+    <div class="header"><div class="logo">🎨 תבניות קרוסלה</div></div>
+    <div class="content">
+        <div class="template-card" onclick="selectTpl(this,'framework')">
+            <div class="template-header"><div class="template-icon">🔄</div><div class="template-title">Framework (בעיה→פתרון)</div></div>
+            <div class="template-desc">מציג בעיה ואז את הפתרון בצעדים</div>
+            <div class="template-structure">
+                <div>1️⃣ Hook - הבעיה</div>
+                <div>2️⃣ למה זה קורה</div>
+                <div>3️⃣ פתרון - צעד 1</div>
+                <div>4️⃣ פתרון - צעד 2</div>
+                <div>5️⃣ פתרון - צעד 3</div>
+                <div>6️⃣ סיכום + CTA</div>
+            </div>
+        </div>
+        <div class="template-card" onclick="selectTpl(this,'list')">
+            <div class="template-header"><div class="template-icon">📋</div><div class="template-title">רשימה (X דברים ש...)</div></div>
+            <div class="template-desc">רשימה של טיפים, טעויות, או תובנות</div>
+            <div class="template-structure">
+                <div>1️⃣ Hook - "5 דברים ש..."</div>
+                <div>2️⃣ דבר #1</div>
+                <div>3️⃣ דבר #2</div>
+                <div>4️⃣ דבר #3</div>
+                <div>5️⃣ דבר #4</div>
+                <div>6️⃣ דבר #5 + CTA</div>
+            </div>
+        </div>
+        <div class="template-card" onclick="selectTpl(this,'before-after')">
+            <div class="template-header"><div class="template-icon">↔️</div><div class="template-title">לפני / אחרי</div></div>
+            <div class="template-desc">מראה טרנספורמציה</div>
+            <div class="template-structure">
+                <div>1️⃣ Hook - התוצאה</div>
+                <div>2️⃣ לפני</div>
+                <div>3️⃣ נקודת מפנה</div>
+                <div>4️⃣ אחרי</div>
+                <div>5️⃣ איך</div>
+                <div>6️⃣ CTA</div>
+            </div>
+        </div>
+        <div class="template-card" onclick="selectTpl(this,'myth')">
+            <div class="template-header"><div class="template-icon">🆚</div><div class="template-title">מיתוס vs מציאות</div></div>
+            <div class="template-desc">שובר הנחות שגויות</div>
+            <div class="template-structure">
+                <div>1️⃣ Hook</div>
+                <div>2️⃣ מיתוס 1 ❌ → מציאות ✅</div>
+                <div>3️⃣ מיתוס 2 ❌ → מציאות ✅</div>
+                <div>4️⃣ מיתוס 3 ❌ → מציאות ✅</div>
+                <div>5️⃣ האמת</div>
+                <div>6️⃣ CTA</div>
+            </div>
+        </div>
+        <div class="template-card" onclick="selectTpl(this,'story')">
+            <div class="template-header"><div class="template-icon">📖</div><div class="template-title">סיפור אישי</div></div>
+            <div class="template-desc">חוויה אישית עם לקח</div>
+            <div class="template-structure">
+                <div>1️⃣ Hook - רגע דרמטי</div>
+                <div>2️⃣ הרקע</div>
+                <div>3️⃣ האתגר</div>
+                <div>4️⃣ המפנה</div>
+                <div>5️⃣ הלקח</div>
+                <div>6️⃣ CTA</div>
+            </div>
+        </div>
+        <a id="tplWa" href="#" class="wa-btn" style="display:none">📤 צור קרוסלה</a>
+    </div>
+</div>
+
+<!-- CALENDAR -->
+<div class="page" id="page-calendar">
+    <div class="header"><div class="logo">📅 לוח שנה</div></div>
+    <div class="content">
+        <div class="calendar-header">
+            <div class="calendar-title">פברואר 2025</div>
+            <div class="calendar-nav"><button>◀</button><button>▶</button></div>
+        </div>
+        <div class="calendar-grid">
+            <div class="calendar-day-header">א</div><div class="calendar-day-header">ב</div><div class="calendar-day-header">ג</div><div class="calendar-day-header">ד</div><div class="calendar-day-header">ה</div><div class="calendar-day-header">ו</div><div class="calendar-day-header">ש</div>
+            <div class="calendar-day past">27</div><div class="calendar-day past">28</div><div class="calendar-day past">29</div><div class="calendar-day past">30</div><div class="calendar-day past">31</div><div class="calendar-day past">1</div><div class="calendar-day past">2</div>
+            <div class="calendar-day past">3</div><div class="calendar-day past">4</div><div class="calendar-day today">5</div><div class="calendar-day">6</div><div class="calendar-day">7</div><div class="calendar-day">8</div><div class="calendar-day">9</div>
+            <div class="calendar-day has-content">10</div><div class="calendar-day">11</div><div class="calendar-day has-content">12</div><div class="calendar-day">13</div><div class="calendar-day has-content">14</div><div class="calendar-day">15</div><div class="calendar-day">16</div>
+            <div class="calendar-day">17</div><div class="calendar-day has-content">18</div><div class="calendar-day">19</div><div class="calendar-day has-content">20</div><div class="calendar-day">21</div><div class="calendar-day has-content">22</div><div class="calendar-day">23</div>
+            <div class="calendar-day">24</div><div class="calendar-day has-content">25</div><div class="calendar-day">26</div><div class="calendar-day has-content">27</div><div class="calendar-day">28</div><div class="calendar-day">1</div><div class="calendar-day">2</div>
+        </div>
+        <div class="section-title">📋 השבוע</div>
+        <div class="card"><div class="card-body">
+            <div class="week-item"><span class="week-day">א׳ 9/2</span><span class="week-content empty">ריק</span></div>
+            <div class="week-item"><span class="week-day">ב׳ 10/2</span><span class="week-content reel">🎬 AI First Intro</span></div>
+            <div class="week-item"><span class="week-day">ג׳ 11/2</span><span class="week-content empty">ריק</span></div>
+            <div class="week-item"><span class="week-day">ד׳ 12/2</span><span class="week-content carousel">📊 Carousel</span></div>
+            <div class="week-item"><span class="week-day">ה׳ 13/2</span><span class="week-content empty">ריק</span></div>
+            <div class="week-item"><span class="week-day">ו׳ 14/2</span><span class="week-content reel">🎬 Reel #2</span></div>
+        </div></div>
+        <a href="https://wa.me/972502213948?text=תעזור%20לי%20לתכנן%20תוכן%20לשבוע" class="wa-btn">📅 תכנן שבוע</a>
+    </div>
+</div>
+
+<!-- NAV -->
+<nav class="navbar">
+    <button class="nav-btn active" onclick="showPage('home')"><span class="icon">🏠</span>בית</button>
+    <button class="nav-btn" onclick="showPage('video1')"><span class="icon">🎬</span>צלם</button>
+    <button class="nav-btn" onclick="showPage('hooks')"><span class="icon">🎣</span>Hooks</button>
+    <button class="nav-btn" onclick="showPage('templates')"><span class="icon">🎨</span>תבניות</button>
+    <button class="nav-btn" onclick="showPage('calendar')"><span class="icon">📅</span>לוח</button>
+</nav>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
     <div class="modal-content">
         <div class="modal-title" id="modalTitle">עריכה</div>
-        <label class="modal-label">ערוך את הטקסט:</label>
+        <label class="modal-label">ערוך:</label>
         <textarea class="modal-input" id="modalInput"></textarea>
-        <label class="modal-label" style="margin-top:12px;">למה שינית? (אופציונלי - עוזר לי ללמוד)</label>
-        <textarea class="modal-input" id="modalReason" placeholder="למשל: זה יותר מתאים לסגנון שלי..." style="min-height:60px;"></textarea>
         <div class="modal-btns">
             <button class="modal-btn cancel" onclick="closeModal()">ביטול</button>
             <button class="modal-btn save" onclick="saveEdit()">שמור</button>
@@ -952,218 +468,45 @@
     </div>
 </div>
 
-<!-- ==================== BOTTOM NAV ==================== -->
-<nav class="navbar">
-    <button class="nav-btn active" onclick="showPage('home')">
-        <span class="icon">🏠</span>
-        בית
-    </button>
-    <button class="nav-btn" onclick="showPage('video1')">
-        <span class="icon">🎬</span>
-        לצלם
-    </button>
-</nav>
-
-<div class="toast" id="toast">נשמר!</div>
+<div class="toast" id="toast"></div>
 
 <script>
-    let editMode = false;
-    let changes = [];
-    let completedShots = new Set();
-    let currentEditField = null;
-
-    // Load saved data
-    function loadData() {
-        const savedChanges = localStorage.getItem('pendingChanges');
-        if (savedChanges) {
-            changes = JSON.parse(savedChanges);
-            updateChangesUI();
-        }
-
-        const savedShots = localStorage.getItem('completedShots');
-        if (savedShots) {
-            completedShots = new Set(JSON.parse(savedShots));
-            completedShots.forEach(shot => {
-                const el = document.querySelector(`[data-shot="${shot}"]`);
-                if (el) {
-                    el.classList.add('done');
-                    el.innerHTML = '✓';
-                }
-            });
-            updateProgress();
-        }
-
-        // Load edited content
-        const savedContent = localStorage.getItem('editedContent');
-        if (savedContent) {
-            const content = JSON.parse(savedContent);
-            Object.keys(content).forEach(field => {
-                const el = document.querySelector(`[data-field="${field}"]`);
-                if (el) {
-                    const textEl = el.querySelector('.script-text, .detail-value');
-                    if (textEl) {
-                        textEl.textContent = content[field];
-                    }
-                }
-            });
-        }
-    }
-
-    function showPage(id) {
-        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-        document.getElementById('page-' + id).classList.add('active');
-        window.scrollTo(0, 0);
-
-        if (id === 'home') {
-            document.querySelectorAll('.nav-btn')[0].classList.add('active');
-        } else {
-            document.querySelectorAll('.nav-btn')[1].classList.add('active');
-        }
-    }
-
-    function toggleEditMode() {
-        editMode = !editMode;
-        document.body.classList.toggle('edit-mode', editMode);
-
-        const btns = document.querySelectorAll('#editModeBtn, #editModeBtn2');
-        btns.forEach(btn => {
-            btn.classList.toggle('edit-mode', editMode);
-            btn.textContent = editMode ? '✅ סיום עריכה' : '✏️ מצב עריכה';
-        });
-
-        showToast(editMode ? 'מצב עריכה פעיל' : 'מצב עריכה כבוי');
-    }
-
-    function openEditModal(field, title) {
-        currentEditField = field;
-        const el = document.querySelector(`[data-field="${field}"]`);
-        const textEl = el.querySelector('.script-text, .detail-value');
-
-        document.getElementById('modalTitle').textContent = 'עריכה: ' + title;
-        document.getElementById('modalInput').value = textEl.textContent;
-        document.getElementById('modalReason').value = '';
-        document.getElementById('editModal').classList.add('show');
-    }
-
-    function closeModal() {
-        document.getElementById('editModal').classList.remove('show');
-        currentEditField = null;
-    }
-
-    function saveEdit() {
-        const newValue = document.getElementById('modalInput').value;
-        const reason = document.getElementById('modalReason').value;
-
-        const el = document.querySelector(`[data-field="${currentEditField}"]`);
-        const textEl = el.querySelector('.script-text, .detail-value');
-        const oldValue = textEl.textContent;
-
-        // Update UI
-        textEl.textContent = newValue;
-
-        // Save to localStorage
-        let editedContent = JSON.parse(localStorage.getItem('editedContent') || '{}');
-        editedContent[currentEditField] = newValue;
-        localStorage.setItem('editedContent', JSON.stringify(editedContent));
-
-        // Add to changes
-        changes.push({
-            field: currentEditField,
-            title: document.getElementById('modalTitle').textContent.replace('עריכה: ', ''),
-            oldValue: oldValue.substring(0, 50) + (oldValue.length > 50 ? '...' : ''),
-            newValue: newValue.substring(0, 50) + (newValue.length > 50 ? '...' : ''),
-            fullNewValue: newValue,
-            reason: reason,
-            timestamp: new Date().toISOString()
-        });
-
-        localStorage.setItem('pendingChanges', JSON.stringify(changes));
-        updateChangesUI();
-
-        closeModal();
-        showToast('נשמר! ✅');
-    }
-
-    function updateChangesUI() {
-        const count = changes.length;
-        document.getElementById('changesCount').textContent = count;
-
-        if (count > 0) {
-            document.getElementById('changesSection').style.display = 'block';
-
-            let html = '';
-            changes.forEach((change, i) => {
-                html += `<div class="change-item">
-                    <strong>${change.title}</strong><br>
-                    "${change.newValue}"
-                    ${change.reason ? `<br><em style="color:var(--text3);">סיבה: ${change.reason}</em>` : ''}
-                </div>`;
-            });
-            document.getElementById('changesList').innerHTML = html;
-
-            // Build WhatsApp message
-            let msg = '📝 שינויים בתסריט:\n\n';
-            changes.forEach(change => {
-                msg += `*${change.title}*\n`;
-                msg += `חדש: "${change.fullNewValue}"\n`;
-                if (change.reason) msg += `סיבה: ${change.reason}\n`;
-                msg += '\n';
-            });
-            msg += '\nתעדכן את הקבצים ותלמד מהשינויים שלי! 🙏';
-
-            document.getElementById('sendChangesBtn').href = 'https://wa.me/972502213948?text=' + encodeURIComponent(msg);
-        } else {
-            document.getElementById('changesSection').style.display = 'none';
-        }
-    }
-
-    function toggleShot(el) {
-        const shot = el.dataset.shot;
-        if (el.classList.contains('done')) {
-            el.classList.remove('done');
-            el.innerHTML = '';
-            completedShots.delete(shot);
-        } else {
-            el.classList.add('done');
-            el.innerHTML = '✓';
-            completedShots.add(shot);
-            showToast('Shot ' + shot + ' סומן! 🎬');
-        }
-        updateProgress();
-        localStorage.setItem('completedShots', JSON.stringify([...completedShots]));
-    }
-
-    function updateProgress() {
-        const total = 5;
-        const done = completedShots.size;
-        const percent = (done / total) * 100;
-        document.getElementById('progress-fill').style.width = percent + '%';
-        document.getElementById('progress-text').textContent = done + ' מתוך ' + total + ' צולמו';
-    }
-
-    function showToast(msg) {
-        const toast = document.getElementById('toast');
-        toast.textContent = msg;
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2000);
-    }
-
-    function copyText(text) {
-        navigator.clipboard.writeText(text);
-        showToast('הועתק!');
-    }
-
-    // Clear changes after sending (call from Claude)
-    function clearChanges() {
-        changes = [];
-        localStorage.removeItem('pendingChanges');
-        updateChangesUI();
-        showToast('השינויים נשלחו!');
-    }
-
-    loadData();
+let editMode=false,shots=new Set(),editField=null;
+function load(){
+    let s=localStorage.getItem('shots');
+    if(s){shots=new Set(JSON.parse(s));shots.forEach(n=>{let e=document.querySelector(`[data-shot="${n}"]`);if(e){e.classList.add('done');e.innerHTML='✓'}});updateProg()}
+    let c=localStorage.getItem('content');
+    if(c){let d=JSON.parse(c);Object.keys(d).forEach(f=>{let e=document.querySelector(`[data-field="${f}"]`);if(e){let t=e.querySelector('.script-text,.detail-value');if(t)t.textContent=d[f]}})}
+}
+function showPage(id){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+    document.getElementById('page-'+id).classList.add('active');
+    event?.currentTarget?.classList?.add('active');
+    window.scrollTo(0,0);
+}
+function toggleEditMode(){editMode=!editMode;document.body.classList.toggle('edit-mode',editMode);toast(editMode?'מצב עריכה':'עריכה כבויה')}
+function openEdit(f,t){editField=f;let e=document.querySelector(`[data-field="${f}"]`),x=e.querySelector('.script-text,.detail-value');document.getElementById('modalTitle').textContent=t;document.getElementById('modalInput').value=x.textContent;document.getElementById('modal').classList.add('show')}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function saveEdit(){
+    let v=document.getElementById('modalInput').value,e=document.querySelector(`[data-field="${editField}"]`),t=e.querySelector('.script-text,.detail-value');
+    t.textContent=v;
+    let d=JSON.parse(localStorage.getItem('content')||'{}');d[editField]=v;localStorage.setItem('content',JSON.stringify(d));
+    closeModal();toast('נשמר! ✅')
+}
+function toggleShot(el){
+    let n=el.dataset.shot;
+    if(el.classList.contains('done')){el.classList.remove('done');el.innerHTML='';shots.delete(n)}
+    else{el.classList.add('done');el.innerHTML='✓';shots.add(n)}
+    updateProg();localStorage.setItem('shots',JSON.stringify([...shots]));toast('Shot '+n+' ✓')
+}
+function updateProg(){let p=(shots.size/5)*100;document.getElementById('progress-fill').style.width=p+'%';document.getElementById('progress-text').textContent=shots.size+'/5 צולמו'}
+function toast(m){let t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+function copyText(t){navigator.clipboard.writeText(t);toast('הועתק!')}
+function filterHooks(c,b){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.hook-item').forEach(h=>{h.style.display=(c==='all'||h.dataset.cat===c)?'block':'none'})}
+function selectHook(el){document.querySelectorAll('.hook-item').forEach(h=>h.classList.remove('selected'));el.classList.add('selected');let h=el.querySelector('.hook-text').textContent,wa=document.getElementById('hookWa');wa.style.display='flex';wa.href='https://wa.me/972502213948?text='+encodeURIComponent('בחרתי Hook:\n'+h+'\n\nתכתוב תסריט עם ה-Hook הזה!');toast('Hook נבחר!')}
+function selectTpl(el,t){document.querySelectorAll('.template-card').forEach(c=>c.classList.remove('selected'));el.classList.add('selected');let n=el.querySelector('.template-title').textContent,wa=document.getElementById('tplWa');wa.style.display='flex';wa.href='https://wa.me/972502213948?text='+encodeURIComponent('בחרתי תבנית: '+n+'\n\nתכתוב קרוסלה!');toast('תבנית נבחרה!')}
+load();
 </script>
-
 </body>
 </html>
