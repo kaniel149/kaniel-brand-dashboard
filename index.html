@@ -8,21 +8,19 @@
     <meta name="theme-color" content="#0A0A0A">
     <title>Kaniel Brand</title>
     <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230066FF' width='100' height='100' rx='20'/><text x='50' y='65' font-size='50' text-anchor='middle' fill='white'>K</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0A0A0A;
-            --bg-secondary: #1A1A1A;
-            --bg-card: #141414;
-            --text-primary: #FFFFFF;
-            --text-secondary: #A0A0A0;
+            --bg: #0A0A0A;
+            --bg2: #141414;
+            --bg3: #1A1A1A;
+            --text: #FFFFFF;
+            --text2: #888888;
             --accent: #0066FF;
-            --accent-hover: #0052CC;
-            --success: #00C853;
-            --warning: #FFB300;
-            --danger: #FF3D00;
-            --safe-top: env(safe-area-inset-top);
-            --safe-bottom: env(safe-area-inset-bottom);
+            --green: #00C853;
+            --orange: #FF9800;
+            --red: #FF3D00;
+            --whatsapp: #25D366;
         }
 
         * {
@@ -34,429 +32,373 @@
 
         body {
             font-family: 'Heebo', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
-            padding: calc(16px + var(--safe-top)) 16px calc(80px + var(--safe-bottom)) 16px;
-            overflow-x: hidden;
+            padding-bottom: 90px;
         }
 
-        /* Header */
-        .header {
+        /* Top Bar */
+        .topbar {
+            position: sticky;
+            top: 0;
+            background: var(--bg);
+            padding: 16px 20px;
+            padding-top: max(16px, env(safe-area-inset-top));
+            border-bottom: 1px solid var(--bg3);
+            z-index: 100;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
         }
 
-        .logo {
-            font-size: 20px;
+        .topbar h1 {
+            font-size: 18px;
             font-weight: 700;
         }
 
-        .logo span { color: var(--accent); }
+        .topbar h1 span { color: var(--accent); }
 
-        .status-badge {
+        .status {
             display: flex;
             align-items: center;
             gap: 6px;
-            background: var(--bg-secondary);
-            padding: 6px 12px;
-            border-radius: 20px;
             font-size: 12px;
+            color: var(--text2);
         }
 
         .status-dot {
             width: 8px;
             height: 8px;
+            background: var(--green);
             border-radius: 50%;
-            background: var(--success);
-            animation: pulse 2s infinite;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        /* Alert Banner */
-        .alert-banner {
-            background: linear-gradient(135deg, var(--danger) 0%, #FF6B00 100%);
-            border-radius: 16px;
+        /* Main Content */
+        .content {
             padding: 16px;
+        }
+
+        /* Alert Card */
+        .alert {
+            background: linear-gradient(135deg, var(--red), #FF6B00);
+            border-radius: 16px;
+            padding: 20px;
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
         }
 
-        .alert-banner.warning {
-            background: linear-gradient(135deg, var(--warning) 0%, #FF9800 100%);
+        .alert.warning { background: linear-gradient(135deg, var(--orange), #FFB300); }
+        .alert.success { background: linear-gradient(135deg, var(--green), #00E676); }
+
+        .alert h2 {
+            font-size: 18px;
+            margin-bottom: 4px;
         }
 
-        .alert-banner.success {
-            background: linear-gradient(135deg, var(--success) 0%, #00E676 100%);
-        }
-
-        .alert-icon { font-size: 28px; }
-
-        .alert-content h3 {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 2px;
-        }
-
-        .alert-content p {
-            font-size: 13px;
+        .alert p {
+            font-size: 14px;
             opacity: 0.9;
         }
 
-        /* Stats Row */
-        .stats-row {
+        /* Stats */
+        .stats {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-bottom: 20px;
+            gap: 8px;
+            margin-bottom: 24px;
         }
 
-        .stat-card {
-            background: var(--bg-card);
+        .stat {
+            background: var(--bg2);
             border-radius: 12px;
-            padding: 12px;
+            padding: 14px 8px;
             text-align: center;
         }
 
-        .stat-value {
-            font-size: 24px;
+        .stat-num {
+            font-size: 28px;
             font-weight: 700;
+            line-height: 1;
         }
 
-        .stat-value.danger { color: var(--danger); }
-        .stat-value.warning { color: var(--warning); }
-        .stat-value.success { color: var(--success); }
+        .stat-num.red { color: var(--red); }
+        .stat-num.green { color: var(--green); }
 
         .stat-label {
             font-size: 10px;
-            color: var(--text-secondary);
-            margin-top: 2px;
+            color: var(--text2);
+            margin-top: 4px;
         }
 
-        /* Section Title */
+        /* Section */
+        .section {
+            margin-bottom: 24px;
+        }
+
         .section-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-secondary);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* Task Cards */
-        .task-card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 16px;
-            margin-bottom: 12px;
-            border-right: 4px solid var(--accent);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .task-card.urgent {
-            border-color: var(--danger);
-            background: linear-gradient(90deg, rgba(255,61,0,0.1) 0%, var(--bg-card) 100%);
-        }
-
-        .task-icon {
-            width: 44px;
-            height: 44px;
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-
-        .task-content { flex: 1; }
-
-        .task-title {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 2px;
-        }
-
-        .task-meta {
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
-
-        .task-action {
-            background: var(--accent);
-            border: none;
-            border-radius: 10px;
-            padding: 10px 16px;
-            color: white;
             font-size: 13px;
             font-weight: 600;
-            font-family: inherit;
-            cursor: pointer;
+            color: var(--text2);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* Quick Actions Grid */
-        .actions-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .action-btn {
-            background: var(--bg-card);
-            border: 1px solid var(--bg-secondary);
+        /* Script Card */
+        .script-card {
+            background: var(--bg2);
             border-radius: 16px;
-            padding: 20px 16px;
-            color: var(--text-primary);
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            font-family: inherit;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.2s;
-            text-decoration: none;
-        }
-
-        .action-btn:active {
-            transform: scale(0.96);
-            background: var(--bg-secondary);
-        }
-
-        .action-btn .icon {
-            font-size: 28px;
-        }
-
-        .action-btn.primary {
-            background: var(--accent);
-            border-color: var(--accent);
-            grid-column: span 2;
-        }
-
-        .action-btn.whatsapp {
-            background: #25D366;
-            border-color: #25D366;
-        }
-
-        /* Pipeline Mini */
-        .pipeline-mini {
-            display: flex;
-            gap: 4px;
-            margin-bottom: 20px;
-            overflow-x: auto;
-            padding-bottom: 8px;
-        }
-
-        .pipeline-step {
-            flex: 1;
-            min-width: 60px;
-            text-align: center;
-        }
-
-        .pipeline-bar {
-            height: 6px;
-            background: var(--bg-secondary);
-            border-radius: 3px;
-            margin-bottom: 6px;
-            position: relative;
             overflow: hidden;
-        }
-
-        .pipeline-bar.active::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            height: 100%;
-            width: 100%;
-            background: var(--accent);
-            border-radius: 3px;
-        }
-
-        .pipeline-bar.partial::after {
-            width: 50%;
-        }
-
-        .pipeline-label {
-            font-size: 10px;
-            color: var(--text-secondary);
-        }
-
-        .pipeline-count {
-            font-size: 14px;
-            font-weight: 700;
-        }
-
-        /* Bottom Nav */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--bg-card);
-            border-top: 1px solid var(--bg-secondary);
-            padding: 8px 16px calc(8px + var(--safe-bottom));
-            display: flex;
-            justify-content: space-around;
-        }
-
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 10px;
-            padding: 8px 16px;
-            border-radius: 12px;
-            transition: all 0.2s;
-        }
-
-        .nav-item.active {
-            color: var(--accent);
-            background: rgba(0, 102, 255, 0.1);
-        }
-
-        .nav-item .icon { font-size: 22px; }
-
-        /* Tabs */
-        .tabs {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 16px;
-            overflow-x: auto;
-        }
-
-        .tab {
-            padding: 10px 20px;
-            background: var(--bg-secondary);
-            border: none;
-            border-radius: 20px;
-            color: var(--text-secondary);
-            font-size: 14px;
-            font-family: inherit;
-            white-space: nowrap;
-            cursor: pointer;
-        }
-
-        .tab.active {
-            background: var(--accent);
-            color: white;
-        }
-
-        /* Page Sections */
-        .page { display: none; }
-        .page.active { display: block; }
-
-        /* Script Preview */
-        .script-preview {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 16px;
             margin-bottom: 12px;
         }
 
         .script-header {
+            background: var(--accent);
+            padding: 16px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
         }
 
-        .script-title {
+        .script-header h3 {
             font-size: 16px;
             font-weight: 700;
         }
 
         .script-badge {
-            background: var(--warning);
-            color: black;
-            padding: 4px 10px;
-            border-radius: 10px;
+            background: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .script-body {
+            padding: 16px;
+        }
+
+        .script-line {
+            background: var(--bg3);
+            border-radius: 12px;
+            padding: 14px 16px;
+            margin-bottom: 10px;
+            border-right: 4px solid var(--accent);
+        }
+
+        .script-line-title {
             font-size: 11px;
             font-weight: 600;
-        }
-
-        .script-section {
-            background: var(--bg-secondary);
-            border-radius: 10px;
-            padding: 12px;
-            margin-bottom: 8px;
-        }
-
-        .script-section-title {
-            font-size: 11px;
             color: var(--accent);
-            font-weight: 600;
             margin-bottom: 6px;
+            text-transform: uppercase;
         }
 
-        .script-text {
-            font-size: 14px;
+        .script-line-text {
+            font-size: 15px;
             line-height: 1.5;
         }
 
         /* Shot List */
-        .shot-item {
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            padding: 14px;
-            margin-bottom: 8px;
+        .shot {
+            background: var(--bg2);
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
 
-        .shot-number {
-            width: 32px;
-            height: 32px;
+        .shot-num {
+            width: 40px;
+            height: 40px;
             background: var(--accent);
-            border-radius: 8px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 18px;
             font-weight: 700;
-            font-size: 14px;
+            flex-shrink: 0;
         }
 
-        .shot-info { flex: 1; }
+        .shot-info {
+            flex: 1;
+        }
 
         .shot-title {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
             margin-bottom: 2px;
         }
 
-        .shot-detail {
-            font-size: 12px;
-            color: var(--text-secondary);
+        .shot-desc {
+            font-size: 13px;
+            color: var(--text2);
         }
 
         .shot-check {
-            width: 28px;
-            height: 28px;
-            border: 2px solid var(--text-secondary);
+            width: 32px;
+            height: 32px;
+            border: 2px solid var(--text2);
             border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
             cursor: pointer;
+            flex-shrink: 0;
         }
 
         .shot-check.done {
-            background: var(--success);
-            border-color: var(--success);
+            background: var(--green);
+            border-color: var(--green);
+        }
+
+        /* Expandable */
+        .expandable {
+            background: var(--bg2);
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .expandable-header {
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .expandable-icon {
+            font-size: 24px;
+        }
+
+        .expandable-title {
+            flex: 1;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .expandable-arrow {
+            color: var(--text2);
+            transition: transform 0.3s;
+        }
+
+        .expandable.open .expandable-arrow {
+            transform: rotate(180deg);
+        }
+
+        .expandable-body {
+            display: none;
+            padding: 0 16px 16px;
+        }
+
+        .expandable.open .expandable-body {
+            display: block;
+        }
+
+        /* WhatsApp Button */
+        .wa-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--whatsapp);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            padding: 18px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: inherit;
+            width: 100%;
+            cursor: pointer;
+            text-decoration: none;
+            margin-bottom: 12px;
+        }
+
+        .wa-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Quick Buttons */
+        .quick-btns {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .quick-btn {
+            background: var(--bg2);
+            border: none;
+            border-radius: 14px;
+            padding: 20px 16px;
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 500;
+            font-family: inherit;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quick-btn:active {
+            background: var(--bg3);
+        }
+
+        .quick-btn .icon {
+            font-size: 28px;
+        }
+
+        /* Bottom Nav */
+        .navbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg2);
+            border-top: 1px solid var(--bg3);
+            padding: 10px 0;
+            padding-bottom: max(10px, env(safe-area-inset-bottom));
+            display: flex;
+            justify-content: space-around;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            background: none;
+            border: none;
+            color: var(--text2);
+            font-size: 10px;
+            font-family: inherit;
+            padding: 8px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        .nav-btn.active {
+            color: var(--accent);
+            background: rgba(0,102,255,0.15);
+        }
+
+        .nav-btn .icon {
+            font-size: 24px;
+        }
+
+        /* Pages */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
         }
 
         /* Toast */
@@ -467,440 +409,488 @@
             transform: translateX(-50%) translateY(100px);
             background: var(--accent);
             color: white;
-            padding: 14px 24px;
+            padding: 14px 28px;
             border-radius: 12px;
             font-size: 14px;
             font-weight: 500;
+            z-index: 200;
             transition: transform 0.3s;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,102,255,0.4);
         }
 
         .toast.show {
             transform: translateX(-50%) translateY(0);
         }
 
-        /* Brand Statement */
-        .brand-card {
-            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 1px solid var(--bg-secondary);
-        }
-
-        .brand-quote {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--accent);
-            line-height: 1.4;
-            margin-bottom: 12px;
-        }
-
-        .brand-sub {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        /* WhatsApp CTA */
-        .whatsapp-cta {
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .whatsapp-cta h3 {
-            font-size: 16px;
-            margin-bottom: 8px;
-        }
-
-        .whatsapp-cta p {
-            font-size: 13px;
-            opacity: 0.9;
-            margin-bottom: 12px;
-        }
-
-        .whatsapp-cta a {
-            display: inline-block;
-            background: white;
-            color: #25D366;
-            padding: 12px 24px;
+        /* Tips */
+        .tip {
+            background: var(--bg3);
             border-radius: 10px;
+            padding: 12px 14px;
+            font-size: 13px;
+            color: var(--text2);
+            margin-top: 12px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .tip-icon { font-size: 16px; }
+
+        /* Full Script View */
+        .full-script {
+            background: var(--bg2);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .full-script h3 {
+            font-size: 18px;
             font-weight: 700;
-            text-decoration: none;
-            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .full-script .meta {
+            font-size: 13px;
+            color: var(--text2);
+            margin-bottom: 16px;
+        }
+
+        .full-script .line {
+            margin-bottom: 16px;
+        }
+
+        .full-script .line-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .full-script .line-text {
+            font-size: 16px;
+            line-height: 1.6;
+            background: var(--bg3);
+            padding: 14px 16px;
+            border-radius: 12px;
         }
     </style>
 </head>
 <body>
-    <!-- Home Page -->
-    <div class="page active" id="page-home">
-        <header class="header">
-            <div class="logo">Kaniel <span>Brand</span></div>
-            <div class="status-badge">
+    <!-- ========== HOME PAGE ========== -->
+    <div class="page active" id="home">
+        <div class="topbar">
+            <h1>Kaniel <span>Brand</span></h1>
+            <div class="status">
                 <div class="status-dot"></div>
-                <span>פעיל</span>
-            </div>
-        </header>
-
-        <div class="alert-banner">
-            <div class="alert-icon">🎬</div>
-            <div class="alert-content">
-                <h3>צריך לצלם!</h3>
-                <p>יש תסריט מוכן - 4 shots ממתינים לצילום</p>
+                פעיל
             </div>
         </div>
 
-        <div class="stats-row">
-            <div class="stat-card">
-                <div class="stat-value danger">0</div>
-                <div class="stat-label">ימים מוכנים</div>
+        <div class="content">
+            <div class="alert">
+                <h2>🎬 צריך לצלם!</h2>
+                <p>יש תסריט מוכן עם 4 shots - לחץ למטה לפרטים</p>
             </div>
-            <div class="stat-card">
-                <div class="stat-value">1</div>
-                <div class="stat-label">תסריטים</div>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-num red">0</div>
+                    <div class="stat-label">ימים מוכנים</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">1</div>
+                    <div class="stat-label">תסריטים</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">0</div>
+                    <div class="stat-label">לעריכה</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">0</div>
+                    <div class="stat-label">פורסמו</div>
+                </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-value">0</div>
-                <div class="stat-label">לעריכה</div>
+
+            <div class="section">
+                <div class="section-title">📋 לצלם עכשיו</div>
+
+                <div class="script-card" onclick="showPage('script')">
+                    <div class="script-header">
+                        <h3>AI First Intro</h3>
+                        <div class="script-badge">45-60 שניות</div>
+                    </div>
+                    <div class="script-body">
+                        <div class="script-line">
+                            <div class="script-line-title">🎣 HOOK</div>
+                            <div class="script-line-text">"אני בונה חיים מחדש. הפעם עם סוכנים."</div>
+                        </div>
+                        <div class="tip">
+                            <span class="tip-icon">👆</span>
+                            <span>לחץ לראות את כל התסריט + רשימת צילום</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-value">0</div>
-                <div class="stat-label">פורסמו</div>
+
+            <div class="section">
+                <div class="section-title">⚡ פעולות מהירות</div>
+
+                <a href="https://wa.me/972502213948?text=צילמתי%20סרטונים" class="wa-btn">
+                    📹 שלח סרטונים בוואצאפ
+                </a>
+
+                <div class="quick-btns">
+                    <button class="quick-btn" onclick="copyText('מה הסטטוס?')">
+                        <span class="icon">📊</span>
+                        מה הסטטוס?
+                    </button>
+                    <button class="quick-btn" onclick="copyText('תן לי רעיונות')">
+                        <span class="icon">💡</span>
+                        רעיונות
+                    </button>
+                    <button class="quick-btn" onclick="copyText('כתוב תסריט על ')">
+                        <span class="icon">📝</span>
+                        תסריט חדש
+                    </button>
+                    <button class="quick-btn" onclick="copyText('סרוק טרנדים')">
+                        <span class="icon">🔍</span>
+                        טרנדים
+                    </button>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="section-title">📍 מה עכשיו</div>
-
-        <div class="task-card urgent" onclick="showPage('shoot')">
-            <div class="task-icon">🎬</div>
-            <div class="task-content">
-                <div class="task-title">לצלם: AI First Intro</div>
-                <div class="task-meta">4 shots • 45-60 שניות</div>
-            </div>
-            <button class="task-action">צלם</button>
+    <!-- ========== SCRIPT PAGE ========== -->
+    <div class="page" id="script">
+        <div class="topbar">
+            <h1 onclick="showPage('home')" style="cursor:pointer;">← חזרה</h1>
+            <div class="status">תסריט #001</div>
         </div>
 
-        <div class="section-title">⚡ פעולות מהירות</div>
+        <div class="content">
+            <div class="full-script">
+                <h3>AI First Intro</h3>
+                <div class="meta">⏱ 45-60 שניות • 🎬 4 shots • 📍 קופנהגן</div>
 
-        <div class="actions-grid">
-            <a href="https://wa.me/972502213948?text=צילמתי%20סרטונים" class="action-btn whatsapp">
-                <span class="icon">📹</span>
-                <span>שלח סרטונים</span>
+                <div class="line">
+                    <div class="line-label">🎣 HOOK (3-4 שניות)</div>
+                    <div class="line-text">"אני בונה חיים מחדש. הפעם עם סוכנים."</div>
+                </div>
+
+                <div class="line">
+                    <div class="line-label">📖 STORY (15-18 שניות)</div>
+                    <div class="line-text">"לפני שנה וחצי הייתי בעל עסק מצליח. עשר מיליון שקל בשנה.<br><br>אז הגיע ה-7 באוקטובר. איבדתי את אחי. 400 יום מילואים.<br><br>העסק? עצר. החיים? השתנו לגמרי.<br><br>עברנו לקופנהגן. רציתי להתחיל מחדש."</div>
+                </div>
+
+                <div class="line">
+                    <div class="line-label">💡 INSIGHT (20 שניות)</div>
+                    <div class="line-text">"אבל משהו היה שונה הפעם.<br><br>הבנתי שאני לא צריך לעשות הכל לבד.<br><br>היום? יש לי סוכן AI שמכין לי פודקאסט חדשות כל בוקר. סוכן שמנהל לי את האימונים והתזונה. סוכן שעוזר לי לבנות את התוכן הזה.<br><br>אני בונה חיים AI First. חיים שבהם אני עושה את מה שאני טוב בו - והסוכנים עושים את השאר."</div>
+                </div>
+
+                <div class="line">
+                    <div class="line-label">👉 CTA (8-10 שניות)</div>
+                    <div class="line-text">"הסוכנים מוכנים.<br><br>השאלה היא אם אתה מוכן לתת להם לעבוד בשבילך.<br><br>אני קניאל. עקבו - אני משתף את כל הדרך."</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📋 רשימת צילום - סמן מה צילמת</div>
+
+                <div class="shot">
+                    <div class="shot-num">1</div>
+                    <div class="shot-info">
+                        <div class="shot-title">HOOK</div>
+                        <div class="shot-desc">3-4 שניות • מבט למצלמה • אנרגיה גבוהה</div>
+                    </div>
+                    <div class="shot-check" onclick="toggleShot(this)"></div>
+                </div>
+
+                <div class="shot">
+                    <div class="shot-num">2</div>
+                    <div class="shot-info">
+                        <div class="shot-title">STORY</div>
+                        <div class="shot-desc">15-18 שניות • כנה ואמיתי • קצת יותר רגוע</div>
+                    </div>
+                    <div class="shot-check" onclick="toggleShot(this)"></div>
+                </div>
+
+                <div class="shot">
+                    <div class="shot-num">3</div>
+                    <div class="shot-info">
+                        <div class="shot-title">INSIGHT</div>
+                        <div class="shot-desc">20 שניות • מתרגש מהנושא • אנרגיה עולה</div>
+                    </div>
+                    <div class="shot-check" onclick="toggleShot(this)"></div>
+                </div>
+
+                <div class="shot">
+                    <div class="shot-num">4</div>
+                    <div class="shot-info">
+                        <div class="shot-title">CTA</div>
+                        <div class="shot-desc">8-10 שניות • בטוח + חיוך בסוף</div>
+                    </div>
+                    <div class="shot-check" onclick="toggleShot(this)"></div>
+                </div>
+
+                <div class="shot" style="border-right: 3px solid var(--orange);">
+                    <div class="shot-num" style="background: var(--orange);">B</div>
+                    <div class="shot-info">
+                        <div class="shot-title">B-ROLL (אופציונלי)</div>
+                        <div class="shot-desc">הליכה ברחוב • קפה • עבודה על מחשב</div>
+                    </div>
+                    <div class="shot-check" onclick="toggleShot(this)"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">💡 טיפים לצילום</div>
+
+                <div class="tip">
+                    <span class="tip-icon">☀️</span>
+                    <span>צלם ליד חלון - אור טבעי הכי טוב</span>
+                </div>
+                <div class="tip">
+                    <span class="tip-icon">🎤</span>
+                    <span>בדוק שהצליל נקי לפני שמתחיל</span>
+                </div>
+                <div class="tip">
+                    <span class="tip-icon">🔄</span>
+                    <span>צלם 2-3 takes לכל חלק</span>
+                </div>
+                <div class="tip">
+                    <span class="tip-icon">👁️</span>
+                    <span>תסתכל לעדשה, לא למסך!</span>
+                </div>
+            </div>
+
+            <a href="https://wa.me/972502213948?text=צילמתי%20את%20הסרטון%20AI%20First%20Intro" class="wa-btn">
+                ✅ צילמתי! שלח בוואצאפ
             </a>
-            <button class="action-btn" onclick="copyCommand('מה הסטטוס?')">
-                <span class="icon">📊</span>
-                <span>מה הסטטוס?</span>
-            </button>
-            <button class="action-btn" onclick="copyCommand('תן לי רעיונות לתוכן')">
-                <span class="icon">💡</span>
-                <span>רעיונות</span>
-            </button>
-            <button class="action-btn" onclick="copyCommand('סרוק טרנדים')">
-                <span class="icon">🔍</span>
-                <span>טרנדים</span>
-            </button>
+        </div>
+    </div>
+
+    <!-- ========== SHOTS PAGE ========== -->
+    <div class="page" id="shots">
+        <div class="topbar">
+            <h1>🎬 מה לצלם</h1>
         </div>
 
-        <div class="section-title">📈 Pipeline</div>
+        <div class="content">
+            <div class="alert warning">
+                <h2>תסריט 1 ממתין</h2>
+                <p>AI First Intro - 4 shots + B-roll</p>
+            </div>
 
-        <div class="pipeline-mini">
-            <div class="pipeline-step">
-                <div class="pipeline-bar"></div>
-                <div class="pipeline-count">0</div>
-                <div class="pipeline-label">רעיונות</div>
+            <div class="section">
+                <div class="section-title">תסריט פעיל</div>
+
+                <div class="expandable open">
+                    <div class="expandable-header" onclick="toggleExpand(this)">
+                        <span class="expandable-icon">🎬</span>
+                        <span class="expandable-title">AI First Intro (45-60 שניות)</span>
+                        <span class="expandable-arrow">▼</span>
+                    </div>
+                    <div class="expandable-body">
+                        <div class="shot">
+                            <div class="shot-num">1</div>
+                            <div class="shot-info">
+                                <div class="shot-title">HOOK</div>
+                                <div class="shot-desc">"אני בונה חיים מחדש. הפעם עם סוכנים."</div>
+                            </div>
+                            <div class="shot-check" onclick="toggleShot(this)"></div>
+                        </div>
+                        <div class="shot">
+                            <div class="shot-num">2</div>
+                            <div class="shot-info">
+                                <div class="shot-title">STORY</div>
+                                <div class="shot-desc">הסיפור - מעסק מצליח עד קופנהגן</div>
+                            </div>
+                            <div class="shot-check" onclick="toggleShot(this)"></div>
+                        </div>
+                        <div class="shot">
+                            <div class="shot-num">3</div>
+                            <div class="shot-info">
+                                <div class="shot-title">INSIGHT</div>
+                                <div class="shot-desc">הסוכנים - מה הם עושים לי</div>
+                            </div>
+                            <div class="shot-check" onclick="toggleShot(this)"></div>
+                        </div>
+                        <div class="shot">
+                            <div class="shot-num">4</div>
+                            <div class="shot-info">
+                                <div class="shot-title">CTA</div>
+                                <div class="shot-desc">"הסוכנים מוכנים. אתה מוכן?"</div>
+                            </div>
+                            <div class="shot-check" onclick="toggleShot(this)"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="quick-btn" style="width:100%;" onclick="showPage('script')">
+                    📖 לתסריט המלא
+                </button>
             </div>
-            <div class="pipeline-step">
-                <div class="pipeline-bar active"></div>
-                <div class="pipeline-count">1</div>
-                <div class="pipeline-label">תסריטים</div>
+
+            <a href="https://wa.me/972502213948?text=צילמתי%20סרטונים" class="wa-btn" style="margin-top:20px;">
+                📹 צילמתי! שלח בוואצאפ
+            </a>
+        </div>
+    </div>
+
+    <!-- ========== BRAND PAGE ========== -->
+    <div class="page" id="brand">
+        <div class="topbar">
+            <h1>✨ Brand</h1>
+        </div>
+
+        <div class="content">
+            <div class="full-script" style="background: linear-gradient(135deg, var(--bg2), var(--bg3));">
+                <div class="line-label">Brand Statement</div>
+                <h3 style="font-size: 22px; color: var(--accent); line-height: 1.4; margin-top: 8px;">
+                    "הסוכנים מוכנים.<br>אתה מוכן?"
+                </h3>
+                <p style="color: var(--text2); margin-top: 12px; font-size: 14px; line-height: 1.6;">
+                    אנחנו בעידן חדש. הסוכנים יודעים לעשות את העבודה. השאלה היא אם אתה מוכן לתת להם.
+                </p>
             </div>
-            <div class="pipeline-step">
-                <div class="pipeline-bar active"></div>
-                <div class="pipeline-count">1</div>
-                <div class="pipeline-label">לצילום</div>
+
+            <div class="section">
+                <div class="section-title">🎨 צבעים</div>
+                <div style="display:flex;gap:10px;">
+                    <div style="width:50px;height:50px;background:#0A0A0A;border-radius:10px;border:1px solid #333;"></div>
+                    <div style="width:50px;height:50px;background:#1A1A1A;border-radius:10px;"></div>
+                    <div style="width:50px;height:50px;background:#FFFFFF;border-radius:10px;"></div>
+                    <div style="width:50px;height:50px;background:#0066FF;border-radius:10px;"></div>
+                </div>
             </div>
-            <div class="pipeline-step">
-                <div class="pipeline-bar"></div>
-                <div class="pipeline-count">0</div>
-                <div class="pipeline-label">לעריכה</div>
-            </div>
-            <div class="pipeline-step">
-                <div class="pipeline-bar"></div>
-                <div class="pipeline-count">0</div>
-                <div class="pipeline-label">מוכן</div>
+
+            <div class="section">
+                <div class="section-title">📊 עמודי תוכן</div>
+
+                <div class="expandable">
+                    <div class="expandable-header" onclick="toggleExpand(this)">
+                        <span class="expandable-icon">🤖</span>
+                        <span class="expandable-title">AI First Life (30%)</span>
+                        <span class="expandable-arrow">▼</span>
+                    </div>
+                    <div class="expandable-body">
+                        <p style="color:var(--text2);font-size:14px;">איך לבנות חיים עם AI, סוכנים, אוטומציות</p>
+                    </div>
+                </div>
+
+                <div class="expandable">
+                    <div class="expandable-header" onclick="toggleExpand(this)">
+                        <span class="expandable-icon">⚙️</span>
+                        <span class="expandable-title">מערכות וסדר (25%)</span>
+                        <span class="expandable-arrow">▼</span>
+                    </div>
+                    <div class="expandable-body">
+                        <p style="color:var(--text2);font-size:14px;">איך לצאת מכיבוי שריפות, לבנות מערכות שעובדות</p>
+                    </div>
+                </div>
+
+                <div class="expandable">
+                    <div class="expandable-header" onclick="toggleExpand(this)">
+                        <span class="expandable-icon">📈</span>
+                        <span class="expandable-title">הישרדות → שפע (20%)</span>
+                        <span class="expandable-arrow">▼</span>
+                    </div>
+                    <div class="expandable-body">
+                        <p style="color:var(--text2);font-size:14px;">המסע, ביטחון קודם, mindset, הפריימוורק</p>
+                    </div>
+                </div>
+
+                <div class="expandable">
+                    <div class="expandable-header" onclick="toggleExpand(this)">
+                        <span class="expandable-icon">🌴</span>
+                        <span class="expandable-title">Lifestyle Business (20%)</span>
+                        <span class="expandable-arrow">▼</span>
+                    </div>
+                    <div class="expandable-body">
+                        <p style="color:var(--text2);font-size:14px;">איך לקבל הכל - עסק + משפחה + תחביבים</p>
+                    </div>
+                </div>
+
+                <div class="expandable">
+                    <div class="expandable-header" onclick="toggleExpand(this)">
+                        <span class="expandable-icon">📍</span>
+                        <span class="expandable-title">הסיפור שלי (5%)</span>
+                        <span class="expandable-arrow">▼</span>
+                    </div>
+                    <div class="expandable-body">
+                        <p style="color:var(--text2);font-size:14px;">קופנהגן, המסע האישי, behind the scenes</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Shoot Page -->
-    <div class="page" id="page-shoot">
-        <header class="header">
-            <button onclick="showPage('home')" style="background:none;border:none;color:var(--accent);font-size:16px;font-family:inherit;cursor:pointer;">← חזרה</button>
-            <div class="status-badge">לצילום</div>
-        </header>
-
-        <div class="script-preview">
-            <div class="script-header">
-                <div class="script-title">AI First Intro</div>
-                <div class="script-badge">45-60 שניות</div>
-            </div>
-
-            <div class="script-section">
-                <div class="script-section-title">🎣 HOOK</div>
-                <div class="script-text">"אני בונה חיים מחדש. הפעם עם סוכנים."</div>
-            </div>
-
-            <div class="script-section">
-                <div class="script-section-title">📖 STORY</div>
-                <div class="script-text">"לפני שנה וחצי הייתי בעל עסק מצליח. עשר מיליון שקל בשנה. אז הגיע ה-7 באוקטובר..."</div>
-            </div>
-
-            <div class="script-section">
-                <div class="script-section-title">💡 INSIGHT</div>
-                <div class="script-text">"היום? יש לי סוכן AI שמכין לי פודקאסט חדשות כל בוקר. אני בונה חיים AI First."</div>
-            </div>
-
-            <div class="script-section">
-                <div class="script-section-title">👉 CTA</div>
-                <div class="script-text">"הסוכנים מוכנים. השאלה היא אם אתה מוכן."</div>
-            </div>
-        </div>
-
-        <div class="section-title">📋 רשימת צילום</div>
-
-        <div class="shot-item">
-            <div class="shot-number">1</div>
-            <div class="shot-info">
-                <div class="shot-title">HOOK</div>
-                <div class="shot-detail">3-4 שניות • אנרגיה גבוהה • מבט למצלמה</div>
-            </div>
-            <div class="shot-check" onclick="this.classList.toggle('done')"></div>
-        </div>
-
-        <div class="shot-item">
-            <div class="shot-number">2</div>
-            <div class="shot-info">
-                <div class="shot-title">STORY</div>
-                <div class="shot-detail">15-18 שניות • כנה ואמיתי</div>
-            </div>
-            <div class="shot-check" onclick="this.classList.toggle('done')"></div>
-        </div>
-
-        <div class="shot-item">
-            <div class="shot-number">3</div>
-            <div class="shot-info">
-                <div class="shot-title">INSIGHT</div>
-                <div class="shot-detail">20 שניות • מתרגש מהנושא</div>
-            </div>
-            <div class="shot-check" onclick="this.classList.toggle('done')"></div>
-        </div>
-
-        <div class="shot-item">
-            <div class="shot-number">4</div>
-            <div class="shot-info">
-                <div class="shot-title">CTA</div>
-                <div class="shot-detail">8-10 שניות • בטוח + חיוך</div>
-            </div>
-            <div class="shot-check" onclick="this.classList.toggle('done')"></div>
-        </div>
-
-        <div class="section-title">🎥 B-ROLL (אופציונלי)</div>
-
-        <div class="shot-item">
-            <div class="shot-number">B</div>
-            <div class="shot-info">
-                <div class="shot-title">קופנהגן</div>
-                <div class="shot-detail">הליכה ברחוב, קפה, עבודה על מחשב</div>
-            </div>
-            <div class="shot-check" onclick="this.classList.toggle('done')"></div>
-        </div>
-
-        <div class="whatsapp-cta">
-            <h3>צילמת? 📹</h3>
-            <p>שלח את הסרטונים בוואצאפ ותכתוב "צילמתי"</p>
-            <a href="https://wa.me/972502213948?text=צילמתי%20סרטונים%20לסרטון%20AI%20First%20Intro">שלח עכשיו</a>
-        </div>
-    </div>
-
-    <!-- Brand Page -->
-    <div class="page" id="page-brand">
-        <header class="header">
-            <div class="logo">Brand <span>Identity</span></div>
-        </header>
-
-        <div class="brand-card">
-            <div class="brand-quote">"הסוכנים מוכנים. אתה מוכן?"</div>
-            <div class="brand-sub">אנחנו בעידן חדש. הסוכנים יודעים לעשות את העבודה. השאלה היא אם אתה מוכן לתת להם.</div>
-        </div>
-
-        <div class="section-title">🎨 צבעים</div>
-        <div style="display:flex;gap:8px;margin-bottom:20px;">
-            <div style="width:50px;height:50px;background:#0A0A0A;border-radius:10px;border:1px solid #333;"></div>
-            <div style="width:50px;height:50px;background:#1A1A1A;border-radius:10px;"></div>
-            <div style="width:50px;height:50px;background:#FFFFFF;border-radius:10px;"></div>
-            <div style="width:50px;height:50px;background:#0066FF;border-radius:10px;"></div>
-        </div>
-
-        <div class="section-title">📊 עמודי תוכן</div>
-        <div class="task-card">
-            <div class="task-icon">🤖</div>
-            <div class="task-content">
-                <div class="task-title">AI First Life</div>
-                <div class="task-meta">30% מהתוכן</div>
-            </div>
-        </div>
-        <div class="task-card">
-            <div class="task-icon">⚙️</div>
-            <div class="task-content">
-                <div class="task-title">מערכות וסדר</div>
-                <div class="task-meta">25% מהתוכן</div>
-            </div>
-        </div>
-        <div class="task-card">
-            <div class="task-icon">📈</div>
-            <div class="task-content">
-                <div class="task-title">הישרדות → שפע</div>
-                <div class="task-meta">20% מהתוכן</div>
-            </div>
-        </div>
-        <div class="task-card">
-            <div class="task-icon">🌴</div>
-            <div class="task-content">
-                <div class="task-title">Lifestyle Business</div>
-                <div class="task-meta">20% מהתוכן</div>
-            </div>
-        </div>
-        <div class="task-card">
-            <div class="task-icon">📍</div>
-            <div class="task-content">
-                <div class="task-title">הסיפור שלי</div>
-                <div class="task-meta">5% מהתוכן</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Settings Page -->
-    <div class="page" id="page-settings">
-        <header class="header">
-            <div class="logo">הגדרות</div>
-        </header>
-
-        <div class="section-title">📂 קבצים</div>
-
-        <div class="task-card" onclick="copyPath('CLAUDE.md')">
-            <div class="task-icon">📋</div>
-            <div class="task-content">
-                <div class="task-title">CLAUDE.md</div>
-                <div class="task-meta">אסטרטגיה וזהות</div>
-            </div>
-        </div>
-
-        <div class="task-card" onclick="copyPath('PROGRESS.md')">
-            <div class="task-icon">📊</div>
-            <div class="task-content">
-                <div class="task-title">PROGRESS.md</div>
-                <div class="task-meta">מעקב התקדמות</div>
-            </div>
-        </div>
-
-        <div class="task-card" onclick="copyPath('content/scripts/')">
-            <div class="task-icon">📝</div>
-            <div class="task-content">
-                <div class="task-title">תסריטים</div>
-                <div class="task-meta">content/scripts/</div>
-            </div>
-        </div>
-
-        <div class="section-title">💬 פקודות נפוצות</div>
-
-        <div class="task-card" onclick="copyCommand('מה הסטטוס?')">
-            <div class="task-icon">📊</div>
-            <div class="task-content">
-                <div class="task-title">מה הסטטוס?</div>
-                <div class="task-meta">לחץ להעתקה</div>
-            </div>
-        </div>
-
-        <div class="task-card" onclick="copyCommand('צילמתי סרטונים')">
-            <div class="task-icon">🎬</div>
-            <div class="task-content">
-                <div class="task-title">צילמתי סרטונים</div>
-                <div class="task-meta">לחץ להעתקה</div>
-            </div>
-        </div>
-
-        <div class="task-card" onclick="copyCommand('כתוב תסריט על ')">
-            <div class="task-icon">📝</div>
-            <div class="task-content">
-                <div class="task-title">כתוב תסריט על...</div>
-                <div class="task-meta">לחץ להעתקה</div>
-            </div>
-        </div>
-
-        <div class="section-title">📱 איך לשלוח סרטונים</div>
-
-        <div class="whatsapp-cta">
-            <h3>שלח בוואצאפ 📹</h3>
-            <p>צלם → שלח לעצמך בוואצאפ → תכתוב "צילמתי" ל-Claude</p>
-            <a href="https://wa.me/972502213948?text=צילמתי">פתח וואצאפ</a>
-        </div>
-    </div>
-
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav">
-        <a href="#" class="nav-item active" onclick="showPage('home')">
+    <!-- ========== BOTTOM NAV ========== -->
+    <nav class="navbar">
+        <button class="nav-btn active" onclick="showPage('home')">
             <span class="icon">🏠</span>
-            <span>בית</span>
-        </a>
-        <a href="#" class="nav-item" onclick="showPage('shoot')">
+            בית
+        </button>
+        <button class="nav-btn" onclick="showPage('shots')">
             <span class="icon">🎬</span>
-            <span>לצלם</span>
-        </a>
-        <a href="#" class="nav-item" onclick="showPage('brand')">
+            לצלם
+        </button>
+        <button class="nav-btn" onclick="showPage('script')">
+            <span class="icon">📝</span>
+            תסריט
+        </button>
+        <button class="nav-btn" onclick="showPage('brand')">
             <span class="icon">✨</span>
-            <span>ברנד</span>
-        </a>
-        <a href="#" class="nav-item" onclick="showPage('settings')">
-            <span class="icon">⚙️</span>
-            <span>הגדרות</span>
-        </a>
+            ברנד
+        </button>
     </nav>
 
-    <div class="toast" id="toast">הועתק! 📋</div>
+    <!-- Toast -->
+    <div class="toast" id="toast">הועתק!</div>
 
     <script>
-        function showPage(pageId) {
+        function showPage(id) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-            document.getElementById('page-' + pageId).classList.add('active');
-            event.target.closest('.nav-item')?.classList.add('active');
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            event.currentTarget?.classList?.add('active');
+            window.scrollTo(0, 0);
         }
 
-        function copyCommand(command) {
-            navigator.clipboard.writeText(command);
-            showToast('הפקודה הועתקה!');
+        function toggleShot(el) {
+            el.classList.toggle('done');
+            if (el.classList.contains('done')) {
+                el.innerHTML = '✓';
+            } else {
+                el.innerHTML = '';
+            }
+            saveProgress();
         }
 
-        function copyPath(path) {
-            navigator.clipboard.writeText(path);
-            showToast('הנתיב הועתק!');
+        function toggleExpand(el) {
+            el.parentElement.classList.toggle('open');
         }
 
-        function showToast(message) {
+        function copyText(text) {
+            navigator.clipboard.writeText(text);
             const toast = document.getElementById('toast');
-            toast.textContent = message;
+            toast.textContent = 'הועתק! הדבק ב-Claude';
             toast.classList.add('show');
             setTimeout(() => toast.classList.remove('show'), 2000);
         }
 
-        // Register service worker for PWA
-        if ('serviceWorker' in navigator) {
-            // Could add offline support here
+        function saveProgress() {
+            const shots = document.querySelectorAll('.shot-check.done');
+            localStorage.setItem('completedShots', shots.length);
         }
+
+        function loadProgress() {
+            const saved = localStorage.getItem('completedShots');
+            // Could restore checked state here
+        }
+
+        loadProgress();
     </script>
 </body>
 </html>
