@@ -109,7 +109,7 @@ Building Kaniel's personal brand from scratch with a trust-first, value-driven a
 
 **The Choice:**
 - Solar business → Put on HOLD, decisions to come later
-- The family: Kaniel, Yael, and kids (Eti, Ella, Eitan) → **Move to Copenhagen**
+- The family: Kaniel, Yael, and kids (Eti, Ella, Eitan) → First **Copenhagen**, then → **Koh Phangan, Thailand**
 - Purpose: **"להתחיל להרגיש מה אנחנו רוצים, איך אנחנו רוצים"**
   "To start feeling what we want, how we want"
 
@@ -120,11 +120,10 @@ Building Kaniel's personal brand from scratch with a trust-first, value-driven a
 - Ella (אלה) - 4 years old
 - Eitan (איתן) - ~1 year old (born during the war)
 
-**Copenhagen - First Months (The Struggle):**
-- Arrived in Copenhagen but: "רדפנו אחרי הזנב של עצמנו"
+**Copenhagen → Koh Phangan (The Evolution):**
+- First moved to Copenhagen: "רדפנו אחרי הזנב של עצמנו"
 - Kaniel tried to work, maintain the house, chase tasks
 - **Reality:** Nothing actually moved
-- People kept visiting
 - Feeling of discomfort and unease
 - Tasks became a PILE of tasks - postponed instead of executed
 
@@ -136,6 +135,12 @@ Building Kaniel's personal brand from scratch with a trust-first, value-driven a
 - Changed LOCATION but not the SYSTEM
 - Still in survival/chase mode mentally
 - Beautiful place, same overwhelming feeling
+
+**The Next Move - Koh Phangan, Thailand:**
+- Decided to move to an island - far from everything, real reset
+- Koh Phangan = space, warmth, community, slower pace
+- This time: came with a SYSTEM, not just hope
+- AI-first approach to life - the real rebuilding started here
 
 **The Breakthrough - Two Realizations:**
 
@@ -413,7 +418,7 @@ What do you believe that goes AGAINST what everyone else in your industry says?
 - עבר את אותו מסע
 - הרגיש את אותם כאבים
 - מצא את הדרך החוצה (AI First + Security First)
-- חי את זה עכשיו בקופנהגן
+- חי את זה עכשיו בקו פנגאן, תאילנד
 
 ---
 
@@ -422,7 +427,7 @@ What do you believe that goes AGAINST what everyone else in your industry says?
 ### Content Ratio (75-20-5)
 - **75% Deep Content**: Educational, problem-solving, frameworks (AI-first life, systems, agents)
 - **20% Niche-Wide Content**: Broader topics (lifestyle business, entrepreneurship, rebuilding)
-- **5% Personal Content**: Copenhagen life, family, fitness, the journey
+- **5% Personal Content**: Koh Phangan island life, family, fitness, the journey
 
 ---
 
@@ -436,7 +441,7 @@ What do you believe that goes AGAINST what everyone else in your industry says?
 | 🥈 | **מערכות וסדר** | איך לצאת מכיבוי שריפות, לבנות מערכות שעובדות | ~25% |
 | 🥉 | **הישרדות → שפע** | המסע, ביטחון קודם, mindset, הפריימוורק | ~20% |
 | 4 | **Lifestyle Business** | איך לקבל הכל - עסק + משפחה + תחביבים | ~20% |
-| 5 | **הסיפור שלי** | קופנהגן, המסע האישי, behind the scenes | ~5% |
+| 5 | **הסיפור שלי** | קו פנגאן, המסע האישי, behind the scenes | ~5% |
 
 ### Content Ideas Per Pillar:
 
@@ -461,12 +466,12 @@ What do you believe that goes AGAINST what everyone else in your industry says?
 **🌴 Lifestyle Business:**
 - אני רוצה הכל - והיום אפשר לקבל את זה
 - איך לשלב עסק + משפחה + תחביבים (בלי לוותר)
-- מה למדתי מחיים בקופנהגן על קצב אחר
+- מה למדתי מחיים באי בתאילנד על קצב אחר
 - למה Lifestyle Business זה לא "לעבוד פחות"
 
 **📍 הסיפור שלי (5%):**
-- Behind the scenes בקופנהגן
-- יום בחיים שלי
+- Behind the scenes בקו פנגאן
+- יום בחיים שלי באי
 - הציוד/כלים שאני משתמש
 
 ### Platform Strategy
@@ -504,7 +509,7 @@ What do you believe that goes AGAINST what everyone else in your industry says?
 ### First 3 Videos
 1. **Introduction Video**: The journey (military → business → loss → rebuild → AI-first life)
 2. **Positioning Deep Dive**: "Why every system needs Human UX + Agent UX"
-3. **Experimental Video**: Day in the life in Copenhagen with AI agents
+3. **Experimental Video**: Day in the life in Koh Phangan with AI agents
 
 ---
 
@@ -545,7 +550,7 @@ Build a "משומנת" (well-oiled) content machine that practices what we preac
 
 #### 3. RECORDING (הקלטה)
 - **Tool:** iPhone 16/17
-- **Location:** Copenhagen (home, city, lifestyle shots)
+- **Location:** Koh Phangan, Thailand (home, beach, island lifestyle shots)
 - **Style:** Authentic, not overproduced
 
 #### 4. EDITING (עריכה)
@@ -614,7 +619,7 @@ OUTPUT: Raw footage
 ```
 **Tips:**
 - אור טבעי טוב
-- קופנהגן כרקע כשרלוונטי
+- קו פנגאן כרקע כשרלוונטי (חוף, ג'ונגל, שקיעות)
 - מספר takes לכל סרטון
 - אותנטי > מושלם
 
@@ -674,7 +679,7 @@ OUTPUT: מה עבד, מה לא, התאמות לשבוע הבא
 2. **Story Template** - Photo/video + text overlay for personal stories
 3. **Framework Template** - Animated diagrams for teaching (Survival→Security→Abundance)
 4. **Before/After Template** - Split screen comparisons
-5. **Day in Life Template** - Copenhagen lifestyle with captions
+5. **Day in Life Template** - Koh Phangan island lifestyle with captions
 
 ---
 
@@ -767,10 +772,15 @@ Kaniel's Brand Statement:
 ### Application:
 | Format | Style |
 |--------|-------|
-| **Reels** | iPhone footage + dark overlay + bold white text |
+| **Reels** | iPhone footage + dark overlay + bold white text (island vibe) |
 | **Carousels** | Dark BG (#0A0A0A), white text, blue accents |
 | **Stories** | Casual but on-brand, dark theme |
 | **Thumbnails** | High contrast, readable text, blue accent |
+
+### Current Location Vibe:
+- 🌴 Tropical island - natural beauty, ocean, jungle
+- ☀️ Warm lighting, golden hour, outdoor shooting
+- 🏝️ Koh Phangan = authenticity, freedom, choice
 
 ---
 
@@ -782,7 +792,7 @@ Kaniel's Brand Statement:
 |---|-----|-------|--------|
 | 🥇 | **Reels** | Reach + Discovery - הדלת הראשית | עיקרי |
 | 🥈 | **Carousels** | Teaching frameworks, deep content | משני |
-| 🥉 | **Stories** | Behind the scenes, קופנהגן, יומיומי | תומך |
+| 🥉 | **Stories** | Behind the scenes, קו פנגאן, יומיומי | תומך |
 
 ### Content Type Guidelines:
 
@@ -801,8 +811,8 @@ Kaniel's Brand Statement:
 - רקע כהה, טקסט לבן, accent כחול
 
 **Stories (תומך):**
-- Behind the scenes בקופנהגן
-- Day in the life
+- Behind the scenes בקו פנגאן
+- Day in the life על האי
 - Quick tips
 - Polls / שאלות לקהל
 - הפניות לתוכן חדש
@@ -919,7 +929,7 @@ Kaniel's Brand Statement:
 - Learned from Caleb Storkey's full Personal Brand course (6+ hours summarized)
 - Learned from Daniel Priestley's Lifestyle Business content
 - Created this CLAUDE.md framework
-- Completed Kaniel's full personal story (military → business → October 7th → rebuild → Copenhagen)
+- Completed Kaniel's full personal story (military → business → October 7th → rebuild → Copenhagen → Koh Phangan)
 - Defined contrarian belief: AI First + Dual UX (Human + Agent)
 - Defined target audience (גברים 30-45, עצמאיים, רוצים הכל)
 - Created content pillars (5 pillars with percentages)
@@ -958,5 +968,40 @@ Kaniel's Brand Statement:
 
 ---
 
-*Last Updated: February 5, 2025*
-*Status: Phase 3 - Execution (Ready to Start)*
+### Session 3 - February 6, 2026 (Foundation + Strategy Upgrade)
+
+**Part 1 - Foundation Fixes:**
+- Updated Copenhagen → Koh Phangan everywhere
+- Aligned script versions, wrote 3 missing scripts
+- Updated PROGRESS.md, LOCAL-WORKFLOW.md
+
+**Part 2 - Deep Research & Strategy:**
+- Researched Instagram algorithm 2026, Reddit communities, 50+ creators
+- Created STRATEGY_UPGRADE.md with 5 critical changes
+- Created SHOOTING_GUIDE.md - complete filming + scripts + captions guide
+
+**Key Strategy Changes:**
+1. Optimize for SENDS/DMs (not likes) - algorithm's #1 signal
+2. Original audio > trending audio
+3. Caption SEO with Hebrew+English keywords
+4. Anti-slop: be MORE human when talking about AI
+5. Follower Conversion Loop: Reel → Profile → Pin → Bio → Follow
+
+**New Files:**
+- `content/STRATEGY_UPGRADE.md` - full strategy based on research
+- `content/SHOOTING_GUIDE.md` - everything needed to film + publish
+
+**Current video status:**
+- 001 AI First Intro ✅ ready to publish
+- 002 Morning Routine ✅ ready to publish
+- 003 Island English v2 ✅ ready to publish
+- 004 Muay Thai ✅ ready to publish
+- 005 My AI Agents - script ready, needs production
+- 006 הסוכנים בשבילי - script ready, needs production
+- 007 Being Present - voiceover ready, needs video edit
+
+---
+
+*Last Updated: February 6, 2026*
+*Status: Phase 3 - Execution (5 videos produced, 0 published)*
+*Location: Koh Phangan, Thailand*
