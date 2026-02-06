@@ -46,3 +46,14 @@ node_modules/
 # IDE
 .idea/
 .vscode/
+
+# Local Claude/Agent config (auto-generated, not project content)
+.agent/
+.agents/
+.claude/
+skills/
+
+# Raw footage and large media folders
+content/edited/
+content/raw/
+content/catalog/thumbnails/
