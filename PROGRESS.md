@@ -189,12 +189,28 @@
 - ✅ Created WEEK1_CALENDAR.md - complete 7-day plan with exact IST times, captions, hashtags
 - ✅ Fixed all Copenhagen→Koh Phangan references in carousel + stories
 
+**Part 4 - Voice Clone Investigation & Fix:**
+- ✅ Created 2 new voice clones: "Kaniel Hebrew" + "Kaniel English" (instant clones)
+- ❌ Discovery: ALL instant cloned voices output Arabic instead of Hebrew
+- ✅ Root cause found: v4 voiceover used "Daniel - Steady Broadcaster" STOCK voice, not a clone
+- ✅ Fixed .env: HEBREW_VOICE_ID → `onwK4e9ZLuTAKqWW03F9` (Daniel stock voice that works)
+- ✅ English clone works fine: `duUqDReVdqn6GSBDvz3d`
+- ✅ Created VOICE_CLONE_RECORDING_GUIDE.md (30 min Hebrew + 30 min English scripts)
+- 🔜 Professional Voice Clone: User will record with microphone → submit PVC to ElevenLabs (3-4 week training)
+
+**Voice Clone Status:**
+| Language | Current Solution | Permanent Fix |
+|----------|-----------------|---------------|
+| 🇮🇱 Hebrew | Daniel stock voice (works well) | PVC when ready (~3-4 weeks) |
+| 🇺🇸 English | Kaniel English instant clone | PVC when ready (~3-4 weeks) |
+
 **Next Steps:**
 1. 🚀 **SCHEDULE & PUBLISH** - upload 5 videos + carousel to getLate.dev
 2. 📸 **SCREENSHOT CAROUSEL** - open carousel_001_framework.html, screenshot each slide for IG
 3. 📱 **UPDATE INSTAGRAM** - Bio, pin 3 posts, DM keyword strategy
 4. 🎬 **FILM FOR WEEK 2** - Screen recordings (SR1-SR5) + B-Roll for 005/006
 5. 🔧 **PRODUCE 005 + 006** - combine new B-Roll with voiceovers
+6. 🎤 **RECORD PVC SAMPLES** - 60 min with microphone (see VOICE_CLONE_RECORDING_GUIDE.md)
 
 ---
 
