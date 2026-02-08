@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 AI Assistants Every Business Owner Needs | Kaniel Tordjman</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0A0A0A',
+            secondary: '#1A1A1A',
+            card: '#242424',
+            accent: '#0066FF',
+            'accent-light': '#3385FF',
+            'text-primary': '#FFFFFF',
+            'text-secondary': '#A0A0A0',
+          },
+          fontFamily: {
+            heebo: ['Heebo', 'sans-serif'],
+            inter: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0A0A0A;
+      color: #FFFFFF;
+      -webkit-font-smoothing: antialiased;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 40px 48px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .page-number {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #A0A0A0;
+      font-size: 12px;
+    }
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: #0066FF;
+      border-radius: 2px;
+    }
+    .glow-box {
+      border: 1px solid rgba(0, 102, 255, 0.3);
+      box-shadow: 0 0 20px rgba(0, 102, 255, 0.1);
+    }
+    .stat-card {
+      background: linear-gradient(135deg, #1A1A1A 0%, #242424 100%);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .icon-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(0, 102, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .step-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #0066FF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(0, 102, 255, 0.15);
+      color: #3385FF;
+    }
+    .quote-bar {
+      border-left: 3px solid #0066FF;
+      padding-left: 16px;
+    }
+    @media print {
+      body { background: #0A0A0A !important; color: #FFFFFF !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page { page-break-after: always; margin: 0; padding: 40px 48px; }
+      .page:last-child { page-break-after: avoid; }
+      .no-print { display: none !important; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    }
+    @media screen and (max-width: 800px) {
+      .page { width: 100%; min-height: auto; padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Save as PDF Button -->
+<div class="no-print fixed top-4 left-1/2 -translate-x-1/2 z-50 flex gap-3">
+  <button onclick="window.print()" class="bg-accent hover:bg-accent-light text-white font-inter font-bold px-6 py-3 rounded-xl shadow-lg transition-all hover:scale-105 flex items-center gap-2">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    Save as PDF
+  </button>
+  <a href="he.html" class="bg-secondary hover:bg-card text-white font-inter font-medium px-4 py-3 rounded-xl border border-white/10 transition-all">HE</a>
+  <a href="es.html" class="bg-secondary hover:bg-card text-white font-inter font-medium px-4 py-3 rounded-xl border border-white/10 transition-all">ES</a>
+</div>
+
+<!-- ==================== PAGE 1: COVER ==================== -->
+<div class="page items-center justify-center text-center">
+  <div class="mb-8">
+    <span class="tag">Free Guide | 2026</span>
+  </div>
+
+  <!-- Profile Photo Placeholder -->
+  <div class="w-28 h-28 rounded-full border-4 border-accent bg-card mx-auto mb-8 flex items-center justify-center">
+    <span class="text-4xl">K</span>
+  </div>
+
+  <h1 class="text-5xl font-black leading-tight mb-6">
+    5 AI Assistants<br>
+    <span class="text-accent">Every Business Owner Needs</span>
+  </h1>
+
+  <div class="divider mx-auto mb-6"></div>
+
+  <p class="text-xl text-text-secondary max-w-md mx-auto mb-8 leading-relaxed">
+    The practical guide for entrepreneurs who want to<br>
+    <span class="text-white font-bold">save 2-3 hours every day</span>
+  </p>
+
+  <div class="mt-auto pt-12">
+    <p class="text-lg font-semibold mb-1">Kaniel Tordjman</p>
+    <p class="text-text-secondary text-sm tracking-wide">KOH PHANGAN, THAILAND | 2026</p>
+  </div>
+
+  <span class="page-number">1</span>
+</div>
+
+<!-- ==================== PAGE 2: INTRODUCTION ==================== -->
+<div class="page">
+  <div class="mb-2">
+    <span class="tag">Introduction</span>
+  </div>
+  <h2 class="text-3xl font-bold mb-6">Who Is This Guide For?</h2>
+  <div class="divider mb-8"></div>
+
+  <div class="stat-card rounded-2xl p-6 mb-6">
+    <p class="text-lg leading-relaxed text-text-secondary">
+      If you're a <span class="text-white font-semibold">business owner, entrepreneur, or freelancer</span> aged 30-45 who feels like you're running all day but never actually moving forward - this guide is for you.
+    </p>
+    <p class="text-lg leading-relaxed text-text-secondary mt-3">
+      If you know AI can help but <span class="text-white font-semibold">don't know where to start</span> - this guide is for you.
+    </p>
+  </div>
+
+  <h3 class="text-xl font-bold mb-4 text-accent">My Story in 30 Seconds</h3>
+  <div class="quote-bar mb-6">
+    <p class="text-text-secondary leading-relaxed">
+      I served in an IDF Special Unit, built a solar energy company to <span class="text-white font-semibold">$3M in annual revenue</span>, survived October 7th and lost my brother Avidan. Today I live with my family in Koh Phangan, Thailand - rebuilding my entire life and business as <span class="text-accent font-semibold">AI First</span>.
+    </p>
+  </div>
+
+  <h3 class="text-xl font-bold mb-4">What You'll Learn</h3>
+  <div class="space-y-3 mb-8">
+    <div class="flex items-start gap-3">
+      <div class="icon-circle text-sm">1</div>
+      <p class="text-text-secondary pt-2"><span class="text-white font-semibold">5 assistants I actually use every day</span> - not theory, practice</p>
+    </div>
+    <div class="flex items-start gap-3">
+      <div class="icon-circle text-sm">2</div>
+      <p class="text-text-secondary pt-2"><span class="text-white font-semibold">How each one saves 30-60 minutes</span> - totaling 2-3 hours per day</p>
+    </div>
+    <div class="flex items-start gap-3">
+      <div class="icon-circle text-sm">3</div>
+      <p class="text-text-secondary pt-2"><span class="text-white font-semibold">3 steps to get started with each</span> - simple, clear, today</p>
+    </div>
+  </div>
+
+  <div class="glow-box rounded-2xl p-6 bg-card mt-auto">
+    <p class="text-lg font-bold text-center mb-2">
+      By the end of this guide, you'll know exactly how to start.
+    </p>
+    <p class="text-text-secondary text-center">
+      No BS. No "maybe someday." Today.
+    </p>
+  </div>
+
+  <span class="page-number">2</span>
+</div>
+
+<!-- ==================== PAGE 3: ASSISTANT #1 - NEWS (Part 1) ==================== -->
+<div class="page">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="tag">Assistant #1</span>
+    <span class="text-text-secondary text-sm">Page 3 of 15</span>
+  </div>
+  <div class="flex items-center gap-4 mb-6">
+    <div class="icon-circle text-2xl">📰</div>
+    <h2 class="text-3xl font-bold">News & Information Assistant</h2>
+  </div>
+  <div class="divider mb-8"></div>
+
+  <!-- The Pain -->
+  <div class="stat-card rounded-2xl p-6 mb-6">
+    <p class="text-sm text-accent font-bold mb-2 tracking-wide">THE PAIN</p>
+    <p class="text-lg leading-relaxed">
+      You start every morning scrolling through <span class="text-white font-bold">10 different websites</span>. CNN, TechCrunch, Twitter, Reddit, industry blogs... You just want to know what's happening, and <span class="text-accent font-bold">45 minutes vanish</span>. Every. Morning.
+    </p>
+    <p class="text-text-secondary mt-2">
+      And after all that scrolling? You're still not sure you didn't miss something important.
+    </p>
+  </div>
+
+  <!-- The Solution -->
+  <h3 class="text-xl font-bold mb-3 text-accent">The Solution</h3>
+  <p class="text-text-secondary leading-relaxed mb-6">
+    An AI assistant that reads <span class="text-white">all your news sources</span>, filters what's relevant, and delivers a personalized summary - in whatever format works for you. Text, audio, or a full podcast.
+  </p>
+
+  <!-- How Kaniel Uses It -->
+  <div class="glow-box rounded-2xl p-6 mb-6 bg-card">
+    <p class="text-sm text-accent font-bold mb-2">How I Actually Use This</p>
+    <p class="text-lg leading-relaxed">
+      "Every morning at 7:00 AM, I get a <span class="text-white font-bold">personalized podcast</span> with everything I need to know - news, market updates, tech trends. In my language. <span class="text-accent">The agent even sends it to my WhatsApp.</span>"
+    </p>
+  </div>
+
+  <!-- Mock Screenshot -->
+  <div class="bg-secondary rounded-xl p-5 border border-white/5">
+    <div class="flex items-center gap-3 mb-3">
+      <div class="w-3 h-3 rounded-full bg-green-500"></div>
+      <span class="text-sm text-text-secondary">WhatsApp - Morning Briefing</span>
+      <span class="text-xs text-text-secondary ml-auto">07:00 AM</span>
+    </div>
+    <div class="bg-card rounded-lg p-4 text-sm space-y-2">
+      <p class="font-bold">🌅 Morning Briefing | Thursday, Feb 6, 2026</p>
+      <p class="text-text-secondary">📊 <span class="text-white">Markets:</span> S&P +0.8%, NASDAQ +1.2%, BTC $98K</p>
+      <p class="text-text-secondary">🌍 <span class="text-white">World:</span> EU passes new AI regulation framework...</p>
+      <p class="text-text-secondary">🤖 <span class="text-white">Tech:</span> Claude 5 released, Gemini 3 in beta...</p>
+      <p class="text-text-secondary">☀️ <span class="text-white">Solar:</span> New 500MW tender announced, prices down 3%</p>
+      <p class="text-accent mt-2">🎧 Listen to full podcast (8 min) →</p>
+    </div>
+  </div>
+
+  <span class="page-number">3</span>
+</div>
+
+<!-- ==================== PAGE 4: ASSISTANT #1 - NEWS (Part 2) ==================== -->
+<div class="page">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="tag">Assistant #1 - Setup</span>
+  </div>
+  <h3 class="text-2xl font-bold mb-6">📰 How to Get Started in 3 Steps</h3>
+  <div class="divider mb-8"></div>
+
+  <div class="space-y-6 mb-8">
+    <!-- Step 1 -->
+    <div class="flex gap-4">
+      <div class="step-number">1</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">Choose Your Sources</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          List every website, newsletter, and topic you follow. Be specific:
+        </p>
+        <div class="bg-card rounded-xl p-4 text-sm">
+          <p class="text-text-secondary"><span class="text-accent">✦</span> General news: CNN, BBC, Bloomberg</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> Tech: TechCrunch, The Verge, Hacker News</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> Industry-specific: Your niche publications</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> Social: Twitter lists, Reddit subreddits</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="flex gap-4">
+      <div class="step-number">2</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">Set Up Your Prompt</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          Give Claude or ChatGPT these instructions (customize for yourself):
+        </p>
+        <div class="bg-card rounded-xl p-4 text-sm">
+          <p class="text-accent mb-1">// Daily Briefing Prompt</p>
+          <p class="text-text-secondary">"Scan these sources: [your list]</p>
+          <p class="text-text-secondary">Filter for: [your topics of interest]</p>
+          <p class="text-text-secondary">Summarize in casual, direct tone</p>
+          <p class="text-text-secondary">Format: emoji + category + one-liner</p>
+          <p class="text-text-secondary">Max 10 items, ranked by relevance to me"</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="flex gap-4">
+      <div class="step-number">3</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">Automate Delivery</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          Choose how you want to receive your briefing:
+        </p>
+        <div class="grid grid-cols-3 gap-3">
+          <div class="bg-card rounded-xl p-3 text-center">
+            <p class="text-2xl mb-1">📱</p>
+            <p class="text-xs text-text-secondary">WhatsApp</p>
+            <p class="text-xs text-accent">Most convenient</p>
+          </div>
+          <div class="bg-card rounded-xl p-3 text-center">
+            <p class="text-2xl mb-1">📧</p>
+            <p class="text-xs text-text-secondary">Email</p>
+            <p class="text-xs text-accent">For reading</p>
+          </div>
+          <div class="bg-card rounded-xl p-3 text-center">
+            <p class="text-2xl mb-1">🎧</p>
+            <p class="text-xs text-text-secondary">Podcast</p>
+            <p class="text-xs text-accent">On the go</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Time Saved -->
+  <div class="glow-box rounded-2xl p-5 bg-card mt-auto">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-sm text-text-secondary mb-1">Time Saved</p>
+        <p class="text-3xl font-black text-accent">~45 min <span class="text-lg text-text-secondary font-normal">/ day</span></p>
+      </div>
+      <div class="text-center">
+        <p class="text-4xl">⏰</p>
+        <p class="text-xs text-text-secondary mt-1">Every morning</p>
+      </div>
+    </div>
+  </div>
+
+  <span class="page-number">4</span>
+</div>
+
+<!-- ==================== PAGE 5: ASSISTANT #2 - FITNESS (Part 1) ==================== -->
+<div class="page">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="tag">Assistant #2</span>
+  </div>
+  <div class="flex items-center gap-4 mb-6">
+    <div class="icon-circle text-2xl">🏋️</div>
+    <h2 class="text-3xl font-bold">Fitness & Nutrition Assistant</h2>
+  </div>
+  <div class="divider mb-8"></div>
+
+  <!-- The Pain -->
+  <div class="stat-card rounded-2xl p-6 mb-6">
+    <p class="text-sm text-accent font-bold mb-2 tracking-wide">THE PAIN</p>
+    <p class="text-lg leading-relaxed">
+      You know you should work out and eat right. But <span class="text-white font-bold">planning takes forever</span>. What to eat today? What's the workout? What goes on the grocery list? And by Tuesday you've had pizza twice because "there was no time to plan."
+    </p>
+  </div>
+
+  <!-- The Solution -->
+  <h3 class="text-xl font-bold mb-3 text-accent">The Solution</h3>
+  <p class="text-text-secondary leading-relaxed mb-6">
+    An AI assistant that knows <span class="text-white">your goals, your constraints, and your preferences</span> - and generates weekly training plans, personalized meal plans, and automated grocery lists.
+  </p>
+
+  <!-- How Kaniel Uses It -->
+  <div class="glow-box rounded-2xl p-6 mb-6 bg-card">
+    <p class="text-sm text-accent font-bold mb-2">How I Actually Use This</p>
+    <p class="text-lg leading-relaxed">
+      "I train Muay Thai 4 times a week plus gym twice. The agent knows my schedule, adapts my workouts, and <span class="text-accent">generates a weekly grocery list</span> that arrives on WhatsApp every Sunday morning."
+    </p>
+  </div>
+
+  <!-- Before/After -->
+  <div class="grid grid-cols-2 gap-4 mb-6">
+    <div class="bg-card rounded-xl p-5 border border-red-500/20">
+      <p class="text-red-400 font-bold text-sm mb-3">Before</p>
+      <div class="space-y-2 text-sm text-text-secondary">
+        <p>🤯 "What to eat?" every single meal</p>
+        <p>🛒 Going to the store with no list</p>
+        <p>😅 Skipping workouts constantly</p>
+        <p>📱 Googling "workout plan" every Monday</p>
+        <p>🍕 Default = junk food</p>
+      </div>
+    </div>
+    <div class="bg-card rounded-xl p-5 border border-green-500/20">
+      <p class="text-green-400 font-bold text-sm mb-3">After</p>
+      <div class="space-y-2 text-sm text-text-secondary">
+        <p>📋 Weekly meal plan ready to go</p>
+        <p>🛒 Auto-generated grocery list</p>
+        <p>💪 Every workout planned in advance</p>
+        <p>📊 Progress tracked automatically</p>
+        <p>🥗 Healthy eating = the default</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-secondary rounded-xl p-4 border border-accent/20">
+    <p class="text-sm"><span class="text-accent font-bold">Pro tip:</span> <span class="text-text-secondary">Start with foods you already enjoy. Let the AI optimize, not reinvent from scratch. That's how it actually sticks.</span></p>
+  </div>
+
+  <span class="page-number">5</span>
+</div>
+
+<!-- ==================== PAGE 6: ASSISTANT #2 - FITNESS (Part 2) ==================== -->
+<div class="page">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="tag">Assistant #2 - Setup</span>
+  </div>
+  <h3 class="text-2xl font-bold mb-6">🏋️ How to Get Started in 3 Steps</h3>
+  <div class="divider mb-8"></div>
+
+  <div class="space-y-6 mb-8">
+    <!-- Step 1 -->
+    <div class="flex gap-4">
+      <div class="step-number">1</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">Tell the AI About Yourself</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          Give it full context - goals, constraints, preferences, and available time:
+        </p>
+        <div class="bg-card rounded-xl p-4 text-sm">
+          <p class="text-text-secondary"><span class="text-accent">✦</span> Goal: lose weight / build muscle / endurance</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> Constraints: allergies, injuries, equipment available</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> Time: how many days per week, how many minutes</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> Preferences: favorite foods, training style</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="flex gap-4">
+      <div class="step-number">2</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">Get a Weekly Plan</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          Ask for a complete weekly plan - workouts + nutrition + grocery list:
+        </p>
+        <div class="bg-card rounded-xl p-4 text-sm">
+          <p class="text-accent mb-1">// Weekly Plan Prompt</p>
+          <p class="text-text-secondary">"Based on my profile, create:</p>
+          <p class="text-text-secondary">1. Weekly training plan (Mon-Fri)</p>
+          <p class="text-text-secondary">2. Daily meal plan (3 meals + 2 snacks)</p>
+          <p class="text-text-secondary">3. Shopping list for the whole week</p>
+          <p class="text-text-secondary">Keep it practical and simple."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="flex gap-4">
+      <div class="step-number">3</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">Make It a Routine</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          Set up automated reminders that work for you:
+        </p>
+        <div class="space-y-2">
+          <div class="bg-card rounded-lg p-3 flex items-center gap-3">
+            <span class="text-accent text-xl">🌅</span>
+            <div>
+              <p class="text-sm font-bold">Sunday Morning</p>
+              <p class="text-xs text-text-secondary">Weekly grocery list → WhatsApp</p>
+            </div>
+          </div>
+          <div class="bg-card rounded-lg p-3 flex items-center gap-3">
+            <span class="text-accent text-xl">💪</span>
+            <div>
+              <p class="text-sm font-bold">Every Morning 6:30 AM</p>
+              <p class="text-xs text-text-secondary">Today's workout + meals → WhatsApp</p>
+            </div>
+          </div>
+          <div class="bg-card rounded-lg p-3 flex items-center gap-3">
+            <span class="text-accent text-xl">📊</span>
+            <div>
+              <p class="text-sm font-bold">Friday Evening</p>
+              <p class="text-xs text-text-secondary">Weekly summary + adjustments → WhatsApp</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Time Saved -->
+  <div class="glow-box rounded-2xl p-5 bg-card mt-auto">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-sm text-text-secondary mb-1">Time Saved</p>
+        <p class="text-3xl font-black text-accent">~30 min <span class="text-lg text-text-secondary font-normal">/ day</span></p>
+      </div>
+      <div class="text-center">
+        <p class="text-4xl">💪</p>
+        <p class="text-xs text-text-secondary mt-1">Every day</p>
+      </div>
+    </div>
+  </div>
+
+  <span class="page-number">6</span>
+</div>
+
+<!-- ==================== PAGE 7: ASSISTANT #3 - TASKS (Part 1) ==================== -->
+<div class="page">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="tag">Assistant #3</span>
+  </div>
+  <div class="flex items-center gap-4 mb-6">
+    <div class="icon-circle text-2xl">📋</div>
+    <h2 class="text-3xl font-bold">Task & Project Manager</h2>
+  </div>
+  <div class="divider mb-8"></div>
+
+  <!-- The Pain -->
+  <div class="stat-card rounded-2xl p-6 mb-6">
+    <p class="text-sm text-accent font-bold mb-2 tracking-wide">THE PAIN</p>
+    <p class="text-lg leading-relaxed">
+      Everything is in your head. Or in WhatsApp messages that got buried. Or in Notes you haven't opened in a month. You have <span class="text-white font-bold">47 open tasks</span> and you don't know what's urgent vs. what's important. All day you're <span class="text-accent font-bold">fighting fires</span> instead of building.
+    </p>
+  </div>
+
+  <!-- The Solution -->
+  <h3 class="text-xl font-bold mb-3 text-accent">The Solution</h3>
+  <p class="text-text-secondary leading-relaxed mb-6">
+    An AI assistant that captures <span class="text-white">every task, idea, or note</span> from anywhere - voice, text, WhatsApp - organizes it into the right project with the right priority, and reminds you what actually matters today.
+  </p>
+
+  <!-- How Kaniel Uses It -->
+  <div class="glow-box rounded-2xl p-6 mb-6 bg-card">
+    <p class="text-sm text-accent font-bold mb-2">How I Actually Use This</p>
+    <p class="text-lg leading-relaxed">
+      "I say 'add task' and it goes to the right project with the right priority. Every morning I get <span class="text-accent">3 main tasks for today</span>. Not 47. Three. And in the evening - a summary of what I actually accomplished."
+    </p>
+  </div>
+
+  <!-- The System Visual -->
+  <div class="bg-secondary rounded-xl p-5 border border-white/5 mb-6">
+    <p class="text-sm text-text-secondary mb-4 font-bold">What it looks like in practice:</p>
+    <div class="space-y-3">
+      <div class="bg-card rounded-lg p-3 flex items-center gap-3">
+        <span class="text-yellow-400">🟡</span>
+        <div class="flex-1">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-bold">Close invoice #4521 with client</p>
+            <span class="text-xs bg-red-500/20 text-red-400 px-2 py-0.5 rounded">Urgent</span>
+          </div>
+          <p class="text-xs text-text-secondary">Business > Navitas > Invoices</p>
+        </div>
+      </div>
+      <div class="bg-card rounded-lg p-3 flex items-center gap-3">
+        <span class="text-green-400">🟢</span>
+        <div class="flex-1">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-bold">Film Reel about AI assistants</p>
+            <span class="text-xs bg-accent/20 text-accent px-2 py-0.5 rounded">Important</span>
+          </div>
+          <p class="text-xs text-text-secondary">Content > Instagram > Reels</p>
+        </div>
+      </div>
+      <div class="bg-card rounded-lg p-3 flex items-center gap-3">
+        <span class="text-blue-400">🔵</span>
+        <div class="flex-1">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-bold">Buy magnesium + vitamin D</p>
+            <span class="text-xs bg-white/10 text-text-secondary px-2 py-0.5 rounded">Normal</span>
+          </div>
+          <p class="text-xs text-text-secondary">Personal > Health > Supplements</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-secondary rounded-xl p-4 border border-accent/20">
+    <p class="text-sm"><span class="text-accent font-bold">The principle:</span> <span class="text-text-secondary">Your head should be empty. Everything in your head should be in the system. That's how you're free to think, not to remember.</span></p>
+  </div>
+
+  <span class="page-number">7</span>
+</div>
+
+<!-- ==================== PAGE 8: ASSISTANT #3 - TASKS (Part 2) ==================== -->
+<div class="page">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="tag">Assistant #3 - Setup</span>
+  </div>
+  <h3 class="text-2xl font-bold mb-6">📋 How to Get Started in 3 Steps</h3>
+  <div class="divider mb-8"></div>
+
+  <div class="space-y-6 mb-8">
+    <!-- Step 1 -->
+    <div class="flex gap-4">
+      <div class="step-number">1</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">Pick a Simple System</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          Don't overcomplicate it. Pick one and start:
+        </p>
+        <div class="grid grid-cols-3 gap-3">
+          <div class="bg-card rounded-xl p-3 text-center">
+            <p class="text-lg mb-1">Todoist</p>
+            <p class="text-xs text-text-secondary">Simple, fast</p>
+            <p class="text-xs text-accent">Best for beginners</p>
+          </div>
+          <div class="bg-card rounded-xl p-3 text-center">
+            <p class="text-lg mb-1">Notion</p>
+            <p class="text-xs text-text-secondary">Flexible, powerful</p>
+            <p class="text-xs text-accent">For power users</p>
+          </div>
+          <div class="bg-card rounded-xl p-3 text-center">
+            <p class="text-lg mb-1">Files</p>
+            <p class="text-xs text-text-secondary">Plain text files</p>
+            <p class="text-xs text-accent">Simplest option</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="flex gap-4">
+      <div class="step-number">2</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">Create a Capture Method</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          Every idea, task, or note needs to get into the system within 5 seconds:
+        </p>
+        <div class="bg-card rounded-xl p-4 text-sm space-y-2">
+          <p class="text-text-secondary"><span class="text-accent">✦</span> <span class="text-white">Voice message</span> - Tell the AI "add task: follow up with client on proposal"</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> <span class="text-white">WhatsApp</span> - Send to yourself or a bot, the AI sorts it</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> <span class="text-white">Quick text</span> - Phone shortcut that adds directly</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="flex gap-4">
+      <div class="step-number">3</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">Set Up a Daily Review</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          Every morning, the AI sends you a task briefing:
+        </p>
+        <div class="bg-card rounded-xl p-4 text-sm">
+          <p class="font-bold text-white mb-2">📋 Morning Task Briefing</p>
+          <p class="text-text-secondary mb-1"><span class="text-red-400">🔴</span> Urgent (must do today): 1 task</p>
+          <p class="text-text-secondary mb-1"><span class="text-accent">🔵</span> Important (should do today): 2 tasks</p>
+          <p class="text-text-secondary mb-1"><span class="text-text-secondary">⚪</span> Waiting: 8 tasks (not urgent)</p>
+          <p class="text-accent mt-2">→ Today's focus: Close invoice + Film the Reel</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Time Saved -->
+  <div class="glow-box rounded-2xl p-5 bg-card mt-auto">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-sm text-text-secondary mb-1">Time Saved</p>
+        <p class="text-3xl font-black text-accent">~30 min <span class="text-lg text-text-secondary font-normal">/ day</span></p>
+      </div>
+      <div class="text-center">
+        <p class="text-4xl">🧠</p>
+        <p class="text-xs text-text-secondary mt-1">+ clear head</p>
+      </div>
+    </div>
+  </div>
+
+  <span class="page-number">8</span>
+</div>
+
+<!-- ==================== PAGE 9: ASSISTANT #4 - FINANCE (Part 1) ==================== -->
+<div class="page">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="tag">Assistant #4</span>
+  </div>
+  <div class="flex items-center gap-4 mb-6">
+    <div class="icon-circle text-2xl">💰</div>
+    <h2 class="text-3xl font-bold">Finance & Bills Assistant</h2>
+  </div>
+  <div class="divider mb-8"></div>
+
+  <!-- The Pain -->
+  <div class="stat-card rounded-2xl p-6 mb-6">
+    <p class="text-sm text-accent font-bold mb-2 tracking-wide">THE PAIN</p>
+    <p class="text-lg leading-relaxed">
+      Invoices, payments, refunds, taxes, accountant reports... <span class="text-white font-bold">Something always slips through</span>. Paid twice? Forgot an invoice? Unnecessary penalty because you missed a deadline? This happens to <span class="text-accent">every</span> business owner.
+    </p>
+  </div>
+
+  <!-- The Solution -->
+  <h3 class="text-xl font-bold mb-3 text-accent">The Solution</h3>
+  <p class="text-text-secondary leading-relaxed mb-6">
+    An AI assistant that tracks <span class="text-white">every payment, invoice, and deadline</span>, reminds you before something slips, and even drafts financial emails for you.
+  </p>
+
+  <!-- How Kaniel Uses It -->
+  <div class="glow-box rounded-2xl p-6 mb-6 bg-card">
+    <p class="text-sm text-accent font-bold mb-2">How I Actually Use This</p>
+    <p class="text-lg leading-relaxed">
+      "My agent tracks every invoice in my solar company, reminds me about tax deadlines, and <span class="text-accent">handles refund requests automatically</span>. I stopped paying penalties for late payments."
+    </p>
+  </div>
+
+  <!-- Financial Dashboard Mock -->
+  <div class="bg-secondary rounded-xl p-5 border border-white/5 mb-6">
+    <p class="text-sm text-text-secondary mb-3 font-bold">Monthly Summary - January 2026</p>
+    <div class="grid grid-cols-2 gap-3 mb-3">
+      <div class="bg-card rounded-lg p-3">
+        <p class="text-xs text-text-secondary">Revenue</p>
+        <p class="text-lg font-bold text-green-400">$24,200</p>
+      </div>
+      <div class="bg-card rounded-lg p-3">
+        <p class="text-xs text-text-secondary">Expenses</p>
+        <p class="text-lg font-bold text-red-400">$9,400</p>
+      </div>
+    </div>
+    <div class="space-y-2">
+      <div class="bg-card rounded-lg p-3 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-yellow-400">⚠️</span>
+          <p class="text-sm">Quarterly tax - deadline Feb 15</p>
+        </div>
+        <span class="text-xs text-accent">In 9 days</span>
+      </div>
+      <div class="bg-card rounded-lg p-3 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-green-400">✅</span>
+          <p class="text-sm">Invoice #4520 - Paid</p>
+        </div>
+        <span class="text-xs text-text-secondary">Feb 2</span>
+      </div>
+      <div class="bg-card rounded-lg p-3 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-red-400">🔴</span>
+          <p class="text-sm">Invoice #4521 - Awaiting payment</p>
+        </div>
+        <span class="text-xs text-red-400">3 days overdue</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-secondary rounded-xl p-4 border border-accent/20">
+    <p class="text-sm"><span class="text-accent font-bold">The principle:</span> <span class="text-text-secondary">There's no reason a human should remember deadlines. That's exactly what AI does best - never forgets, never misses, never procrastinates.</span></p>
+  </div>
+
+  <span class="page-number">9</span>
+</div>
+
+<!-- ==================== PAGE 10: ASSISTANT #4 - FINANCE (Part 2) ==================== -->
+<div class="page">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="tag">Assistant #4 - Setup</span>
+  </div>
+  <h3 class="text-2xl font-bold mb-6">💰 How to Get Started in 3 Steps</h3>
+  <div class="divider mb-8"></div>
+
+  <div class="space-y-6 mb-8">
+    <!-- Step 1 -->
+    <div class="flex gap-4">
+      <div class="step-number">1</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">Map All Recurring Payments</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          Sit down for 20 minutes and list everything. Every monthly, quarterly, and annual payment:
+        </p>
+        <div class="bg-card rounded-xl p-4 text-sm space-y-2">
+          <p class="text-text-secondary"><span class="text-accent">✦</span> Rent, utilities, internet, phone</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> Insurance (health, car, business)</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> Subscriptions (SaaS, Spotify, gym)</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> Taxes (quarterly, annual)</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> Loans, leases, repayments</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="flex gap-4">
+      <div class="step-number">2</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">Set Up Automated Reminders</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          For every payment - a reminder 3 days before + on the day:
+        </p>
+        <div class="bg-card rounded-xl p-4 text-sm">
+          <p class="text-accent mb-1">// Finance Reminder Prompt</p>
+          <p class="text-text-secondary">"Here are my recurring payments:</p>
+          <p class="text-text-secondary">[paste your list]</p>
+          <p class="text-text-secondary">Send me reminders 3 days before</p>
+          <p class="text-text-secondary">and on the due date.</p>
+          <p class="text-text-secondary">Monthly summary on the 1st.</p>
+          <p class="text-text-secondary">Flag anything overdue immediately."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="flex gap-4">
+      <div class="step-number">3</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">Create Communication Templates</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          Let the AI draft your most common financial emails:
+        </p>
+        <div class="space-y-2">
+          <div class="bg-card rounded-lg p-3 flex items-center gap-3">
+            <span class="text-accent text-lg">📧</span>
+            <div>
+              <p class="text-sm font-bold">Payment reminder to client</p>
+              <p class="text-xs text-text-secondary">"Hi [name], just a friendly reminder about invoice #..."</p>
+            </div>
+          </div>
+          <div class="bg-card rounded-lg p-3 flex items-center gap-3">
+            <span class="text-accent text-lg">📧</span>
+            <div>
+              <p class="text-sm font-bold">Refund request</p>
+              <p class="text-xs text-text-secondary">"Dear [company], I'd like to request a refund for..."</p>
+            </div>
+          </div>
+          <div class="bg-card rounded-lg p-3 flex items-center gap-3">
+            <span class="text-accent text-lg">📧</span>
+            <div>
+              <p class="text-sm font-bold">Documents to accountant</p>
+              <p class="text-xs text-text-secondary">"Hi [name], attached are the documents for..."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Time Saved -->
+  <div class="glow-box rounded-2xl p-5 bg-card mt-auto">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-sm text-text-secondary mb-1">Time Saved</p>
+        <p class="text-3xl font-black text-accent">~20 min <span class="text-lg text-text-secondary font-normal">/ day</span></p>
+      </div>
+      <div class="text-center">
+        <p class="text-4xl">💸</p>
+        <p class="text-xs text-text-secondary mt-1">+ zero penalties</p>
+      </div>
+    </div>
+  </div>
+
+  <span class="page-number">10</span>
+</div>
+
+<!-- ==================== PAGE 11: ASSISTANT #5 - CONTENT (Part 1) ==================== -->
+<div class="page">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="tag">Assistant #5</span>
+  </div>
+  <div class="flex items-center gap-4 mb-6">
+    <div class="icon-circle text-2xl">✍️</div>
+    <h2 class="text-3xl font-bold">Content & Communication</h2>
+  </div>
+  <div class="divider mb-8"></div>
+
+  <!-- The Pain -->
+  <div class="stat-card rounded-2xl p-6 mb-6">
+    <p class="text-sm text-accent font-bold mb-2 tracking-wide">THE PAIN</p>
+    <p class="text-lg leading-relaxed">
+      Need to write an email? A social post? A proposal? <span class="text-white font-bold">Starting from scratch every time</span>. You spend 30 minutes on an email that should take 3. A WhatsApp to a client? Another 15 minutes. Instagram post? <span class="text-accent">"I don't know what to write."</span>
+    </p>
+  </div>
+
+  <!-- The Solution -->
+  <h3 class="text-xl font-bold mb-3 text-accent">The Solution</h3>
+  <p class="text-text-secondary leading-relaxed mb-6">
+    An AI assistant that knows <span class="text-white">your style, your tone, and your audience</span> - and drafts emails, social posts, and proposals that sound like you. Not generic. Not robotic. <span class="text-white">Like you</span>.
+  </p>
+
+  <!-- How Kaniel Uses It -->
+  <div class="glow-box rounded-2xl p-6 mb-6 bg-card">
+    <p class="text-sm text-accent font-bold mb-2">How I Actually Use This</p>
+    <p class="text-lg leading-relaxed">
+      "I give raw thoughts - messy, half-sentences, stream of consciousness - and the agent writes in my style. Direct, no BS, casual but professional. <span class="text-accent">It learned how I write from 50 examples I fed it.</span>"
+    </p>
+  </div>
+
+  <!-- Example: Raw → Polished -->
+  <div class="grid grid-cols-2 gap-4">
+    <div class="bg-card rounded-xl p-5 border border-white/10">
+      <p class="text-text-secondary font-bold text-sm mb-3">What I Say</p>
+      <p class="text-sm text-text-secondary leading-relaxed italic">
+        "write email to client, needs to pay, two weeks late, be nice but firm about it, can't keep going like this..."
+      </p>
+    </div>
+    <div class="bg-card rounded-xl p-5 border border-accent/30">
+      <p class="text-accent font-bold text-sm mb-3">What Comes Out</p>
+      <p class="text-sm text-text-secondary leading-relaxed">
+        "Hey [name],<br><br>
+        Hope you're doing well! Just a heads up - invoice #4521 is still open, it's been about two weeks now.<br><br>
+        Would really appreciate if you could take care of it this week. If there's an issue, just let me know and we'll figure it out.<br><br>
+        Thanks, Kaniel"
+      </p>
+    </div>
+  </div>
+
+  <span class="page-number">11</span>
+</div>
+
+<!-- ==================== PAGE 12: ASSISTANT #5 - CONTENT (Part 2) ==================== -->
+<div class="page">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="tag">Assistant #5 - Setup</span>
+  </div>
+  <h3 class="text-2xl font-bold mb-6">✍️ How to Get Started in 3 Steps</h3>
+  <div class="divider mb-8"></div>
+
+  <div class="space-y-6 mb-6">
+    <!-- Step 1 -->
+    <div class="flex gap-4">
+      <div class="step-number">1</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">Teach the AI Your Style</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          This is the most important step. Give it 10-20 examples of how you write:
+        </p>
+        <div class="bg-card rounded-xl p-4 text-sm space-y-2">
+          <p class="text-text-secondary"><span class="text-accent">✦</span> 5 emails you've sent to clients</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> 5 long WhatsApp messages you've written</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> 3-5 social posts you've published (or wanted to)</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> 2-3 proposals or quotes you've written</p>
+        </div>
+        <p class="text-xs text-text-secondary mt-2">The more examples you provide, the more accurate the style becomes.</p>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="flex gap-4">
+      <div class="step-number">2</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">Create Templates for Recurring Communication</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          80% of your communication is repetitive. Build templates:
+        </p>
+        <div class="grid grid-cols-2 gap-2">
+          <div class="bg-card rounded-lg p-3 text-center text-sm">
+            <p class="text-accent font-bold">Emails</p>
+            <p class="text-xs text-text-secondary">Proposals, follow-ups, thanks, reminders</p>
+          </div>
+          <div class="bg-card rounded-lg p-3 text-center text-sm">
+            <p class="text-accent font-bold">WhatsApp</p>
+            <p class="text-xs text-text-secondary">Scheduling, updates, questions, confirmations</p>
+          </div>
+          <div class="bg-card rounded-lg p-3 text-center text-sm">
+            <p class="text-accent font-bold">Social</p>
+            <p class="text-xs text-text-secondary">Posts, stories, carousels, Reels</p>
+          </div>
+          <div class="bg-card rounded-lg p-3 text-center text-sm">
+            <p class="text-accent font-bold">Documents</p>
+            <p class="text-xs text-text-secondary">Reports, summaries, proposals, contracts</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="flex gap-4">
+      <div class="step-number">3</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">Set Up a Draft → Review → Send Workflow</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          Never send without reviewing. The flow:
+        </p>
+        <div class="flex items-center justify-center gap-2 bg-card rounded-xl p-4">
+          <div class="text-center">
+            <p class="text-2xl">🗣️</p>
+            <p class="text-xs text-text-secondary mt-1">Raw thought</p>
+          </div>
+          <p class="text-accent text-xl">→</p>
+          <div class="text-center">
+            <p class="text-2xl">🤖</p>
+            <p class="text-xs text-text-secondary mt-1">AI drafts</p>
+          </div>
+          <p class="text-accent text-xl">→</p>
+          <div class="text-center">
+            <p class="text-2xl">👁️</p>
+            <p class="text-xs text-text-secondary mt-1">You review (30s)</p>
+          </div>
+          <p class="text-accent text-xl">→</p>
+          <div class="text-center">
+            <p class="text-2xl">✅</p>
+            <p class="text-xs text-text-secondary mt-1">Send</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Time Saved -->
+  <div class="glow-box rounded-2xl p-5 bg-card mt-auto">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-sm text-text-secondary mb-1">Time Saved</p>
+        <p class="text-3xl font-black text-accent">~45 min <span class="text-lg text-text-secondary font-normal">/ day</span></p>
+      </div>
+      <div class="text-center">
+        <p class="text-4xl">✍️</p>
+        <p class="text-xs text-text-secondary mt-1">+ better communication</p>
+      </div>
+    </div>
+  </div>
+
+  <span class="page-number">12</span>
+</div>
+
+<!-- ==================== PAGE 13: SUMMARY ==================== -->
+<div class="page">
+  <div class="mb-2">
+    <span class="tag">Summary</span>
+  </div>
+  <h2 class="text-3xl font-bold mb-6">Five Assistants. 2-3 Hours of Freedom. Every Day.</h2>
+  <div class="divider mb-8"></div>
+
+  <!-- Summary Cards -->
+  <div class="space-y-3 mb-8">
+    <div class="stat-card rounded-xl p-4 flex items-center gap-4">
+      <div class="icon-circle">📰</div>
+      <div class="flex-1">
+        <p class="font-bold">News & Information</p>
+        <p class="text-sm text-text-secondary">Personalized briefing every morning</p>
+      </div>
+      <p class="text-accent font-bold text-lg">45 min</p>
+    </div>
+
+    <div class="stat-card rounded-xl p-4 flex items-center gap-4">
+      <div class="icon-circle">🏋️</div>
+      <div class="flex-1">
+        <p class="font-bold">Fitness & Nutrition</p>
+        <p class="text-sm text-text-secondary">Workouts, meals, grocery lists</p>
+      </div>
+      <p class="text-accent font-bold text-lg">30 min</p>
+    </div>
+
+    <div class="stat-card rounded-xl p-4 flex items-center gap-4">
+      <div class="icon-circle">📋</div>
+      <div class="flex-1">
+        <p class="font-bold">Task & Project Manager</p>
+        <p class="text-sm text-text-secondary">Capture, organize, prioritize automatically</p>
+      </div>
+      <p class="text-accent font-bold text-lg">30 min</p>
+    </div>
+
+    <div class="stat-card rounded-xl p-4 flex items-center gap-4">
+      <div class="icon-circle">💰</div>
+      <div class="flex-1">
+        <p class="font-bold">Finance & Bills</p>
+        <p class="text-sm text-text-secondary">Payment tracking, reminders, templates</p>
+      </div>
+      <p class="text-accent font-bold text-lg">20 min</p>
+    </div>
+
+    <div class="stat-card rounded-xl p-4 flex items-center gap-4">
+      <div class="icon-circle">✍️</div>
+      <div class="flex-1">
+        <p class="font-bold">Content & Communication</p>
+        <p class="text-sm text-text-secondary">Drafts in your style, ready templates</p>
+      </div>
+      <p class="text-accent font-bold text-lg">45 min</p>
+    </div>
+  </div>
+
+  <!-- Total -->
+  <div class="glow-box rounded-2xl p-6 bg-card mb-8">
+    <div class="text-center">
+      <p class="text-text-secondary mb-2">Total Time Saved</p>
+      <p class="text-5xl font-black text-accent mb-2">2-3 Hours</p>
+      <p class="text-xl text-white font-semibold">Every day = 15-20 hours per week</p>
+    </div>
+  </div>
+
+  <!-- Infographic -->
+  <div class="flex items-center justify-center gap-3 mb-6">
+    <span class="text-2xl">📰</span>
+    <span class="text-2xl">🏋️</span>
+    <span class="text-2xl">📋</span>
+    <span class="text-2xl">💰</span>
+    <span class="text-2xl">✍️</span>
+    <span class="text-accent text-2xl mx-2">→</span>
+    <span class="text-xl font-bold text-accent">2-3 hours of freedom / day</span>
+  </div>
+
+  <div class="quote-bar mt-auto">
+    <p class="text-lg text-text-secondary leading-relaxed">
+      "This isn't the future. This is right now. <span class="text-white font-bold">I live like this every day in Koh Phangan.</span> And you can start today - with just one assistant."
+    </p>
+  </div>
+
+  <span class="page-number">13</span>
+</div>
+
+<!-- ==================== PAGE 14: CTA ==================== -->
+<div class="page items-center justify-center text-center">
+  <div class="mb-6">
+    <span class="tag">Next Step</span>
+  </div>
+
+  <h2 class="text-3xl font-bold mb-4">Want to Learn How to Build<br><span class="text-accent">Your First AI Assistant?</span></h2>
+  <div class="divider mx-auto mb-8"></div>
+
+  <p class="text-lg text-text-secondary max-w-md mx-auto mb-8 leading-relaxed">
+    You've read the guide. Now it's time to do. In <span class="text-white font-bold">"Your First AI Assistant"</span> I teach you step by step how to build your first assistant - in just 30 minutes.
+  </p>
+
+  <!-- Course Card -->
+  <div class="glow-box rounded-2xl p-8 bg-card max-w-md mx-auto mb-8">
+    <h3 class="text-2xl font-bold mb-4 text-center">🎓 Your First AI Assistant</h3>
+    <div class="space-y-3 mb-6 text-left">
+      <div class="flex items-center gap-3">
+        <span class="text-accent">✅</span>
+        <p class="text-text-secondary">5 video lessons (30 min total)</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-accent">✅</span>
+        <p class="text-text-secondary">Complete PDF guide</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-accent">✅</span>
+        <p class="text-text-secondary">3 ready-to-use assistant templates</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-accent">✅</span>
+        <p class="text-text-secondary">50 winning prompts collection</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-accent">✅</span>
+        <p class="text-text-secondary">Private community access</p>
+      </div>
+    </div>
+    <div class="text-center">
+      <p class="text-4xl font-black text-accent mb-2">$27</p>
+      <p class="text-sm text-text-secondary mb-4">Less than a coffee a day for a month</p>
+      <a href="https://kaniel149.github.io/kaniel-landing/#/en" class="inline-block bg-accent hover:bg-accent-light text-white font-bold py-3 px-8 rounded-xl text-lg transition-all">
+        I Want to Start →
+      </a>
+    </div>
+  </div>
+
+  <!-- Scorecard -->
+  <div class="stat-card rounded-2xl p-6 max-w-md mx-auto">
+    <h3 class="text-xl font-bold mb-3">📊 Not Sure? Check First:</h3>
+    <p class="text-text-secondary mb-4">
+      How AI-ready is your business? Take the free assessment and get your score + personalized recommendations.
+    </p>
+    <a href="https://kaniel149.github.io/kaniel-scorecard/" class="inline-block border border-accent text-accent font-bold py-2 px-6 rounded-xl hover:bg-accent/10 transition-all">
+      Take the Assessment (2 min) →
+    </a>
+  </div>
+
+  <span class="page-number">14</span>
+</div>
+
+<!-- ==================== PAGE 15: ABOUT / BACK COVER ==================== -->
+<div class="page items-center justify-center text-center">
+  <!-- Profile -->
+  <div class="w-24 h-24 rounded-full border-4 border-accent bg-card mx-auto mb-6 flex items-center justify-center">
+    <span class="text-3xl">K</span>
+  </div>
+
+  <h2 class="text-2xl font-bold mb-2">Kaniel Tordjman</h2>
+  <p class="text-accent mb-6">Entrepreneur | AI-First Life Designer | Koh Phangan</p>
+
+  <div class="divider mx-auto mb-6"></div>
+
+  <p class="text-text-secondary max-w-md mx-auto leading-relaxed mb-8">
+    I served in an IDF Special Unit. Built a solar company to $3M in revenue. Survived October 7th and lost my younger brother. Today I'm rebuilding my life as AI First - from Koh Phangan, Thailand.
+  </p>
+
+  <p class="text-text-secondary max-w-md mx-auto leading-relaxed mb-8">
+    I believe every business owner can build a life on their own terms - with the right assistants. The agents are ready. The question is: are you?
+  </p>
+
+  <!-- Social Links -->
+  <div class="flex items-center justify-center gap-6 mb-8">
+    <div class="text-center">
+      <div class="w-14 h-14 rounded-xl bg-card border border-white/10 flex items-center justify-center mx-auto mb-2">
+        <span class="text-2xl">📸</span>
+      </div>
+      <p class="text-xs text-text-secondary">Instagram</p>
+      <p class="text-xs text-accent">@kaniel</p>
+    </div>
+    <div class="text-center">
+      <div class="w-14 h-14 rounded-xl bg-card border border-white/10 flex items-center justify-center mx-auto mb-2">
+        <span class="text-2xl">🌐</span>
+      </div>
+      <p class="text-xs text-text-secondary">Website</p>
+      <p class="text-xs text-accent">kaniel.dev</p>
+    </div>
+  </div>
+
+  <!-- QR Code Placeholder -->
+  <div class="w-28 h-28 rounded-xl bg-white mx-auto mb-4 flex items-center justify-center">
+    <p class="text-primary text-xs font-bold text-center">QR CODE<br>Instagram</p>
+  </div>
+  <p class="text-xs text-text-secondary mb-12">Scan to follow on Instagram</p>
+
+  <!-- Memorial -->
+  <div class="mt-auto border-t border-white/10 pt-6 max-w-md mx-auto">
+    <p class="text-text-secondary text-sm mb-2">
+      🕯️ In memory of <span class="text-white font-bold">Avidan Tordjman</span> z"l
+    </p>
+    <p class="text-text-secondary text-xs mb-4">
+      Murdered at the Nova Festival, October 7, 2023<br>
+      "The closest person to me in the world"
+    </p>
+    <div class="divider mx-auto mb-4"></div>
+    <p class="text-text-secondary text-xs">
+      Built with AI. Written from Koh Phangan, Thailand.
+    </p>
+    <p class="text-text-secondary text-xs mt-1">
+      &copy; 2026 Kaniel Tordjman. All rights reserved.
+    </p>
+  </div>
+
+  <span class="page-number">15</span>
+</div>
+
+</body>
+</html>

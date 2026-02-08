@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel 010 - Why I Moved My Family to a Thai Island</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Heebo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #111; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px; font-family: 'Inter', 'Heebo', sans-serif; }
+        .instructions { background: #1A1A1A; border: 1px solid #333; border-radius: 12px; padding: 24px 32px; color: #A0A0A0; font-size: 14px; max-width: 1080px; width: 100%; line-height: 1.6; }
+        .instructions strong { color: #0066FF; }
+        .slide-label { color: #555; font-size: 14px; font-family: monospace; margin-bottom: -30px; }
+        .slide {
+            width: 1080px; height: 1350px; background: #0A0A0A; position: relative; overflow: hidden;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; color: #FFFFFF; padding: 80px;
+        }
+        .slide::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 50% 80%, rgba(0,102,255,0.03) 0%, transparent 60%); pointer-events: none; z-index: 0; }
+        .slide > * { position: relative; z-index: 1; }
+        .dots { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 2; }
+        .dots .d { width: 10px; height: 10px; border-radius: 50%; background: #333; }
+        .dots .d.a { background: #0066FF; }
+        .swipe-hint { position: absolute; bottom: 80px; left: 50%; transform: translateX(-50%); color: #555; font-size: 18px; letter-spacing: 2px; text-transform: uppercase; z-index: 2; }
+        .divider { width: 80px; height: 4px; background: #0066FF; border-radius: 2px; margin: 28px 0; }
+        .accent { color: #0066FF; }
+        .label { font-size: 20px; font-weight: 700; color: #0066FF; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 36px; }
+        .title { font-size: 60px; font-weight: 900; line-height: 1.15; margin-bottom: 32px; max-width: 900px; }
+        .desc { font-size: 28px; color: #A0A0A0; line-height: 1.6; max-width: 780px; }
+        .quote-box { margin-top: 32px; background: #1A1A1A; border-radius: 16px; padding: 28px 40px; font-size: 26px; color: #fff; max-width: 780px; border-left: 4px solid #0066FF; font-style: italic; text-align: left; }
+
+        .cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 820px; width: 100%; }
+        .cost-card { background: #1A1A1A; border-radius: 16px; padding: 28px; text-align: center; }
+        .cost-item { font-size: 22px; color: #A0A0A0; margin-bottom: 8px; }
+        .cost-price { font-size: 32px; font-weight: 900; color: #0066FF; }
+
+        .kid-list { max-width: 780px; width: 100%; display: flex; flex-direction: column; gap: 20px; }
+        .kid-item { background: #1A1A1A; border-radius: 16px; padding: 24px 36px; display: flex; align-items: center; gap: 20px; text-align: left; }
+        .kid-name { font-size: 28px; font-weight: 700; }
+        .kid-detail { font-size: 22px; color: #A0A0A0; margin-top: 4px; }
+
+        .cta-title { font-size: 56px; font-weight: 900; line-height: 1.2; margin-bottom: 20px; }
+        .cta-handle { font-size: 36px; color: #0066FF; font-weight: 700; margin-top: 40px; }
+        .cta-sub { font-size: 26px; color: #A0A0A0; margin-top: 16px; line-height: 1.5; max-width: 700px; }
+    </style>
+</head>
+<body>
+
+<div class="instructions">
+    <strong>CAROUSEL 010 - "Why I Moved My Family to a Thai Island"</strong><br>
+    Screenshot each slide at 1080x1350px. 9 slides. Personal story - warm, honest.
+</div>
+
+<!-- SLIDE 1 - HOOK -->
+<div class="slide-label">Slide 1 / 9 — HOOK</div>
+<div class="slide">
+    <div class="title">Why I moved my family<br>to a <span class="accent">Thai island</span></div>
+    <div class="divider"></div>
+    <div class="desc">5 people. 3 kids under 7. An island in the Gulf of Thailand. Here's why - and what actually happened.</div>
+    <div class="swipe-hint">Swipe &rarr;</div>
+    <div class="dots"><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 2 - COPENHAGEN -->
+<div class="slide-label">Slide 2 / 9 — COPENHAGEN</div>
+<div class="slide">
+    <div class="label">First Try</div>
+    <div class="title">Copenhagen<br>didn't work</div>
+    <div class="divider"></div>
+    <div class="desc">We moved there thinking a new city would fix everything. Beautiful place. Same overwhelm. I was still chasing my own tail - just in a colder country.</div>
+    <div class="quote-box">"We chased our own tails. Nothing actually moved forward."</div>
+    <div class="dots"><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 3 - REALIZATION -->
+<div class="slide-label">Slide 3 / 9 — REALIZATION</div>
+<div class="slide">
+    <div class="label">The Realization</div>
+    <div class="title">We changed the <span class="accent">place</span>,<br>not the <span class="accent">system</span></div>
+    <div class="divider"></div>
+    <div class="desc">Same tasks piling up. Same mental pressure. Same feeling of never being caught up. Moving to a beautiful city without changing your operating system is just tourism with anxiety.</div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 4 - THE CHOICE -->
+<div class="slide-label">Slide 4 / 9 — THE CHOICE</div>
+<div class="slide">
+    <div class="label">The Choice</div>
+    <div class="title">This time, we came<br>with a <span class="accent">system</span></div>
+    <div class="divider"></div>
+    <div class="desc">Koh Phangan wasn't plan B. It was plan A with a completely different approach. AI-first. Security-first. Systems-first. We didn't just change location. We changed how we operate.</div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 5 - DAILY LIFE -->
+<div class="slide-label">Slide 5 / 9 — DAILY LIFE</div>
+<div class="slide">
+    <div class="label">What Daily Life Looks Like</div>
+    <div style="text-align: left; max-width: 780px; width: 100%; display: flex; flex-direction: column; gap: 14px; font-size: 26px;">
+        <div style="display: flex; gap: 16px;"><span style="color: #0066FF; font-weight: 700; min-width: 50px;">AM</span> <span style="color: #A0A0A0;">Coffee on the porch. Jungle sounds. Kids wake up.</span></div>
+        <div style="display: flex; gap: 16px;"><span style="color: #0066FF; font-weight: 700; min-width: 50px;">7:00</span> <span style="color: #A0A0A0;">Muay Thai training at the local gym.</span></div>
+        <div style="display: flex; gap: 16px;"><span style="color: #0066FF; font-weight: 700; min-width: 50px;">8:30</span> <span style="color: #A0A0A0;">3.5 hours of deep work. AI handles everything else.</span></div>
+        <div style="display: flex; gap: 16px;"><span style="color: #0066FF; font-weight: 700; min-width: 50px;">12:00</span> <span style="color: #A0A0A0;">Beach with the kids. Lunch at the local spot.</span></div>
+        <div style="display: flex; gap: 16px;"><span style="color: #0066FF; font-weight: 700; min-width: 50px;">15:00</span> <span style="color: #A0A0A0;">Light work, calls, content creation.</span></div>
+        <div style="display: flex; gap: 16px;"><span style="color: #0066FF; font-weight: 700; min-width: 50px;">17:00</span> <span style="color: #A0A0A0;">Sunset. Dinner. Family time. No screens.</span></div>
+    </div>
+    <div style="margin-top: 32px; font-size: 22px; color: #555;">Every. Single. Day.</div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 6 - COST OF LIVING -->
+<div class="slide-label">Slide 6 / 9 — COST</div>
+<div class="slide">
+    <div class="label">Cost of Living</div>
+    <div class="title" style="font-size: 48px;">Koh Phangan vs. Tel Aviv</div>
+    <div class="divider"></div>
+    <div class="cost-grid">
+        <div class="cost-card">
+            <div class="cost-item">3BR villa w/ pool</div>
+            <div class="cost-price">$800/mo</div>
+        </div>
+        <div class="cost-card">
+            <div class="cost-item">Family food (local)</div>
+            <div class="cost-price">$600/mo</div>
+        </div>
+        <div class="cost-card">
+            <div class="cost-item">Muay Thai gym</div>
+            <div class="cost-price">$80/mo</div>
+        </div>
+        <div class="cost-card">
+            <div class="cost-item">Scooter rental</div>
+            <div class="cost-price">$100/mo</div>
+        </div>
+        <div class="cost-card">
+            <div class="cost-item">Coworking space</div>
+            <div class="cost-price">$120/mo</div>
+        </div>
+        <div class="cost-card">
+            <div class="cost-item">Total family</div>
+            <div class="cost-price">~$2,500/mo</div>
+        </div>
+    </div>
+    <div style="margin-top: 24px; font-size: 22px; color: #A0A0A0;">That's what a 2BR apartment costs in Tel Aviv. Without the pool.</div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 7 - THE KIDS -->
+<div class="slide-label">Slide 7 / 9 — THE KIDS</div>
+<div class="slide">
+    <div class="label">The Kids</div>
+    <div class="title" style="font-size: 48px;">This is the best thing<br>we did <span class="accent">for them</span></div>
+    <div class="divider"></div>
+    <div class="kid-list">
+        <div class="kid-item">
+            <div><div class="kid-name">Eti (6)</div><div class="kid-detail">Learning English naturally. Making friends from 10 countries. Exploring nature every day.</div></div>
+        </div>
+        <div class="kid-item">
+            <div><div class="kid-name">Ella (4)</div><div class="kid-detail">Fearless. Beach, jungle, animals. More outdoor time than she ever had in Israel.</div></div>
+        </div>
+        <div class="kid-item">
+            <div><div class="kid-name">Eitan (1)</div><div class="kid-detail">Growing up with both parents present. Not rushed. Not stressed. Just... present.</div></div>
+        </div>
+    </div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 8 - BEST DECISION -->
+<div class="slide-label">Slide 8 / 9 — VERDICT</div>
+<div class="slide">
+    <div class="title">Best decision<br>we ever <span class="accent">made</span></div>
+    <div class="divider"></div>
+    <div class="desc">Not because the island is paradise. Because we came here with the right system, the right mindset, and the right tools. Location is the multiplier. The system is the foundation.</div>
+    <div class="quote-box">"Paradise with a broken system is just a broken system with better weather."</div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 9 - CTA -->
+<div class="slide-label">Slide 9 / 9 — CTA</div>
+<div class="slide">
+    <div class="cta-title">Thinking about<br>making a <span class="accent">change?</span></div>
+    <div class="divider"></div>
+    <div class="desc" style="margin-bottom: 24px;">Build the system first. Then the location becomes a choice, not an escape.</div>
+    <div class="cta-handle">@kaniel.ai</div>
+    <div class="cta-sub">Save this. DM me "KOH PHANGAN" for the full breakdown of how we made it work.</div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div></div>
+</div>
+
+</body>
+</html>

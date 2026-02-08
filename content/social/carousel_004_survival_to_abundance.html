@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel 004 - From Survival to Abundance: The Framework</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Heebo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding: 40px;
+            font-family: 'Inter', 'Heebo', sans-serif;
+        }
+
+        .instructions {
+            background: #1A1A1A;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 24px 32px;
+            color: #A0A0A0;
+            font-size: 14px;
+            max-width: 1080px;
+            width: 100%;
+            line-height: 1.6;
+        }
+        .instructions strong { color: #0066FF; }
+
+        .slide-label {
+            color: #555;
+            font-size: 14px;
+            font-family: monospace;
+            margin-bottom: -30px;
+        }
+
+        .slide {
+            width: 1080px;
+            height: 1350px;
+            background: #0A0A0A;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #FFFFFF;
+            padding: 80px;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(0, 102, 255, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .slide > * { position: relative; z-index: 1; }
+
+        .slide-number {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+        }
+        .slide-number .dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: #333;
+        }
+        .slide-number .dot.active { background: #0066FF; }
+
+        .swipe-hint {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #555;
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .divider {
+            width: 80px;
+            height: 4px;
+            background: #0066FF;
+            border-radius: 2px;
+            margin: 28px 0;
+        }
+
+        .accent { color: #0066FF; }
+
+        /* ========== HOOK ========== */
+        .hook-label {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0066FF;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
+        .hook-title {
+            font-size: 72px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+        .hook-sub {
+            font-size: 28px;
+            color: #A0A0A0;
+            line-height: 1.5;
+            max-width: 800px;
+        }
+
+        /* ========== CONTENT SLIDES ========== */
+        .content-label {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0066FF;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+        .content-title {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 36px;
+            max-width: 880px;
+        }
+        .content-desc {
+            font-size: 28px;
+            color: #A0A0A0;
+            line-height: 1.6;
+            max-width: 780px;
+        }
+        .content-quote {
+            margin-top: 32px;
+            background: #1A1A1A;
+            border-radius: 16px;
+            padding: 28px 40px;
+            font-size: 24px;
+            color: #fff;
+            max-width: 780px;
+            border-left: 4px solid #0066FF;
+            font-style: italic;
+            text-align: left;
+        }
+
+        /* ========== STEP SLIDES ========== */
+        .step-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background: #0066FF;
+            border-radius: 50%;
+            font-size: 36px;
+            font-weight: 900;
+            margin-bottom: 40px;
+        }
+        .step-title {
+            font-size: 60px;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 36px;
+        }
+        .step-desc {
+            font-size: 28px;
+            color: #A0A0A0;
+            line-height: 1.6;
+            max-width: 780px;
+        }
+        .step-example {
+            margin-top: 28px;
+            background: #1A1A1A;
+            border-radius: 16px;
+            padding: 24px 36px;
+            font-size: 24px;
+            color: #A0A0A0;
+            max-width: 780px;
+            text-align: left;
+        }
+        .step-example strong { color: #fff; }
+
+        /* ========== FRAMEWORK DIAGRAM ========== */
+        .framework-row {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        .framework-box {
+            padding: 28px 40px;
+            border-radius: 16px;
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+        }
+        .fw-survival {
+            background: #2a1010;
+            border: 2px solid #ff3333;
+            color: #ff6666;
+        }
+        .fw-security {
+            background: #1a1a2a;
+            border: 2px solid #0066FF;
+            color: #0066FF;
+        }
+        .fw-abundance {
+            background: #102a10;
+            border: 2px solid #33cc33;
+            color: #66ff66;
+        }
+        .fw-arrow {
+            font-size: 36px;
+            color: #555;
+        }
+
+        /* ========== CTA ========== */
+        .cta-title {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .cta-handle {
+            font-size: 36px;
+            color: #0066FF;
+            font-weight: 700;
+            margin-top: 40px;
+        }
+        .cta-sub {
+            font-size: 26px;
+            color: #A0A0A0;
+            margin-top: 16px;
+            line-height: 1.5;
+            max-width: 700px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="instructions">
+    <strong>CAROUSEL 004 - "From Survival to Abundance: The Framework"</strong><br>
+    Screenshot each slide at 1080x1350px. 10 slides. This is Kaniel's signature framework.
+</div>
+
+<!-- SLIDE 1 - HOOK -->
+<div class="slide-label">Slide 1 / 10 — HOOK</div>
+<div class="slide">
+    <div class="hook-label">The Framework</div>
+    <div class="hook-title">From <span class="accent">Survival</span><br>to Abundance</div>
+    <div class="divider"></div>
+    <div class="hook-sub">How I went from firefighting mode to designing my life on a Thai island.</div>
+    <div class="swipe-hint">Swipe &rarr;</div>
+    <div class="slide-number">
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 2 - THE PROBLEM -->
+<div class="slide-label">Slide 2 / 10 — THE PROBLEM</div>
+<div class="slide">
+    <div class="content-label">The Problem</div>
+    <div class="content-title">You're stuck in<br><span class="accent">survival mode</span></div>
+    <div class="divider"></div>
+    <div class="content-desc">Every day feels like putting out fires. You work hard, you hustle, but you never actually get ahead. You're running faster just to stay in the same place.</div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 3 - WHAT MOST DO -->
+<div class="slide-label">Slide 3 / 10 — WHAT MOST DO</div>
+<div class="slide">
+    <div class="content-label">What Most People Do</div>
+    <div class="content-title">Change the location</div>
+    <div class="divider"></div>
+    <div class="content-desc">"I'll move abroad." "I'll work from Bali." "I'll travel and figure it out." They change the scenery but bring the same broken system with them.</div>
+    <div class="content-quote">"We moved to Copenhagen. Beautiful city. Same overwhelm. Same pile of tasks. Same feeling of drowning."</div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 4 - WHY IT DOESN'T WORK -->
+<div class="slide-label">Slide 4 / 10 — WHY IT FAILS</div>
+<div class="slide">
+    <div class="content-label">Why It Doesn't Work</div>
+    <div class="content-title">You changed the<br>map, not the <span class="accent">engine</span></div>
+    <div class="divider"></div>
+    <div class="content-desc">Paradise with a broken system is still a broken system. You postpone tasks instead of executing them. You move to "freedom" but bring the mental prison.</div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 5 - THE REAL ISSUE -->
+<div class="slide-label">Slide 5 / 10 — THE REAL ISSUE</div>
+<div class="slide">
+    <div class="content-label">The Real Issue</div>
+    <div class="content-title">The problem is<br><span class="accent">internal</span></div>
+    <div class="divider"></div>
+    <div class="content-desc">It's not the country. It's not the business. It's not the market. The problem is your operating system. Your mental model. How you process, decide, and execute.</div>
+    <div class="content-quote">"I understood the problem wasn't external. The problem was in us."</div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 6 - STEP 1 -->
+<div class="slide-label">Slide 6 / 10 — STEP 1</div>
+<div class="slide">
+    <div class="step-badge">1</div>
+    <div class="step-title">Security First</div>
+    <div class="divider"></div>
+    <div class="step-desc">Before you can build, you need to feel safe. Financial runway. Physical security. Knowing your environment. Building buffers for the unexpected.</div>
+    <div class="step-example">
+        <strong>What I did:</strong> Calculated 1 year of living expenses. Mapped my new environment in Koh Phangan. Met neighbors. Created safety nets.
+    </div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 7 - STEP 2 -->
+<div class="slide-label">Slide 7 / 10 — STEP 2</div>
+<div class="slide">
+    <div class="step-badge">2</div>
+    <div class="step-title">Systems Second</div>
+    <div class="divider"></div>
+    <div class="step-desc">Replace chaos with structure. Map every process. Identify what repeats. Automate with AI agents. Build a machine that runs without you.</div>
+    <div class="step-example">
+        <strong>What I did:</strong> Built AI agents for news, fitness, task management, finances. Every repetitive task got a system. Every system got an agent.
+    </div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 8 - STEP 3 -->
+<div class="slide-label">Slide 8 / 10 — STEP 3</div>
+<div class="slide">
+    <div class="step-badge">3</div>
+    <div class="step-title">Abundance Third</div>
+    <div class="divider"></div>
+    <div class="step-desc">With security and systems in place, you can finally CHOOSE. Choose what to work on. Choose how to spend your time. Choose where to live. Choose who to be.</div>
+    <div class="step-example">
+        <strong>What happened:</strong> Family time without guilt. Deep work without interruption. Living on a Thai island while building a business. Having it all - without compromise.
+    </div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 9 - FRAMEWORK DIAGRAM -->
+<div class="slide-label">Slide 9 / 10 — FRAMEWORK</div>
+<div class="slide">
+    <div class="content-label">The Framework</div>
+    <div style="margin-bottom: 56px;">
+        <div class="framework-row">
+            <div class="framework-box fw-survival">SURVIVAL<br><span style="font-size: 20px; font-weight: 400;">Firefighting. Chaos. Overwhelm.</span></div>
+        </div>
+        <div style="text-align: center; font-size: 48px; color: #555; margin: 16px 0;">&#8595;</div>
+        <div class="framework-row">
+            <div class="framework-box fw-security">SECURITY<br><span style="font-size: 20px; font-weight: 400;">Buffers. Runway. Safety nets.</span></div>
+        </div>
+        <div style="text-align: center; font-size: 48px; color: #555; margin: 16px 0;">&#8595;</div>
+        <div class="framework-row">
+            <div class="framework-box fw-abundance">ABUNDANCE<br><span style="font-size: 20px; font-weight: 400;">Choice. Freedom. Having it all.</span></div>
+        </div>
+    </div>
+    <div style="font-size: 26px; color: #A0A0A0; max-width: 700px; line-height: 1.5;">You can't skip steps. Security enables systems. Systems enable abundance. This is the order.</div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 10 - CTA -->
+<div class="slide-label">Slide 10 / 10 — CTA</div>
+<div class="slide">
+    <div class="cta-title">Where are you<br>on the <span class="accent">framework?</span></div>
+    <div class="divider"></div>
+    <div style="font-size: 28px; color: #A0A0A0; line-height: 1.6; max-width: 700px; margin-bottom: 32px;">DM me "FRAMEWORK" and I'll tell you what to do next based on where you are right now.</div>
+    <div class="cta-handle">@kaniel.ai</div>
+    <div class="cta-sub">Follow for frameworks that actually change your life.</div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div>
+    </div>
+</div>
+
+</body>
+</html>

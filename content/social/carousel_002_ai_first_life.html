@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel 002 - 5 Signs You Need AI in Your Life</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Heebo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding: 40px;
+            font-family: 'Inter', 'Heebo', sans-serif;
+        }
+
+        .instructions {
+            background: #1A1A1A;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 24px 32px;
+            color: #A0A0A0;
+            font-size: 14px;
+            max-width: 1080px;
+            width: 100%;
+            line-height: 1.6;
+        }
+        .instructions strong { color: #0066FF; }
+
+        .slide-label {
+            color: #555;
+            font-size: 14px;
+            font-family: monospace;
+            margin-bottom: -30px;
+        }
+
+        .slide {
+            width: 1080px;
+            height: 1350px;
+            background: #0A0A0A;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #FFFFFF;
+            padding: 80px;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(0, 102, 255, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .slide > * { position: relative; z-index: 1; }
+
+        .slide-number {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+        }
+        .slide-number .dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: #333;
+        }
+        .slide-number .dot.active { background: #0066FF; }
+
+        .swipe-hint {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #555;
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        /* ========== SLIDE 1 - HOOK ========== */
+        .slide-1 .sign-number {
+            font-size: 200px;
+            font-weight: 900;
+            color: #0066FF;
+            line-height: 1;
+            margin-bottom: 20px;
+            opacity: 0.15;
+            position: absolute;
+            top: 80px;
+            right: 80px;
+        }
+        .slide-1 .hook-main {
+            font-size: 72px;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 32px;
+            max-width: 900px;
+        }
+        .slide-1 .hook-sub {
+            font-size: 32px;
+            color: #A0A0A0;
+            font-weight: 400;
+            max-width: 700px;
+            line-height: 1.4;
+        }
+        .slide-1 .accent { color: #0066FF; }
+
+        /* ========== SIGN SLIDES ========== */
+        .sign-slide .sign-badge {
+            display: inline-block;
+            background: #0066FF;
+            color: #fff;
+            font-size: 20px;
+            font-weight: 700;
+            padding: 10px 28px;
+            border-radius: 50px;
+            margin-bottom: 48px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .sign-slide .sign-title {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 40px;
+            max-width: 880px;
+        }
+        .sign-slide .sign-desc {
+            font-size: 30px;
+            color: #A0A0A0;
+            line-height: 1.5;
+            max-width: 800px;
+        }
+        .sign-slide .sign-icon {
+            font-size: 80px;
+            margin-bottom: 32px;
+        }
+
+        /* ========== SOLUTION SLIDE ========== */
+        .solution-slide .solution-label {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0066FF;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+        }
+        .solution-slide .solution-title {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 48px;
+            max-width: 880px;
+        }
+        .solution-slide .solution-steps {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            max-width: 800px;
+            width: 100%;
+        }
+        .solution-slide .step {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 28px;
+            color: #A0A0A0;
+        }
+        .solution-slide .step-num {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            background: #1A1A1A;
+            border: 2px solid #0066FF;
+            border-radius: 12px;
+            color: #0066FF;
+            font-weight: 700;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        /* ========== CTA SLIDE ========== */
+        .cta-slide .cta-line {
+            font-size: 54px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .cta-slide .cta-accent { color: #0066FF; }
+        .cta-slide .cta-handle {
+            font-size: 36px;
+            color: #0066FF;
+            font-weight: 700;
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+        .cta-slide .cta-sub {
+            font-size: 26px;
+            color: #A0A0A0;
+            line-height: 1.5;
+            max-width: 700px;
+        }
+
+        .divider {
+            width: 80px;
+            height: 4px;
+            background: #0066FF;
+            border-radius: 2px;
+            margin: 32px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="instructions">
+    <strong>CAROUSEL 002 - "5 Signs You Need AI in Your Life"</strong><br>
+    Screenshot each slide individually at 1080x1350px. Use browser zoom at 100%. Each slide is separated below.
+    <br>Post with caption from reel_hooks_and_captions.md
+</div>
+
+<!-- SLIDE 1 - HOOK -->
+<div class="slide-label">Slide 1 / 8 — HOOK</div>
+<div class="slide slide-1">
+    <div class="sign-number">5</div>
+    <div class="hook-main">5 Signs You Need <span class="accent">AI</span> in Your Life</div>
+    <div class="hook-sub">If any of these sound familiar, you're leaving hours on the table every day.</div>
+    <div class="swipe-hint">Swipe &rarr;</div>
+    <div class="slide-number">
+        <div class="dot active"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 2 - SIGN 1 -->
+<div class="slide-label">Slide 2 / 8 — SIGN 1</div>
+<div class="slide sign-slide">
+    <div class="sign-badge">Sign #1</div>
+    <div class="sign-title">You're doing<br>everything yourself</div>
+    <div class="divider"></div>
+    <div class="sign-desc">Emails, scheduling, research, follow-ups, invoices. You think "it's faster if I just do it" but you've been saying that for 3 years.</div>
+    <div class="slide-number">
+        <div class="dot"></div>
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 3 - SIGN 2 -->
+<div class="slide-label">Slide 3 / 8 — SIGN 2</div>
+<div class="slide sign-slide">
+    <div class="sign-badge">Sign #2</div>
+    <div class="sign-title">You're drowning<br>in tasks</div>
+    <div class="divider"></div>
+    <div class="sign-desc">Your to-do list grows faster than you can cross things off. You finish the day exhausted but feel like nothing actually moved forward.</div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div>
+        <div class="dot active"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 4 - SIGN 3 -->
+<div class="slide-label">Slide 4 / 8 — SIGN 3</div>
+<div class="slide sign-slide">
+    <div class="sign-badge">Sign #3</div>
+    <div class="sign-title">No time left<br>for family</div>
+    <div class="divider"></div>
+    <div class="sign-desc">You promised you'd be at dinner. You said you'd play with the kids. But there's always "one more thing." Your family gets what's left of you, not the best of you.</div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot active"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 5 - SIGN 4 -->
+<div class="slide-label">Slide 5 / 8 — SIGN 4</div>
+<div class="slide sign-slide">
+    <div class="sign-badge">Sign #4</div>
+    <div class="sign-title">You repeat the<br>same work daily</div>
+    <div class="divider"></div>
+    <div class="sign-desc">Morning news check. Client follow-ups. Scheduling. Meal planning. You do the same 10 tasks every day and none of them require your unique genius.</div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot active"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 6 - SIGN 5 -->
+<div class="slide-label">Slide 6 / 8 — SIGN 5</div>
+<div class="slide sign-slide">
+    <div class="sign-badge">Sign #5</div>
+    <div class="sign-title">Your competitors<br>are already ahead</div>
+    <div class="divider"></div>
+    <div class="sign-desc">They're responding faster, publishing more, making better decisions. It's not that they work harder. They work with AI. You still don't.</div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 7 - SOLUTION -->
+<div class="slide-label">Slide 7 / 8 — SOLUTION</div>
+<div class="slide solution-slide">
+    <div class="solution-label">The Solution</div>
+    <div class="solution-title">Go AI First.</div>
+    <div class="solution-steps">
+        <div class="step">
+            <div class="step-num">1</div>
+            <span>Map your repetitive tasks</span>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <span>Pick ONE and give it to an AI agent</span>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <span>Get your time back - every single day</span>
+        </div>
+    </div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div>
+        <div class="dot active"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 8 - CTA -->
+<div class="slide-label">Slide 8 / 8 — CTA</div>
+<div class="slide cta-slide">
+    <div class="cta-line">Ready to get your<br><span class="cta-accent">time back?</span></div>
+    <div class="divider"></div>
+    <div class="cta-handle">@kaniel.ai</div>
+    <div class="cta-sub">Follow for daily AI tips that actually save you hours.<br>No hype. No BS. Just results.</div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot active"></div>
+    </div>
+</div>
+
+</body>
+</html>

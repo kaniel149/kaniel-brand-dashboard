@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 עוזרי AI שכל בעל עסק צריך | קניאל טורג'מן</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0A0A0A',
+            secondary: '#1A1A1A',
+            card: '#242424',
+            accent: '#0066FF',
+            'accent-light': '#3385FF',
+            'text-primary': '#FFFFFF',
+            'text-secondary': '#A0A0A0',
+          },
+          fontFamily: {
+            heebo: ['Heebo', 'sans-serif'],
+            inter: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: #0A0A0A;
+      color: #FFFFFF;
+      -webkit-font-smoothing: antialiased;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 40px 48px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .page-number {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #A0A0A0;
+      font-size: 12px;
+    }
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: #0066FF;
+      border-radius: 2px;
+    }
+    .glow-box {
+      border: 1px solid rgba(0, 102, 255, 0.3);
+      box-shadow: 0 0 20px rgba(0, 102, 255, 0.1);
+    }
+    .stat-card {
+      background: linear-gradient(135deg, #1A1A1A 0%, #242424 100%);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .icon-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(0, 102, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .step-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #0066FF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(0, 102, 255, 0.15);
+      color: #3385FF;
+    }
+    .quote-bar {
+      border-right: 3px solid #0066FF;
+      padding-right: 16px;
+    }
+    @media print {
+      body { background: #0A0A0A !important; color: #FFFFFF !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page { page-break-after: always; margin: 0; padding: 40px 48px; }
+      .page:last-child { page-break-after: avoid; }
+      .no-print { display: none !important; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    }
+    @media screen and (max-width: 800px) {
+      .page { width: 100%; min-height: auto; padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Save as PDF Button -->
+<div class="no-print fixed top-4 left-1/2 -translate-x-1/2 z-50 flex gap-3">
+  <button onclick="window.print()" class="bg-accent hover:bg-accent-light text-white font-heebo font-bold px-6 py-3 rounded-xl shadow-lg transition-all hover:scale-105 flex items-center gap-2">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    שמור כ-PDF
+  </button>
+  <a href="en.html" class="bg-secondary hover:bg-card text-white font-inter font-medium px-4 py-3 rounded-xl border border-white/10 transition-all">EN</a>
+  <a href="es.html" class="bg-secondary hover:bg-card text-white font-inter font-medium px-4 py-3 rounded-xl border border-white/10 transition-all">ES</a>
+</div>
+
+<!-- ==================== PAGE 1: COVER ==================== -->
+<div class="page items-center justify-center text-center">
+  <div class="mb-8">
+    <span class="tag mb-4 inline-block">מדריך חינמי | 2026</span>
+  </div>
+
+  <!-- Profile Photo Placeholder -->
+  <div class="w-28 h-28 rounded-full border-4 border-accent bg-card mx-auto mb-8 flex items-center justify-center">
+    <span class="text-4xl">K</span>
+  </div>
+
+  <h1 class="text-5xl font-black leading-tight mb-6">
+    5 עוזרי AI<br>
+    <span class="text-accent">שכל בעל עסק צריך</span>
+  </h1>
+
+  <div class="divider mx-auto mb-6"></div>
+
+  <p class="text-xl text-text-secondary max-w-md mx-auto mb-8 leading-relaxed">
+    המדריך המעשי ליזמים שרוצים לחסוך<br>
+    <span class="text-white font-bold">2-3 שעות ביום</span>
+  </p>
+
+  <div class="mt-auto pt-12">
+    <p class="text-lg font-semibold mb-1">Kaniel Tordjman</p>
+    <p class="text-text-secondary text-sm tracking-wide">KOH PHANGAN, THAILAND | 2026</p>
+  </div>
+
+  <span class="page-number">1</span>
+</div>
+
+<!-- ==================== PAGE 2: INTRODUCTION ==================== -->
+<div class="page">
+  <div class="mb-2">
+    <span class="tag">הקדמה</span>
+  </div>
+  <h2 class="text-3xl font-bold mb-6">למי המדריך הזה?</h2>
+  <div class="divider mb-8"></div>
+
+  <div class="stat-card rounded-2xl p-6 mb-6">
+    <p class="text-lg leading-relaxed text-text-secondary">
+      אם אתה <span class="text-white font-semibold">בעל עסק, יזם, או עצמאי</span> בגילאי 30-45 שמרגיש שהוא רץ כל היום אבל לא באמת מתקדם - המדריך הזה בשבילך.
+    </p>
+    <p class="text-lg leading-relaxed text-text-secondary mt-3">
+      אם אתה יודע ש-AI יכול לעזור לך אבל <span class="text-white font-semibold">לא יודע מאיפה להתחיל</span> - המדריך הזה בשבילך.
+    </p>
+  </div>
+
+  <h3 class="text-xl font-bold mb-4 text-accent">הסיפור שלי בקצרה</h3>
+  <div class="quote-bar mb-6">
+    <p class="text-text-secondary leading-relaxed">
+      שירתתי ביחידה מיוחדת בצה"ל, בניתי חברת אנרגיה סולארית ל-<span class="text-white font-semibold">10 מיליון שקל הכנסות</span>, עברתי את 7 באוקטובר ואיבדתי את אחי אבידן ז"ל. היום אני חי עם המשפחה בקו פנגאן, תאילנד - ומשחזר את כל החיים והעסקים שלי כ-<span class="text-accent font-semibold">AI First</span>.
+    </p>
+  </div>
+
+  <h3 class="text-xl font-bold mb-4">מה תלמד כאן?</h3>
+  <div class="space-y-3 mb-8">
+    <div class="flex items-start gap-3">
+      <div class="icon-circle text-sm">1</div>
+      <p class="text-text-secondary pt-2"><span class="text-white font-semibold">5 עוזרים שאני משתמש בהם כל יום</span> - לא תיאוריה, פרקטיקה</p>
+    </div>
+    <div class="flex items-start gap-3">
+      <div class="icon-circle text-sm">2</div>
+      <p class="text-text-secondary pt-2"><span class="text-white font-semibold">איך כל עוזר חוסך 30-60 דקות</span> - סה"כ 2-3 שעות ביום</p>
+    </div>
+    <div class="flex items-start gap-3">
+      <div class="icon-circle text-sm">3</div>
+      <p class="text-text-secondary pt-2"><span class="text-white font-semibold">3 צעדים להתחיל עם כל אחד</span> - פשוט, ברור, היום</p>
+    </div>
+  </div>
+
+  <div class="glow-box rounded-2xl p-6 bg-card mt-auto">
+    <p class="text-lg font-bold text-center mb-2">
+      בסוף המדריך הזה, תדע בדיוק איך להתחיל.
+    </p>
+    <p class="text-text-secondary text-center">
+      בלי בולשיט. בלי "אולי יום אחד". היום.
+    </p>
+  </div>
+
+  <span class="page-number">2</span>
+</div>
+
+<!-- ==================== PAGE 3: ASSISTANT #1 - NEWS (Part 1) ==================== -->
+<div class="page">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="tag">עוזר #1</span>
+    <span class="text-text-secondary text-sm">עמוד 3 מתוך 15</span>
+  </div>
+  <div class="flex items-center gap-4 mb-6">
+    <div class="icon-circle text-2xl">📰</div>
+    <h2 class="text-3xl font-bold">עוזר חדשות ומידע</h2>
+  </div>
+  <div class="divider mb-8"></div>
+
+  <!-- The Pain -->
+  <div class="stat-card rounded-2xl p-6 mb-6">
+    <p class="text-sm text-accent font-bold mb-2 tracking-wide">הכאב 😤</p>
+    <p class="text-lg leading-relaxed">
+      אתה מתחיל כל בוקר בגלישה בין <span class="text-white font-bold">10 אתרים</span>. כלכליסט, Ynet, TechCrunch, Twitter, Reddit... אתה רק רוצה לדעת מה קורה, ו-<span class="text-accent font-bold">45 דקות נעלמות</span>. כל. בוקר.
+    </p>
+    <p class="text-text-secondary mt-2">
+      ואחרי כל הגלישה הזאת? אתה לא בטוח שלא פספסת משהו חשוב.
+    </p>
+  </div>
+
+  <!-- The Solution -->
+  <h3 class="text-xl font-bold mb-3 text-accent">הפתרון</h3>
+  <p class="text-text-secondary leading-relaxed mb-6">
+    עוזר AI שקורא עבורך את <span class="text-white">כל מקורות החדשות</span>, מסנן מה שרלוונטי, ומגיש לך סיכום מותאם אישית - בפורמט שנוח לך. טקסט, אודיו, או פודקאסט.
+  </p>
+
+  <!-- How Kaniel Uses It -->
+  <div class="glow-box rounded-2xl p-6 mb-6 bg-card">
+    <p class="text-sm text-accent font-bold mb-2">איך אני משתמש בזה 👇</p>
+    <p class="text-lg leading-relaxed">
+      "כל בוקר ב-7:00, אני מקבל <span class="text-white font-bold">פודקאסט מותאם אישית</span> עם כל מה שאני צריך לדעת - חדשות, עדכוני שוק, טרנדים טכנולוגיים. בעברית.
+      <span class="text-accent">הסוכן אפילו שולח את זה לוואטסאפ שלי.</span>"
+    </p>
+  </div>
+
+  <!-- Mock Screenshot -->
+  <div class="bg-secondary rounded-xl p-5 border border-white/5">
+    <div class="flex items-center gap-3 mb-3">
+      <div class="w-3 h-3 rounded-full bg-green-500"></div>
+      <span class="text-sm text-text-secondary font-inter">WhatsApp - Morning Briefing</span>
+      <span class="text-xs text-text-secondary mr-auto font-inter">07:00</span>
+    </div>
+    <div class="bg-card rounded-lg p-4 text-sm space-y-2">
+      <p class="font-bold">🌅 בריפינג בוקר | יום חמישי 6.2.2026</p>
+      <p class="text-text-secondary">📊 <span class="text-white">שווקים:</span> S&P +0.8%, נאסד"ק +1.2%, שקל יציב</p>
+      <p class="text-text-secondary">🇮🇱 <span class="text-white">ישראל:</span> רפורמת AI חדשה - תקציב 2 מיליארד...</p>
+      <p class="text-text-secondary">🤖 <span class="text-white">טכנולוגיה:</span> Claude 5 שוחרר, Gemini 3 בבטא...</p>
+      <p class="text-text-secondary">☀️ <span class="text-white">סולארי:</span> מכרז חדש - 500MW, מחירים ירדו 3%</p>
+      <p class="text-accent mt-2">🎧 האזן לפודקאסט המלא (8 דקות) →</p>
+    </div>
+  </div>
+
+  <span class="page-number">3</span>
+</div>
+
+<!-- ==================== PAGE 4: ASSISTANT #1 - NEWS (Part 2) ==================== -->
+<div class="page">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="tag">עוזר #1 - המשך</span>
+  </div>
+  <h3 class="text-2xl font-bold mb-6">📰 איך להתחיל ב-3 צעדים</h3>
+  <div class="divider mb-8"></div>
+
+  <div class="space-y-6 mb-8">
+    <!-- Step 1 -->
+    <div class="flex gap-4">
+      <div class="step-number">1</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">בחר את המקורות שלך</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          רשום את כל האתרים, הניוזלטרים, והנושאים שאתה עוקב אחריהם. תהיה ספציפי:
+        </p>
+        <div class="bg-card rounded-xl p-4 text-sm">
+          <p class="text-text-secondary"><span class="text-accent">✦</span> חדשות כלליות: כלכליסט, Ynet, Haaretz</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> טכנולוגיה: TechCrunch, The Verge, Hacker News</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> ניש ספציפי: SolarEdge blog, PV Magazine</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> מדיה חברתית: Twitter lists, Reddit subreddits</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="flex gap-4">
+      <div class="step-number">2</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">הגדר את ה-Prompt</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          תן ל-Claude או ChatGPT את ההנחיות הבאות (תתאים לעצמך):
+        </p>
+        <div class="bg-card rounded-xl p-4 text-sm font-inter" dir="ltr">
+          <p class="text-accent mb-1">// Daily Briefing Prompt</p>
+          <p class="text-text-secondary">"Scan these sources: [your list]</p>
+          <p class="text-text-secondary">Filter for: [your topics]</p>
+          <p class="text-text-secondary">Summarize in Hebrew, casual tone</p>
+          <p class="text-text-secondary">Format: emoji + category + one-liner</p>
+          <p class="text-text-secondary">Max 10 items, ranked by relevance to me"</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="flex gap-4">
+      <div class="step-number">3</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">אוטומט את המשלוח</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          בחר איך אתה רוצה לקבל את הבריפינג:
+        </p>
+        <div class="grid grid-cols-3 gap-3">
+          <div class="bg-card rounded-xl p-3 text-center">
+            <p class="text-2xl mb-1">📱</p>
+            <p class="text-xs text-text-secondary">וואטסאפ</p>
+            <p class="text-xs text-accent">הכי נוח</p>
+          </div>
+          <div class="bg-card rounded-xl p-3 text-center">
+            <p class="text-2xl mb-1">📧</p>
+            <p class="text-xs text-text-secondary">אימייל</p>
+            <p class="text-xs text-accent">לקריאה</p>
+          </div>
+          <div class="bg-card rounded-xl p-3 text-center">
+            <p class="text-2xl mb-1">🎧</p>
+            <p class="text-xs text-text-secondary">פודקאסט</p>
+            <p class="text-xs text-accent">בדרך</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Time Saved -->
+  <div class="glow-box rounded-2xl p-5 bg-card mt-auto">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-sm text-text-secondary mb-1">זמן שנחסך</p>
+        <p class="text-3xl font-black text-accent">~45 דקות <span class="text-lg text-text-secondary font-normal">/ ליום</span></p>
+      </div>
+      <div class="text-center">
+        <p class="text-4xl">⏰</p>
+        <p class="text-xs text-text-secondary mt-1">כל בוקר</p>
+      </div>
+    </div>
+  </div>
+
+  <span class="page-number">4</span>
+</div>
+
+<!-- ==================== PAGE 5: ASSISTANT #2 - FITNESS (Part 1) ==================== -->
+<div class="page">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="tag">עוזר #2</span>
+  </div>
+  <div class="flex items-center gap-4 mb-6">
+    <div class="icon-circle text-2xl">🏋️</div>
+    <h2 class="text-3xl font-bold">עוזר כושר ותזונה</h2>
+  </div>
+  <div class="divider mb-8"></div>
+
+  <!-- The Pain -->
+  <div class="stat-card rounded-2xl p-6 mb-6">
+    <p class="text-sm text-accent font-bold mb-2 tracking-wide">הכאב 😤</p>
+    <p class="text-lg leading-relaxed">
+      אתה יודע שאתה צריך להתאמן ולאכול נכון. אבל <span class="text-white font-bold">תכנון לוקח שעות</span>. מה לאכול היום? מה האימון? מה לקנות בסופר? ואז מגיע שלישי ואתה כבר אכלת פיצה פעמיים כי "לא היה זמן לתכנן".
+    </p>
+  </div>
+
+  <!-- The Solution -->
+  <h3 class="text-xl font-bold mb-3 text-accent">הפתרון</h3>
+  <p class="text-text-secondary leading-relaxed mb-6">
+    עוזר AI שמכיר את <span class="text-white">היעדים שלך, המגבלות שלך, וההעדפות שלך</span> - ומייצר תוכנית אימונים שבועית, תפריט מותאם, ורשימת קניות אוטומטית.
+  </p>
+
+  <!-- How Kaniel Uses It -->
+  <div class="glow-box rounded-2xl p-6 mb-6 bg-card">
+    <p class="text-sm text-accent font-bold mb-2">איך אני משתמש בזה 👇</p>
+    <p class="text-lg leading-relaxed mb-3">
+      "אני מתאמן מוי תאי 4 פעמים בשבוע + חדר כושר פעמיים. הסוכן יודע את הלוח שלי, מתאים את האימונים, ו<span class="text-accent">מייצר רשימת קניות שבועית</span> שמגיעה לוואטסאפ כל יום ראשון."
+    </p>
+  </div>
+
+  <!-- Before/After -->
+  <div class="grid grid-cols-2 gap-4 mb-6">
+    <div class="bg-card rounded-xl p-5 border border-red-500/20">
+      <p class="text-red-400 font-bold text-sm mb-3">לפני ❌</p>
+      <div class="space-y-2 text-sm text-text-secondary">
+        <p>🤯 "מה לאכול?" כל ארוחה</p>
+        <p>🛒 הולך לסופר בלי רשימה</p>
+        <p>😅 מדלג על אימונים</p>
+        <p>📱 מחפש "תוכנית אימונים" בגוגל</p>
+        <p>🍕 ברירת מחדל = ג'אנק</p>
+      </div>
+    </div>
+    <div class="bg-card rounded-xl p-5 border border-green-500/20">
+      <p class="text-green-400 font-bold text-sm mb-3">אחרי ✅</p>
+      <div class="space-y-2 text-sm text-text-secondary">
+        <p>📋 תפריט שבועי מוכן</p>
+        <p>🛒 רשימת קניות אוטומטית</p>
+        <p>💪 אימון מתוכנן כל יום</p>
+        <p>📊 התקדמות מתועדת</p>
+        <p>🥗 אוכל בריא = ברירת מחדל</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pro Tip -->
+  <div class="bg-secondary rounded-xl p-4 border border-accent/20">
+    <p class="text-sm"><span class="text-accent font-bold">טיפ:</span> <span class="text-text-secondary">תתחיל עם מה שאתה כבר אוהב לאכול. תן ל-AI לשפר, לא להמציא מאפס. ככה זה באמת נדבק.</span></p>
+  </div>
+
+  <span class="page-number">5</span>
+</div>
+
+<!-- ==================== PAGE 6: ASSISTANT #2 - FITNESS (Part 2) ==================== -->
+<div class="page">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="tag">עוזר #2 - המשך</span>
+  </div>
+  <h3 class="text-2xl font-bold mb-6">🏋️ איך להתחיל ב-3 צעדים</h3>
+  <div class="divider mb-8"></div>
+
+  <div class="space-y-6 mb-8">
+    <!-- Step 1 -->
+    <div class="flex gap-4">
+      <div class="step-number">1</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">ספר ל-AI על עצמך</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          תן לו את כל ההקשר - יעדים, מגבלות, העדפות, וזמן זמין:
+        </p>
+        <div class="bg-card rounded-xl p-4 text-sm">
+          <p class="text-text-secondary"><span class="text-accent">✦</span> יעד: ירידה במשקל / עלייה בשריר / סיבולת</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> מגבלות: אלרגיות, פציעות, ציוד זמין</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> זמן: כמה ימים בשבוע, כמה דקות</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> העדפות: מאכלים אהובים, סגנון אימון</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="flex gap-4">
+      <div class="step-number">2</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">קבל תוכנית שבועית</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          בקש תוכנית שבועית מלאה - אימונים + תזונה + רשימת קניות:
+        </p>
+        <div class="bg-card rounded-xl p-4 text-sm font-inter" dir="ltr">
+          <p class="text-accent mb-1">// Weekly Plan Prompt</p>
+          <p class="text-text-secondary">"Based on my profile, create:</p>
+          <p class="text-text-secondary">1. Weekly training plan (Sun-Thu)</p>
+          <p class="text-text-secondary">2. Daily meal plan (3 meals + 2 snacks)</p>
+          <p class="text-text-secondary">3. Shopping list for the week</p>
+          <p class="text-text-secondary">Format in Hebrew, keep it simple"</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="flex gap-4">
+      <div class="step-number">3</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">הפוך לשגרה</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          הגדר תזכורות אוטומטיות שעובדות בשבילך:
+        </p>
+        <div class="space-y-2">
+          <div class="bg-card rounded-lg p-3 flex items-center gap-3">
+            <span class="text-accent text-xl">🌅</span>
+            <div>
+              <p class="text-sm font-bold">יום ראשון בוקר</p>
+              <p class="text-xs text-text-secondary">רשימת קניות לשבוע → וואטסאפ</p>
+            </div>
+          </div>
+          <div class="bg-card rounded-lg p-3 flex items-center gap-3">
+            <span class="text-accent text-xl">💪</span>
+            <div>
+              <p class="text-sm font-bold">כל בוקר 06:30</p>
+              <p class="text-xs text-text-secondary">אימון היום + ארוחות → וואטסאפ</p>
+            </div>
+          </div>
+          <div class="bg-card rounded-lg p-3 flex items-center gap-3">
+            <span class="text-accent text-xl">📊</span>
+            <div>
+              <p class="text-sm font-bold">יום שישי</p>
+              <p class="text-xs text-text-secondary">סיכום שבועי + התאמות → וואטסאפ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Time Saved -->
+  <div class="glow-box rounded-2xl p-5 bg-card mt-auto">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-sm text-text-secondary mb-1">זמן שנחסך</p>
+        <p class="text-3xl font-black text-accent">~30 דקות <span class="text-lg text-text-secondary font-normal">/ ליום</span></p>
+      </div>
+      <div class="text-center">
+        <p class="text-4xl">💪</p>
+        <p class="text-xs text-text-secondary mt-1">כל יום</p>
+      </div>
+    </div>
+  </div>
+
+  <span class="page-number">6</span>
+</div>
+
+<!-- ==================== PAGE 7: ASSISTANT #3 - TASKS (Part 1) ==================== -->
+<div class="page">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="tag">עוזר #3</span>
+  </div>
+  <div class="flex items-center gap-4 mb-6">
+    <div class="icon-circle text-2xl">📋</div>
+    <h2 class="text-3xl font-bold">עוזר משימות ופרויקטים</h2>
+  </div>
+  <div class="divider mb-8"></div>
+
+  <!-- The Pain -->
+  <div class="stat-card rounded-2xl p-6 mb-6">
+    <p class="text-sm text-accent font-bold mb-2 tracking-wide">הכאב 😤</p>
+    <p class="text-lg leading-relaxed">
+      הכל בראש. או בהודעות וואטסאפ שנקברו. או ב-Notes שלא פתחת חודש. יש לך <span class="text-white font-bold">47 משימות פתוחות</span> ואתה לא יודע מה דחוף ומה חשוב. כל היום <span class="text-accent font-bold">מכבה שריפות</span> במקום לבנות.
+    </p>
+  </div>
+
+  <!-- The Solution -->
+  <h3 class="text-xl font-bold mb-3 text-accent">הפתרון</h3>
+  <p class="text-text-secondary leading-relaxed mb-6">
+    עוזר AI שתופס <span class="text-white">כל משימה, רעיון, או הערה</span> מכל מקום - קולית, טקסט, וואטסאפ - מסדר את זה בפרויקט הנכון, עם עדיפות נכונה, ומזכיר לך מה באמת חשוב היום.
+  </p>
+
+  <!-- How Kaniel Uses It -->
+  <div class="glow-box rounded-2xl p-6 mb-6 bg-card">
+    <p class="text-sm text-accent font-bold mb-2">איך אני משתמש בזה 👇</p>
+    <p class="text-lg leading-relaxed">
+      "אני אומר 'תוסיף משימה' בעברית - והיא נכנסת לפרויקט הנכון עם העדיפות הנכונה. כל בוקר אני מקבל <span class="text-accent">3 משימות עיקריות להיום</span>. לא 47. שלוש. ובערב - סיכום של מה שביצעתי."
+    </p>
+  </div>
+
+  <!-- The System Visual -->
+  <div class="bg-secondary rounded-xl p-5 border border-white/5 mb-6">
+    <p class="text-sm text-text-secondary mb-4 font-bold">כך זה נראה בפועל:</p>
+    <div class="space-y-3">
+      <div class="bg-card rounded-lg p-3 flex items-center gap-3">
+        <span class="text-yellow-400">🟡</span>
+        <div class="flex-1">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-bold">נביטאס - לסגור חשבונית #4521</p>
+            <span class="text-xs bg-red-500/20 text-red-400 px-2 py-0.5 rounded">דחוף</span>
+          </div>
+          <p class="text-xs text-text-secondary">עסק > נביטאס > חשבוניות</p>
+        </div>
+      </div>
+      <div class="bg-card rounded-lg p-3 flex items-center gap-3">
+        <span class="text-green-400">🟢</span>
+        <div class="flex-1">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-bold">לצלם Reel על עוזרי AI</p>
+            <span class="text-xs bg-accent/20 text-accent px-2 py-0.5 rounded">חשוב</span>
+          </div>
+          <p class="text-xs text-text-secondary">תוכן > אינסטגרם > Reels</p>
+        </div>
+      </div>
+      <div class="bg-card rounded-lg p-3 flex items-center gap-3">
+        <span class="text-blue-400">🔵</span>
+        <div class="flex-1">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-bold">לקנות מגנזיום + ויטמין D</p>
+            <span class="text-xs bg-white/10 text-text-secondary px-2 py-0.5 rounded">רגיל</span>
+          </div>
+          <p class="text-xs text-text-secondary">אישי > בריאות > תוספים</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-secondary rounded-xl p-4 border border-accent/20">
+    <p class="text-sm"><span class="text-accent font-bold">העיקרון:</span> <span class="text-text-secondary">הראש שלך צריך להיות ריק. כל מה שבראש צריך להיות במערכת. ככה אתה חופשי לחשוב, לא לזכור.</span></p>
+  </div>
+
+  <span class="page-number">7</span>
+</div>
+
+<!-- ==================== PAGE 8: ASSISTANT #3 - TASKS (Part 2) ==================== -->
+<div class="page">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="tag">עוזר #3 - המשך</span>
+  </div>
+  <h3 class="text-2xl font-bold mb-6">📋 איך להתחיל ב-3 צעדים</h3>
+  <div class="divider mb-8"></div>
+
+  <div class="space-y-6 mb-8">
+    <!-- Step 1 -->
+    <div class="flex gap-4">
+      <div class="step-number">1</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">בחר מערכת פשוטה</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          אל תסבך את זה. בחר אחד ותתחיל:
+        </p>
+        <div class="grid grid-cols-3 gap-3">
+          <div class="bg-card rounded-xl p-3 text-center">
+            <p class="text-lg mb-1 font-inter">Todoist</p>
+            <p class="text-xs text-text-secondary">פשוט, מהיר</p>
+            <p class="text-xs text-accent">מומלץ למתחילים</p>
+          </div>
+          <div class="bg-card rounded-xl p-3 text-center">
+            <p class="text-lg mb-1 font-inter">Notion</p>
+            <p class="text-xs text-text-secondary">גמיש, חזק</p>
+            <p class="text-xs text-accent">למתקדמים</p>
+          </div>
+          <div class="bg-card rounded-xl p-3 text-center">
+            <p class="text-lg mb-1 font-inter">Files</p>
+            <p class="text-xs text-text-secondary">קבצי טקסט</p>
+            <p class="text-xs text-accent">הכי פשוט</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="flex gap-4">
+      <div class="step-number">2</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">צור שיטת לכידה (Capture)</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          כל רעיון, משימה, או הערה צריכים להיכנס למערכת תוך 5 שניות:
+        </p>
+        <div class="bg-card rounded-xl p-4 text-sm space-y-2">
+          <p class="text-text-secondary"><span class="text-accent">✦</span> <span class="text-white">הודעה קולית</span> - אמור ל-AI "תוסיף משימה: לחזור ללקוח על הצעת מחיר"</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> <span class="text-white">וואטסאפ</span> - שלח לעצמך או לבוט, ה-AI ימיין</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> <span class="text-white">טקסט מהיר</span> - shortcut בטלפון שמוסיף ישירות</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="flex gap-4">
+      <div class="step-number">3</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">הגדר סקירה יומית</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          כל בוקר ה-AI שולח לך בריפינג משימות:
+        </p>
+        <div class="bg-card rounded-xl p-4 text-sm">
+          <p class="font-bold text-white mb-2">📋 בריפינג בוקר - משימות</p>
+          <p class="text-text-secondary mb-1"><span class="text-red-400">🔴</span> דחוף (חייב היום): 1 משימה</p>
+          <p class="text-text-secondary mb-1"><span class="text-accent">🔵</span> חשוב (מומלץ היום): 2 משימות</p>
+          <p class="text-text-secondary mb-1"><span class="text-text-secondary">⚪</span> ממתין: 8 משימות (לא דחוף)</p>
+          <p class="text-accent mt-2">→ פוקוס היום: סגור את החשבונית + צלם את ה-Reel</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Time Saved -->
+  <div class="glow-box rounded-2xl p-5 bg-card mt-auto">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-sm text-text-secondary mb-1">זמן שנחסך</p>
+        <p class="text-3xl font-black text-accent">~30 דקות <span class="text-lg text-text-secondary font-normal">/ ליום</span></p>
+      </div>
+      <div class="text-center">
+        <p class="text-4xl">🧠</p>
+        <p class="text-xs text-text-secondary mt-1">+ ראש ריק</p>
+      </div>
+    </div>
+  </div>
+
+  <span class="page-number">8</span>
+</div>
+
+<!-- ==================== PAGE 9: ASSISTANT #4 - FINANCE (Part 1) ==================== -->
+<div class="page">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="tag">עוזר #4</span>
+  </div>
+  <div class="flex items-center gap-4 mb-6">
+    <div class="icon-circle text-2xl">💰</div>
+    <h2 class="text-3xl font-bold">עוזר פיננסי וחשבונות</h2>
+  </div>
+  <div class="divider mb-8"></div>
+
+  <!-- The Pain -->
+  <div class="stat-card rounded-2xl p-6 mb-6">
+    <p class="text-sm text-accent font-bold mb-2 tracking-wide">הכאב 😤</p>
+    <p class="text-lg leading-relaxed">
+      חשבוניות, תשלומים, החזרים, מע"מ, דוחות לרואה חשבון... <span class="text-white font-bold">כל פעם משהו נופל</span>. שילמת פעמיים? שכחת חשבונית? קנס מיותר כי פיספסת תאריך? זה קורה ל<span class="text-accent">כל</span> בעל עסק.
+    </p>
+  </div>
+
+  <!-- The Solution -->
+  <h3 class="text-xl font-bold mb-3 text-accent">הפתרון</h3>
+  <p class="text-text-secondary leading-relaxed mb-6">
+    עוזר AI שעוקב אחרי <span class="text-white">כל תשלום, חשבונית, ודדליין</span>, מזכיר לך לפני שמשהו מפספס, ואפילו מכין טיוטות למיילים פיננסיים.
+  </p>
+
+  <!-- How Kaniel Uses It -->
+  <div class="glow-box rounded-2xl p-6 mb-6 bg-card">
+    <p class="text-sm text-accent font-bold mb-2">איך אני משתמש בזה 👇</p>
+    <p class="text-lg leading-relaxed">
+      "הסוכן שלי עוקב אחרי כל חשבונית בנביטאס, מזכיר לי על דדליינים של מע"מ, ו<span class="text-accent">מטפל בבקשות החזר אוטומטית</span>. הפסקתי לשלם קנסות על איחורים."
+    </p>
+  </div>
+
+  <!-- Financial Dashboard Mock -->
+  <div class="bg-secondary rounded-xl p-5 border border-white/5 mb-6">
+    <p class="text-sm text-text-secondary mb-3 font-bold">סיכום חודשי - ינואר 2026</p>
+    <div class="grid grid-cols-2 gap-3 mb-3">
+      <div class="bg-card rounded-lg p-3">
+        <p class="text-xs text-text-secondary">הכנסות</p>
+        <p class="text-lg font-bold text-green-400">₪87,400</p>
+      </div>
+      <div class="bg-card rounded-lg p-3">
+        <p class="text-xs text-text-secondary">הוצאות</p>
+        <p class="text-lg font-bold text-red-400">₪34,200</p>
+      </div>
+    </div>
+    <div class="space-y-2">
+      <div class="bg-card rounded-lg p-3 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-yellow-400">⚠️</span>
+          <p class="text-sm">מע"מ חודשי - דדליין 15/02</p>
+        </div>
+        <span class="text-xs text-accent">בעוד 9 ימים</span>
+      </div>
+      <div class="bg-card rounded-lg p-3 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-green-400">✅</span>
+          <p class="text-sm">חשבונית #4520 - שולמה</p>
+        </div>
+        <span class="text-xs text-text-secondary">02/02</span>
+      </div>
+      <div class="bg-card rounded-lg p-3 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-red-400">🔴</span>
+          <p class="text-sm">חשבונית #4521 - ממתינה לתשלום</p>
+        </div>
+        <span class="text-xs text-red-400">באיחור 3 ימים</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-secondary rounded-xl p-4 border border-accent/20">
+    <p class="text-sm"><span class="text-accent font-bold">העיקרון:</span> <span class="text-text-secondary">אין סיבה שבן אדם יזכור דדליינים. זה בדיוק מה ש-AI עושה הכי טוב - לא שוכח, לא מפספס, לא מתעצל.</span></p>
+  </div>
+
+  <span class="page-number">9</span>
+</div>
+
+<!-- ==================== PAGE 10: ASSISTANT #4 - FINANCE (Part 2) ==================== -->
+<div class="page">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="tag">עוזר #4 - המשך</span>
+  </div>
+  <h3 class="text-2xl font-bold mb-6">💰 איך להתחיל ב-3 צעדים</h3>
+  <div class="divider mb-8"></div>
+
+  <div class="space-y-6 mb-8">
+    <!-- Step 1 -->
+    <div class="flex gap-4">
+      <div class="step-number">1</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">מפה את כל התשלומים החוזרים</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          שב 20 דקות ורשום הכל. הכל. כל תשלום חודשי, שנתי, ורבעוני:
+        </p>
+        <div class="bg-card rounded-xl p-4 text-sm space-y-2">
+          <p class="text-text-secondary"><span class="text-accent">✦</span> שכירות, ארנונה, חשמל, מים, אינטרנט</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> ביטוחים (בריאות, רכב, עסקי)</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> מנויים (SaaS, ספוטיפיי, חדר כושר)</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> מיסים (מע"מ, מקדמות, שנתי)</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> הלוואות, ליסינג, החזרים</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="flex gap-4">
+      <div class="step-number">2</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">הגדר תזכורות אוטומטיות</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          לכל תשלום - תזכורת 3 ימים לפני + ביום:
+        </p>
+        <div class="bg-card rounded-xl p-4 text-sm font-inter" dir="ltr">
+          <p class="text-accent mb-1">// Finance Reminder Prompt</p>
+          <p class="text-text-secondary">"Here are my recurring payments:</p>
+          <p class="text-text-secondary">[paste your list]</p>
+          <p class="text-text-secondary">Send me reminders 3 days before</p>
+          <p class="text-text-secondary">and on the due date.</p>
+          <p class="text-text-secondary">Monthly summary on the 1st.</p>
+          <p class="text-text-secondary">Flag anything overdue immediately."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="flex gap-4">
+      <div class="step-number">3</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">צור תבניות לתקשורת פיננסית</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          תן ל-AI טיוטות מוכנות למיילים הכי נפוצים:
+        </p>
+        <div class="space-y-2">
+          <div class="bg-card rounded-lg p-3 flex items-center gap-3">
+            <span class="text-accent text-lg">📧</span>
+            <div>
+              <p class="text-sm font-bold">תזכורת תשלום ללקוח</p>
+              <p class="text-xs text-text-secondary">"שלום [שם], מצ"ב חשבונית #[מספר]..."</p>
+            </div>
+          </div>
+          <div class="bg-card rounded-lg p-3 flex items-center gap-3">
+            <span class="text-accent text-lg">📧</span>
+            <div>
+              <p class="text-sm font-bold">בקשת החזר</p>
+              <p class="text-xs text-text-secondary">"לכבוד [חברה], ברצוני לבקש החזר..."</p>
+            </div>
+          </div>
+          <div class="bg-card rounded-lg p-3 flex items-center gap-3">
+            <span class="text-accent text-lg">📧</span>
+            <div>
+              <p class="text-sm font-bold">שליחת מסמכים לרו"ח</p>
+              <p class="text-xs text-text-secondary">"היי [שם], מצורפים מסמכי חודש..."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Time Saved -->
+  <div class="glow-box rounded-2xl p-5 bg-card mt-auto">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-sm text-text-secondary mb-1">זמן שנחסך</p>
+        <p class="text-3xl font-black text-accent">~20 דקות <span class="text-lg text-text-secondary font-normal">/ ליום</span></p>
+      </div>
+      <div class="text-center">
+        <p class="text-4xl">💸</p>
+        <p class="text-xs text-text-secondary mt-1">+ אפס קנסות</p>
+      </div>
+    </div>
+  </div>
+
+  <span class="page-number">10</span>
+</div>
+
+<!-- ==================== PAGE 11: ASSISTANT #5 - CONTENT (Part 1) ==================== -->
+<div class="page">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="tag">עוזר #5</span>
+  </div>
+  <div class="flex items-center gap-4 mb-6">
+    <div class="icon-circle text-2xl">✍️</div>
+    <h2 class="text-3xl font-bold">עוזר תוכן ותקשורת</h2>
+  </div>
+  <div class="divider mb-8"></div>
+
+  <!-- The Pain -->
+  <div class="stat-card rounded-2xl p-6 mb-6">
+    <p class="text-sm text-accent font-bold mb-2 tracking-wide">הכאב 😤</p>
+    <p class="text-lg leading-relaxed">
+      צריך לכתוב מייל? פוסט? הצעת מחיר? <span class="text-white font-bold">כל פעם מאפס</span>. יושב 30 דקות על מייל שהיה צריך לקחת 3 דקות. הודעת וואטסאפ ללקוח? עוד 15 דקות. פוסט לאינסטגרם? <span class="text-accent">"אני לא יודע מה לכתוב."</span>
+    </p>
+  </div>
+
+  <!-- The Solution -->
+  <h3 class="text-xl font-bold mb-3 text-accent">הפתרון</h3>
+  <p class="text-text-secondary leading-relaxed mb-6">
+    עוזר AI שמכיר את <span class="text-white">הסגנון שלך, הטון שלך, ואת הקהל שלך</span> - וכותב טיוטות שנשמעות כמוך. לא גנרי. לא רובוטי. <span class="text-white">כמוך</span>.
+  </p>
+
+  <!-- How Kaniel Uses It -->
+  <div class="glow-box rounded-2xl p-6 mb-6 bg-card">
+    <p class="text-sm text-accent font-bold mb-2">איך אני משתמש בזה 👇</p>
+    <p class="text-lg leading-relaxed">
+      "אני נותן מחשבות גולמיות - בעברית, בלאגן, חצי משפטים - והסוכן כותב בסגנון שלי. ישיר, בלי בולשיט, עברית עם מילים באנגלית. <span class="text-accent">הוא למד איך אני כותב מ-50 דוגמאות שנתתי לו.</span>"
+    </p>
+  </div>
+
+  <!-- Example: Raw → Polished -->
+  <div class="grid grid-cols-2 gap-4">
+    <div class="bg-card rounded-xl p-5 border border-white/10">
+      <p class="text-text-secondary font-bold text-sm mb-3">מה שאני אומר 🗣️</p>
+      <p class="text-sm text-text-secondary leading-relaxed italic">
+        "תכתוב מייל ללקוח שצריך לשלם, הוא באיחור שבועיים, תהיה נחמד אבל ברור שזה לא יכול ככה..."
+      </p>
+    </div>
+    <div class="bg-card rounded-xl p-5 border border-accent/30">
+      <p class="text-accent font-bold text-sm mb-3">מה שיוצא ✨</p>
+      <p class="text-sm text-text-secondary leading-relaxed">
+        "היי [שם],<br><br>
+        מה שלומך? רציתי לעדכן שחשבונית #4521 עדיין פתוחה - כבר שבועיים.<br><br>
+        אשמח אם תוכל לטפל בזה השבוע. אם יש בעיה - תגיד, נפתור.<br><br>
+        תודה, קניאל"
+      </p>
+    </div>
+  </div>
+
+  <span class="page-number">11</span>
+</div>
+
+<!-- ==================== PAGE 12: ASSISTANT #5 - CONTENT (Part 2) ==================== -->
+<div class="page">
+  <div class="flex items-center gap-4 mb-2">
+    <span class="tag">עוזר #5 - המשך</span>
+  </div>
+  <h3 class="text-2xl font-bold mb-6">✍️ איך להתחיל ב-3 צעדים</h3>
+  <div class="divider mb-8"></div>
+
+  <div class="space-y-6 mb-6">
+    <!-- Step 1 -->
+    <div class="flex gap-4">
+      <div class="step-number">1</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">לַמד את ה-AI את הסגנון שלך</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          זה הצעד הכי חשוב. תן לו 10-20 דוגמאות של איך אתה כותב:
+        </p>
+        <div class="bg-card rounded-xl p-4 text-sm space-y-2">
+          <p class="text-text-secondary"><span class="text-accent">✦</span> 5 מיילים שכתבת ללקוחות</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> 5 הודעות וואטסאפ ארוכות</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> 3-5 פוסטים שפרסמת (או רצית לפרסם)</p>
+          <p class="text-text-secondary"><span class="text-accent">✦</span> 2-3 הצעות מחיר שכתבת</p>
+        </div>
+        <p class="text-xs text-text-secondary mt-2">ככל שתיתן יותר דוגמאות, ככה הסגנון ידויק יותר.</p>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="flex gap-4">
+      <div class="step-number">2</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">צור תבניות לתקשורת חוזרת</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          80% מהתקשורת שלך חוזרת על עצמה. תבנה תבניות:
+        </p>
+        <div class="grid grid-cols-2 gap-2">
+          <div class="bg-card rounded-lg p-3 text-center text-sm">
+            <p class="text-accent font-bold">מיילים</p>
+            <p class="text-xs text-text-secondary">הצעת מחיר, פולואפ, תודה, תזכורת</p>
+          </div>
+          <div class="bg-card rounded-lg p-3 text-center text-sm">
+            <p class="text-accent font-bold">וואטסאפ</p>
+            <p class="text-xs text-text-secondary">תיאום, עדכון, שאלה, אישור</p>
+          </div>
+          <div class="bg-card rounded-lg p-3 text-center text-sm">
+            <p class="text-accent font-bold">סושיאל</p>
+            <p class="text-xs text-text-secondary">פוסט, סטורי, קרוסלה, Reel</p>
+          </div>
+          <div class="bg-card rounded-lg p-3 text-center text-sm">
+            <p class="text-accent font-bold">מסמכים</p>
+            <p class="text-xs text-text-secondary">דוח, סיכום, הצעה, חוזה</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="flex gap-4">
+      <div class="step-number">3</div>
+      <div class="flex-1">
+        <h4 class="font-bold text-lg mb-2">הגדר Workflow: טיוטה → סקירה → שליחה</h4>
+        <p class="text-text-secondary leading-relaxed mb-3">
+          לעולם אל תשלח בלי סקירה. ה-Flow:
+        </p>
+        <div class="flex items-center justify-center gap-2 bg-card rounded-xl p-4">
+          <div class="text-center">
+            <p class="text-2xl">🗣️</p>
+            <p class="text-xs text-text-secondary mt-1">מחשבה גולמית</p>
+          </div>
+          <p class="text-accent text-xl">→</p>
+          <div class="text-center">
+            <p class="text-2xl">🤖</p>
+            <p class="text-xs text-text-secondary mt-1">AI כותב טיוטה</p>
+          </div>
+          <p class="text-accent text-xl">→</p>
+          <div class="text-center">
+            <p class="text-2xl">👁️</p>
+            <p class="text-xs text-text-secondary mt-1">אתה בודק (30 שניות)</p>
+          </div>
+          <p class="text-accent text-xl">→</p>
+          <div class="text-center">
+            <p class="text-2xl">✅</p>
+            <p class="text-xs text-text-secondary mt-1">שליחה</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Time Saved -->
+  <div class="glow-box rounded-2xl p-5 bg-card mt-auto">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-sm text-text-secondary mb-1">זמן שנחסך</p>
+        <p class="text-3xl font-black text-accent">~45 דקות <span class="text-lg text-text-secondary font-normal">/ ליום</span></p>
+      </div>
+      <div class="text-center">
+        <p class="text-4xl">✍️</p>
+        <p class="text-xs text-text-secondary mt-1">+ תקשורת טובה יותר</p>
+      </div>
+    </div>
+  </div>
+
+  <span class="page-number">12</span>
+</div>
+
+<!-- ==================== PAGE 13: SUMMARY ==================== -->
+<div class="page">
+  <div class="mb-2">
+    <span class="tag">סיכום</span>
+  </div>
+  <h2 class="text-3xl font-bold mb-6">חמישה עוזרים. 2-3 שעות חופש. כל יום.</h2>
+  <div class="divider mb-8"></div>
+
+  <!-- Summary Cards -->
+  <div class="space-y-3 mb-8">
+    <div class="stat-card rounded-xl p-4 flex items-center gap-4">
+      <div class="icon-circle">📰</div>
+      <div class="flex-1">
+        <p class="font-bold">עוזר חדשות ומידע</p>
+        <p class="text-sm text-text-secondary">בריפינג מותאם אישית כל בוקר</p>
+      </div>
+      <p class="text-accent font-bold text-lg">45 דק'</p>
+    </div>
+
+    <div class="stat-card rounded-xl p-4 flex items-center gap-4">
+      <div class="icon-circle">🏋️</div>
+      <div class="flex-1">
+        <p class="font-bold">עוזר כושר ותזונה</p>
+        <p class="text-sm text-text-secondary">אימונים, תזונה, רשימת קניות</p>
+      </div>
+      <p class="text-accent font-bold text-lg">30 דק'</p>
+    </div>
+
+    <div class="stat-card rounded-xl p-4 flex items-center gap-4">
+      <div class="icon-circle">📋</div>
+      <div class="flex-1">
+        <p class="font-bold">עוזר משימות ופרויקטים</p>
+        <p class="text-sm text-text-secondary">לכידה, סידור, תיעדוף אוטומטי</p>
+      </div>
+      <p class="text-accent font-bold text-lg">30 דק'</p>
+    </div>
+
+    <div class="stat-card rounded-xl p-4 flex items-center gap-4">
+      <div class="icon-circle">💰</div>
+      <div class="flex-1">
+        <p class="font-bold">עוזר פיננסי וחשבונות</p>
+        <p class="text-sm text-text-secondary">מעקב תשלומים, תזכורות, תבניות</p>
+      </div>
+      <p class="text-accent font-bold text-lg">20 דק'</p>
+    </div>
+
+    <div class="stat-card rounded-xl p-4 flex items-center gap-4">
+      <div class="icon-circle">✍️</div>
+      <div class="flex-1">
+        <p class="font-bold">עוזר תוכן ותקשורת</p>
+        <p class="text-sm text-text-secondary">טיוטות בסגנון שלך, תבניות מוכנות</p>
+      </div>
+      <p class="text-accent font-bold text-lg">45 דק'</p>
+    </div>
+  </div>
+
+  <!-- Total -->
+  <div class="glow-box rounded-2xl p-6 bg-card mb-8">
+    <div class="text-center">
+      <p class="text-text-secondary mb-2">סה"כ זמן שנחסך</p>
+      <p class="text-5xl font-black text-accent mb-2">2-3 שעות</p>
+      <p class="text-xl text-white font-semibold">כל יום = 15-20 שעות בשבוע</p>
+    </div>
+  </div>
+
+  <!-- Infographic -->
+  <div class="flex items-center justify-center gap-3 mb-6">
+    <span class="text-2xl">📰</span>
+    <span class="text-2xl">🏋️</span>
+    <span class="text-2xl">📋</span>
+    <span class="text-2xl">💰</span>
+    <span class="text-2xl">✍️</span>
+    <span class="text-accent text-2xl mx-2">→</span>
+    <span class="text-2xl font-bold text-accent">2-3 שעות חופש ביום</span>
+  </div>
+
+  <div class="quote-bar mt-auto">
+    <p class="text-lg text-text-secondary leading-relaxed">
+      "זה לא עתיד. זה עכשיו. <span class="text-white font-bold">אני חי ככה כל יום בקו פנגאן.</span> ואתה יכול להתחיל היום - עם עוזר אחד בלבד."
+    </p>
+  </div>
+
+  <span class="page-number">13</span>
+</div>
+
+<!-- ==================== PAGE 14: CTA ==================== -->
+<div class="page items-center justify-center text-center">
+  <div class="mb-6">
+    <span class="tag">הצעד הבא</span>
+  </div>
+
+  <h2 class="text-3xl font-bold mb-4">רוצה ללמוד איך לבנות<br><span class="text-accent">את העוזר הראשון שלך?</span></h2>
+  <div class="divider mx-auto mb-8"></div>
+
+  <p class="text-lg text-text-secondary max-w-md mx-auto mb-8 leading-relaxed">
+    קרית את המדריך. עכשיו הגיע הזמן לעשות. בקורס <span class="text-white font-bold">"העוזר הראשון שלך"</span> אני מלמד אותך צעד אחר צעד איך לבנות את העוזר הראשון - תוך 30 דקות.
+  </p>
+
+  <!-- Course Card -->
+  <div class="glow-box rounded-2xl p-8 bg-card max-w-md mx-auto mb-8 text-right">
+    <h3 class="text-2xl font-bold mb-4 text-center">🎓 העוזר הראשון שלך</h3>
+    <div class="space-y-3 mb-6">
+      <div class="flex items-center gap-3">
+        <span class="text-accent">✅</span>
+        <p class="text-text-secondary">5 שיעורי וידאו (30 דקות סה"כ)</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-accent">✅</span>
+        <p class="text-text-secondary">מדריך PDF מלא בעברית</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-accent">✅</span>
+        <p class="text-text-secondary">3 תבניות עוזרים מוכנות להעתקה</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-accent">✅</span>
+        <p class="text-text-secondary">50 פרומפטים מנצחים</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-accent">✅</span>
+        <p class="text-text-secondary">גישה לקבוצת וואטסאפ</p>
+      </div>
+    </div>
+    <div class="text-center">
+      <p class="text-4xl font-black text-accent mb-2">97₪</p>
+      <p class="text-sm text-text-secondary mb-4">פחות מקפה ביום למשך חודש</p>
+      <a href="https://kaniel149.github.io/kaniel-landing/#/he" class="inline-block bg-accent hover:bg-accent-light text-white font-bold py-3 px-8 rounded-xl text-lg transition-all">
+        אני רוצה להתחיל →
+      </a>
+    </div>
+  </div>
+
+  <!-- Scorecard -->
+  <div class="stat-card rounded-2xl p-6 max-w-md mx-auto">
+    <h3 class="text-xl font-bold mb-3">📊 לא בטוח? בדוק קודם:</h3>
+    <p class="text-text-secondary mb-4">
+      כמה מוכן העסק שלך ל-AI? עשה את הבדיקה בחינם ותקבל ציון + המלצות אישיות.
+    </p>
+    <a href="https://kaniel149.github.io/kaniel-scorecard/" class="inline-block border border-accent text-accent font-bold py-2 px-6 rounded-xl hover:bg-accent/10 transition-all">
+      עשה את הבדיקה (2 דקות) →
+    </a>
+  </div>
+
+  <span class="page-number">14</span>
+</div>
+
+<!-- ==================== PAGE 15: ABOUT / BACK COVER ==================== -->
+<div class="page items-center justify-center text-center">
+  <!-- Profile -->
+  <div class="w-24 h-24 rounded-full border-4 border-accent bg-card mx-auto mb-6 flex items-center justify-center">
+    <span class="text-3xl">K</span>
+  </div>
+
+  <h2 class="text-2xl font-bold mb-2">Kaniel Tordjman</h2>
+  <p class="text-accent mb-6">Entrepreneur | AI-First Life Designer | Koh Phangan</p>
+
+  <div class="divider mx-auto mb-6"></div>
+
+  <p class="text-text-secondary max-w-md mx-auto leading-relaxed mb-8">
+    שירתתי ביחידה מיוחדת בצה"ל. בניתי חברת סולארי ל-10 מיליון שקל. עברתי את 7 באוקטובר ואיבדתי את אחי הקטן. היום אני משחזר את החיים שלי כ-AI First - מקו פנגאן, תאילנד.
+  </p>
+
+  <p class="text-text-secondary max-w-md mx-auto leading-relaxed mb-8">
+    אני מאמין שכל בעל עסק יכול לבנות חיים על הצד הטוב ביותר - עם העוזרים הנכונים. הסוכנים מוכנים. השאלה היא אם אתה מוכן.
+  </p>
+
+  <!-- Social Links -->
+  <div class="flex items-center justify-center gap-6 mb-8">
+    <div class="text-center">
+      <div class="w-14 h-14 rounded-xl bg-card border border-white/10 flex items-center justify-center mx-auto mb-2">
+        <span class="text-2xl">📸</span>
+      </div>
+      <p class="text-xs text-text-secondary">Instagram</p>
+      <p class="text-xs text-accent">@kaniel</p>
+    </div>
+    <div class="text-center">
+      <div class="w-14 h-14 rounded-xl bg-card border border-white/10 flex items-center justify-center mx-auto mb-2">
+        <span class="text-2xl">🌐</span>
+      </div>
+      <p class="text-xs text-text-secondary">Website</p>
+      <p class="text-xs text-accent">kaniel.dev</p>
+    </div>
+  </div>
+
+  <!-- QR Code Placeholder -->
+  <div class="w-28 h-28 rounded-xl bg-white mx-auto mb-4 flex items-center justify-center">
+    <p class="text-primary text-xs font-bold text-center">QR CODE<br>Instagram</p>
+  </div>
+  <p class="text-xs text-text-secondary mb-12">סרוק לעקוב באינסטגרם</p>
+
+  <!-- Memorial -->
+  <div class="mt-auto border-t border-white/10 pt-6 max-w-md mx-auto">
+    <p class="text-text-secondary text-sm mb-2">
+      🕯️ לזכרו של <span class="text-white font-bold">אבידן טורג'מן</span> ז"ל
+    </p>
+    <p class="text-text-secondary text-xs mb-4">
+      נרצח בפסטיבל נובה, 7 באוקטובר 2023<br>
+      "האח הכי קרוב אליי בעולם"
+    </p>
+    <div class="divider mx-auto mb-4"></div>
+    <p class="text-text-secondary text-xs">
+      Built with AI. Written from Koh Phangan, Thailand.
+    </p>
+    <p class="text-text-secondary text-xs mt-1">
+      &copy; 2026 Kaniel Tordjman. All rights reserved.
+    </p>
+  </div>
+
+  <span class="page-number">15</span>
+</div>
+
+</body>
+</html>

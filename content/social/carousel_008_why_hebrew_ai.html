@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel 008 - למה אין תוכן AI בעברית</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Heebo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #111; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px; font-family: 'Heebo', 'Inter', sans-serif; }
+        .instructions { background: #1A1A1A; border: 1px solid #333; border-radius: 12px; padding: 24px 32px; color: #A0A0A0; font-size: 14px; max-width: 1080px; width: 100%; line-height: 1.6; direction: ltr; }
+        .instructions strong { color: #0066FF; }
+        .slide-label { color: #555; font-size: 14px; font-family: monospace; margin-bottom: -30px; direction: ltr; }
+        .slide {
+            width: 1080px; height: 1350px; background: #0A0A0A; position: relative; overflow: hidden;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; color: #FFFFFF; padding: 80px;
+        }
+        .slide::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 50% 0%, rgba(0,102,255,0.04) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+        .slide > * { position: relative; z-index: 1; }
+        .dots { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 2; }
+        .dots .d { width: 10px; height: 10px; border-radius: 50%; background: #333; }
+        .dots .d.a { background: #0066FF; }
+        .swipe-hint { position: absolute; bottom: 80px; left: 50%; transform: translateX(-50%); color: #555; font-size: 18px; letter-spacing: 2px; z-index: 2; direction: ltr; }
+        .divider { width: 80px; height: 4px; background: #0066FF; border-radius: 2px; margin: 28px 0; }
+        .accent { color: #0066FF; }
+        .label { font-size: 20px; font-weight: 700; color: #0066FF; letter-spacing: 3px; margin-bottom: 36px; }
+        .title { font-size: 60px; font-weight: 900; line-height: 1.2; margin-bottom: 32px; max-width: 900px; }
+        .desc { font-size: 28px; color: #A0A0A0; line-height: 1.6; max-width: 780px; }
+
+        .stat-row { display: flex; gap: 32px; max-width: 860px; width: 100%; margin-bottom: 32px; }
+        .stat-card { flex: 1; background: #1A1A1A; border-radius: 16px; padding: 32px 24px; text-align: center; }
+        .stat-num { font-size: 56px; font-weight: 900; color: #0066FF; margin-bottom: 8px; direction: ltr; font-family: 'Inter', sans-serif; }
+        .stat-label { font-size: 20px; color: #A0A0A0; line-height: 1.3; }
+
+        .resource-list { text-align: right; max-width: 780px; width: 100%; display: flex; flex-direction: column; gap: 24px; }
+        .resource-item { background: #1A1A1A; border-radius: 16px; padding: 28px 36px; display: flex; align-items: center; gap: 20px; }
+        .resource-num { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; background: #0066FF; border-radius: 12px; color: #fff; font-weight: 900; font-size: 22px; flex-shrink: 0; direction: ltr; font-family: 'Inter', sans-serif; }
+        .resource-text { font-size: 26px; font-weight: 600; }
+        .resource-sub { font-size: 20px; color: #A0A0A0; margin-top: 4px; font-weight: 400; }
+
+        .cta-title { font-size: 56px; font-weight: 900; line-height: 1.2; margin-bottom: 20px; }
+        .cta-handle { font-size: 36px; color: #0066FF; font-weight: 700; margin-top: 40px; direction: ltr; font-family: 'Inter', sans-serif; }
+        .cta-sub { font-size: 26px; color: #A0A0A0; margin-top: 16px; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<div class="instructions">
+    <strong>CAROUSEL 008 - "למה אין תוכן AI בעברית (ואני משנה את זה)"</strong><br>
+    Screenshot each slide at 1080x1350px. Hebrew RTL. 8 slides.
+</div>
+
+<!-- SLIDE 1 - HOOK -->
+<div class="slide-label">Slide 1 / 8 — HOOK</div>
+<div class="slide">
+    <div class="title">למה אין תוכן <span class="accent">AI</span><br>בעברית?</div>
+    <div class="divider"></div>
+    <div class="desc">70% מהישראלים משתמשים ב-AI.<br>כמעט אפס תוכן בעברית מלמד אותם איך.</div>
+    <div class="swipe-hint">&larr; Swipe</div>
+    <div class="dots"><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 2 - THE GAP -->
+<div class="slide-label">Slide 2 / 8 — THE GAP</div>
+<div class="slide">
+    <div class="label">הפער</div>
+    <div class="title">הכל באנגלית</div>
+    <div class="divider"></div>
+    <div class="desc">הקורסים באנגלית. הטיפים באנגלית. הקהילות באנגלית. אם אתה ישראלי שרוצה ללמוד AI ברצינות - אתה צריך אנגלית ברמה גבוהה. וזה לא כולם.</div>
+    <div class="dots"><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 3 - STATS -->
+<div class="slide-label">Slide 3 / 8 — STATS</div>
+<div class="slide">
+    <div class="label">המספרים</div>
+    <div class="stat-row">
+        <div class="stat-card">
+            <div class="stat-num">70%</div>
+            <div class="stat-label">מהישראלים משתמשים ב-AI</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-num">92%</div>
+            <div class="stat-label">מבני 18-29 משתמשים ב-ChatGPT</div>
+        </div>
+    </div>
+    <div class="stat-row">
+        <div class="stat-card">
+            <div class="stat-num">0</div>
+            <div class="stat-label">קורסי Claude בעברית</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-num">0</div>
+            <div class="stat-label">תוכן "AI Life Design" בעברית</div>
+        </div>
+    </div>
+    <div style="margin-top: 24px; font-size: 24px; color: #A0A0A0;">הביקוש קיים. ההיצע לא.</div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 4 - DESERVE MORE -->
+<div class="slide-label">Slide 4 / 8 — DESERVE MORE</div>
+<div class="slide">
+    <div class="title">יזמים ישראלים<br>מגיעים ל<span class="accent">יותר</span></div>
+    <div class="divider"></div>
+    <div class="desc">יש פה יזמים מטורפים. בעלי עסקים חכמים. אנשים שבונים דברים מדהימים. הם לא צריכים לחכות שמישהו יתרגם להם את העתיד.</div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 5 - WHAT I'M BUILDING -->
+<div class="slide-label">Slide 5 / 8 — WHAT I'M BUILDING</div>
+<div class="slide">
+    <div class="label">מה אני בונה</div>
+    <div class="title">תוכן <span class="accent">AI</span> בעברית.<br>ברמה הכי גבוהה.</div>
+    <div class="divider"></div>
+    <div class="desc">לא תרגום של תוכן אמריקאי. תוכן שנבנה מאפס ליזמים ישראלים. עם הדוגמאות שלנו. הכאבים שלנו. השפה שלנו.</div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 6 - 3 RESOURCES -->
+<div class="slide-label">Slide 6 / 8 — FREE RESOURCES</div>
+<div class="slide">
+    <div class="label">3 משאבים חינמיים</div>
+    <div class="resource-list">
+        <div class="resource-item">
+            <div class="resource-num">1</div>
+            <div>
+                <div class="resource-text">מדריך PDF - "5 עוזרי AI לבעלי עסקים"</div>
+                <div class="resource-sub">בדיוק מה לעשות, צעד אחר צעד. לינק בביו.</div>
+            </div>
+        </div>
+        <div class="resource-item">
+            <div class="resource-num">2</div>
+            <div>
+                <div class="resource-text">טיפים יומיים בסטוריז</div>
+                <div class="resource-sub">כל יום טיפ קצר שאפשר ליישם מיד.</div>
+            </div>
+        </div>
+        <div class="resource-item">
+            <div class="resource-num">3</div>
+            <div>
+                <div class="resource-text">קורס "העוזר הראשון שלך"</div>
+                <div class="resource-sub">30 דקות. 5 שיעורים. מאפס לעוזר AI שעובד.</div>
+            </div>
+        </div>
+    </div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 7 - JOIN -->
+<div class="slide-label">Slide 7 / 8 — JOIN</div>
+<div class="slide">
+    <div class="title">הצטרפו <span class="accent">לתנועה</span></div>
+    <div class="divider"></div>
+    <div class="desc">אנחנו לא מחכים שהעולם יתרגם לנו. אנחנו בונים את התוכן שצריך. בעברית. ברמה הגבוהה ביותר. בשביל יזמים שרוצים לנצל את הכלי הכי חזק שקיים היום.</div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 8 - CTA -->
+<div class="slide-label">Slide 8 / 8 — CTA</div>
+<div class="slide">
+    <div class="cta-title">בוא נבנה את זה<br><span class="accent">ביחד</span></div>
+    <div class="divider"></div>
+    <div class="cta-handle">@kaniel.ai</div>
+    <div class="cta-sub">עוקבים + שומרים את הפוסט = עוזרים לי להגיע ליותר ישראלים<br>תודו שזה הגיע הזמן.</div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div></div>
+</div>
+
+</body>
+</html>

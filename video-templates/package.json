@@ -1,0 +1,27 @@
+{
+  "name": "kaniel-video-templates",
+  "version": "1.0.0",
+  "description": "Kaniel Personal Brand - Remotion Video Templates",
+  "scripts": {
+    "start": "remotion studio",
+    "build": "remotion render Root",
+    "upgrade": "remotion upgrade",
+    "render:hook": "remotion render Root HookReel out/hook-reel.mp4",
+    "render:framework": "remotion render Root FrameworkExplainer out/framework.mp4",
+    "render:quote": "remotion render Root QuoteCard out/quote.mp4",
+    "render:lesson": "remotion render Root LessonTeaser out/lesson.mp4",
+    "render:tip": "remotion render Root DailyTip out/daily-tip.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.419",
+    "@remotion/google-fonts": "4.0.419",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "4.0.419"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.5.0"
+  }
+}

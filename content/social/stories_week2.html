@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories - Week 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Heebo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding: 40px;
+            font-family: 'Inter', 'Heebo', sans-serif;
+        }
+
+        .instructions {
+            background: #1A1A1A;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 24px 32px;
+            color: #A0A0A0;
+            font-size: 14px;
+            max-width: 1080px;
+            width: 100%;
+            line-height: 1.6;
+        }
+        .instructions strong { color: #0066FF; }
+
+        .story-label {
+            color: #555;
+            font-size: 14px;
+            font-family: monospace;
+            margin-bottom: -30px;
+        }
+
+        .story {
+            width: 1080px;
+            height: 1920px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #FFFFFF;
+            padding: 80px;
+        }
+
+        .story > * { position: relative; z-index: 2; }
+
+        .divider { width: 80px; height: 4px; background: #0066FF; border-radius: 2px; margin: 24px 0; }
+        .accent { color: #0066FF; }
+
+        /* ============================
+           MONDAY - WEEKLY POLL
+           ============================ */
+        .story-monday {
+            background: #0A0A0A;
+        }
+        .story-monday::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse at 50% 30%, rgba(0,102,255,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(0,102,255,0.04) 0%, transparent 40%);
+            z-index: 0;
+        }
+
+        .poll-question {
+            font-size: 52px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 48px;
+            max-width: 900px;
+        }
+
+        .poll-option {
+            width: 100%;
+            max-width: 800px;
+            background: #1A1A1A;
+            border: 2px solid #333;
+            border-radius: 16px;
+            padding: 28px 36px;
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+        .poll-option:hover { border-color: #0066FF; }
+        .poll-letter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: #0066FF;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .poll-tag {
+            font-size: 18px;
+            color: #0066FF;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 36px;
+        }
+
+        /* ============================
+           TUESDAY - QUICK TIP
+           ============================ */
+        .story-tuesday {
+            background: #0A0A0A;
+        }
+        .story-tuesday::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 50% 50%, rgba(0,102,255,0.06) 0%, transparent 60%);
+            z-index: 0;
+        }
+
+        .tip-badge {
+            display: inline-block;
+            background: #0066FF;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 10px 28px;
+            border-radius: 50px;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .tip-box {
+            background: #1A1A1A;
+            border: 2px solid #0066FF;
+            border-radius: 20px;
+            padding: 48px;
+            max-width: 860px;
+            width: 100%;
+            margin-bottom: 32px;
+        }
+
+        .tip-title {
+            font-size: 42px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .tip-body {
+            font-size: 26px;
+            color: #A0A0A0;
+            line-height: 1.6;
+        }
+
+        .tip-prompt {
+            background: #0A0A0A;
+            border-radius: 12px;
+            padding: 20px 28px;
+            margin-top: 20px;
+            font-size: 22px;
+            color: #0066FF;
+            font-family: monospace;
+            text-align: left;
+            direction: ltr;
+        }
+
+        /* ============================
+           WEDNESDAY - BTS PHOTO FRAME
+           ============================ */
+        .story-wednesday {
+            background: #0A0A0A;
+        }
+
+        .photo-frame {
+            width: 800px;
+            height: 800px;
+            background: #1A1A1A;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            border: 2px solid #333;
+        }
+        .photo-placeholder {
+            color: #333;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .bts-caption {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.4;
+            max-width: 800px;
+        }
+
+        .bts-tag {
+            font-size: 18px;
+            color: #0066FF;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
+
+        /* ============================
+           THURSDAY - AMA
+           ============================ */
+        .story-thursday {
+            background: #0A0A0A;
+        }
+        .story-thursday::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(0,102,255,0.06) 0%, transparent 40%),
+                radial-gradient(ellipse at 70% 80%, rgba(0,102,255,0.06) 0%, transparent 40%);
+            z-index: 0;
+        }
+
+        .ama-title {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 32px;
+        }
+
+        .ama-box {
+            width: 100%;
+            max-width: 800px;
+            background: #1A1A1A;
+            border: 2px solid #333;
+            border-radius: 16px;
+            padding: 32px;
+            margin-top: 32px;
+        }
+        .ama-input {
+            width: 100%;
+            background: #0A0A0A;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 20px 24px;
+            color: #555;
+            font-size: 22px;
+        }
+
+        .ama-topics {
+            margin-top: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            max-width: 800px;
+        }
+        .ama-topic {
+            background: #1A1A1A;
+            border: 1px solid #333;
+            border-radius: 50px;
+            padding: 12px 24px;
+            font-size: 20px;
+            color: #A0A0A0;
+        }
+
+        /* ============================
+           FRIDAY - CONTENT RECAP
+           ============================ */
+        .story-friday {
+            background: #0A0A0A;
+        }
+
+        .recap-title {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 48px;
+        }
+
+        .recap-list {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .recap-item {
+            background: #1A1A1A;
+            border-radius: 16px;
+            padding: 28px 32px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-align: left;
+        }
+
+        .recap-day {
+            background: #0066FF;
+            color: #fff;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            white-space: nowrap;
+            text-transform: uppercase;
+        }
+
+        .recap-text {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .recap-cta {
+            margin-top: 40px;
+            font-size: 28px;
+            color: #0066FF;
+            font-weight: 700;
+        }
+
+        /* ============================
+           SATURDAY - PERSONAL
+           ============================ */
+        .story-saturday {
+            background: #0A0A0A;
+        }
+        .story-saturday::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, rgba(0,102,255,0.04) 0%, transparent 50%, rgba(0,102,255,0.02) 100%);
+            z-index: 0;
+        }
+
+        .saturday-title {
+            font-size: 48px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            max-width: 800px;
+        }
+
+        .saturday-text {
+            font-size: 28px;
+            color: #A0A0A0;
+            line-height: 1.6;
+            max-width: 780px;
+        }
+
+        .location-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #1A1A1A;
+            border-radius: 50px;
+            padding: 12px 28px;
+            font-size: 20px;
+            color: #A0A0A0;
+            margin-top: 32px;
+        }
+
+        /* ============================
+           SUNDAY - REFLECTION
+           ============================ */
+        .story-sunday {
+            background: #0A0A0A;
+        }
+        .story-sunday::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 50% 40%, rgba(0,102,255,0.05) 0%, transparent 60%);
+            z-index: 0;
+        }
+
+        .reflection-tag {
+            font-size: 18px;
+            color: #0066FF;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        .reflection-text {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.4;
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+
+        .next-week-box {
+            background: #1A1A1A;
+            border: 2px solid #0066FF;
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 800px;
+            width: 100%;
+        }
+        .next-week-title {
+            font-size: 22px;
+            color: #0066FF;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .next-week-items {
+            font-size: 24px;
+            color: #A0A0A0;
+            line-height: 1.8;
+            text-align: left;
+        }
+
+        .handle {
+            font-size: 28px;
+            color: #0066FF;
+            font-weight: 700;
+            margin-top: 32px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="instructions">
+    <strong>STORIES - WEEK 2</strong><br>
+    Screenshot each story at 1080x1920px. 7 templates, one per day (Monday-Sunday).
+    Use as backgrounds - add real photos/videos on top via CapCut or Instagram editor.
+</div>
+
+<!-- MONDAY - POLL -->
+<div class="story-label">Monday — WEEKLY POLL</div>
+<div class="story story-monday">
+    <div class="poll-tag">Weekly Poll</div>
+    <div class="poll-question">What AI tool do you<br>use <span class="accent">most?</span></div>
+    <div class="divider"></div>
+    <div class="poll-option"><div class="poll-letter">A</div> ChatGPT</div>
+    <div class="poll-option"><div class="poll-letter">B</div> Claude</div>
+    <div class="poll-option"><div class="poll-letter">C</div> Gemini</div>
+    <div class="poll-option"><div class="poll-letter">D</div> I don't use AI yet</div>
+    <div style="margin-top: 32px; font-size: 22px; color: #A0A0A0;">Tap to vote. I'll share results tomorrow.</div>
+</div>
+
+<!-- TUESDAY - QUICK TIP -->
+<div class="story-label">Tuesday — QUICK TIP</div>
+<div class="story story-tuesday">
+    <div class="tip-badge">AI Tip of the Day</div>
+    <div class="tip-box">
+        <div class="tip-title">Stop Saying "Write Me..."<br>Start Saying <span class="accent">"You Are My..."</span></div>
+        <div class="divider"></div>
+        <div class="tip-body">
+            Give AI a ROLE before giving it a task. The output quality jumps 10x.
+        </div>
+        <div class="tip-prompt">
+            Instead of: "Write an email to a client"<br><br>
+            Try: "You are my executive assistant at a solar energy company. You know my communication style is direct but warm. Write an email to a client who hasn't paid in 30 days."
+        </div>
+    </div>
+    <div style="font-size: 24px; color: #A0A0A0;">Screenshot this. Use it today.</div>
+</div>
+
+<!-- WEDNESDAY - BTS -->
+<div class="story-label">Wednesday — BEHIND THE SCENES</div>
+<div class="story story-wednesday">
+    <div class="bts-tag">Behind the Scenes</div>
+    <div class="photo-frame">
+        <div class="photo-placeholder">[ Add photo here ]<br><br>Workspace / Island view / Training / Family moment</div>
+    </div>
+    <div class="bts-caption">Where the work happens.<br>Koh Phangan, Thailand.</div>
+    <div style="margin-top: 20px; font-size: 22px; color: #A0A0A0;">AI agents running on the laptop.<br>Jungle sounds in the background.<br>This is the office.</div>
+</div>
+
+<!-- THURSDAY - AMA -->
+<div class="story-label">Thursday — ASK ME ANYTHING</div>
+<div class="story story-thursday">
+    <div class="ama-title">Ask Me<br><span class="accent">Anything</span></div>
+    <div class="divider"></div>
+    <div style="font-size: 28px; color: #A0A0A0; max-width: 700px; margin-bottom: 24px;">About AI, business, island life, parenting, fitness, rebuilding - whatever you want.</div>
+    <div class="ama-box">
+        <div class="ama-input">Type your question here...</div>
+    </div>
+    <div class="ama-topics">
+        <div class="ama-topic">AI agents</div>
+        <div class="ama-topic">Koh Phangan</div>
+        <div class="ama-topic">Business systems</div>
+        <div class="ama-topic">Lifestyle design</div>
+        <div class="ama-topic">Family + work</div>
+        <div class="ama-topic">Muay Thai</div>
+    </div>
+</div>
+
+<!-- FRIDAY - CONTENT RECAP -->
+<div class="story-label">Friday — CONTENT RECAP</div>
+<div class="story story-friday">
+    <div class="recap-title">This Week's<br><span class="accent">Best Posts</span></div>
+    <div class="divider"></div>
+    <div class="recap-list">
+        <div class="recap-item">
+            <div class="recap-day">Sun</div>
+            <div class="recap-text">Why AI is already here (not coming)</div>
+        </div>
+        <div class="recap-item">
+            <div class="recap-day">Mon</div>
+            <div class="recap-text">5 Signs You Need AI in Your Life</div>
+        </div>
+        <div class="recap-item">
+            <div class="recap-day">Tue</div>
+            <div class="recap-text">Lifestyle Business != Working Less</div>
+        </div>
+        <div class="recap-item">
+            <div class="recap-day">Wed</div>
+            <div class="recap-text">You need systems, not motivation</div>
+        </div>
+        <div class="recap-item">
+            <div class="recap-day">Thu</div>
+            <div class="recap-text">Why I moved my family to Thailand</div>
+        </div>
+    </div>
+    <div class="recap-cta">Missed one? Check my profile.</div>
+</div>
+
+<!-- SATURDAY - PERSONAL -->
+<div class="story-label">Saturday — PERSONAL / LIFESTYLE</div>
+<div class="story story-saturday">
+    <div class="saturday-title">Saturday morning<br>on the <span class="accent">island</span></div>
+    <div class="divider"></div>
+    <div class="saturday-text">
+        No alarms. The kids woke up with the sun. Eti is reading. Ella is drawing. Eitan is destroying something (as usual).
+        <br><br>
+        Yael made shakshuka with Thai basil.
+        <br><br>
+        No emails. No Slack. No fires.
+        <br><br>
+        This is what we built all those systems for.
+    </div>
+    <div class="location-tag">Koh Phangan, Thailand</div>
+</div>
+
+<!-- SUNDAY - REFLECTION -->
+<div class="story-label">Sunday — WEEKLY REFLECTION</div>
+<div class="story story-sunday">
+    <div class="reflection-tag">Weekly Reflection</div>
+    <div class="reflection-text">
+        "The gap between what we want and what we do is where burnout lives. Close the gap."
+    </div>
+    <div class="divider"></div>
+    <div class="next-week-box">
+        <div class="next-week-title">Coming Next Week</div>
+        <div class="next-week-items">
+            - 5 AI prompts I use every day (with demos)<br>
+            - Why systems beat goals (always)<br>
+            - My actual morning routine with AI<br>
+            - Live: Claude vs ChatGPT comparison<br>
+            - The business mapping tutorial
+        </div>
+    </div>
+    <div class="handle">@kaniel.ai</div>
+</div>
+
+</body>
+</html>

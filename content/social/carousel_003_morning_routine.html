@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel 003 - הבוקר שלי עם AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Heebo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding: 40px;
+            font-family: 'Heebo', 'Inter', sans-serif;
+        }
+
+        .instructions {
+            background: #1A1A1A;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 24px 32px;
+            color: #A0A0A0;
+            font-size: 14px;
+            max-width: 1080px;
+            width: 100%;
+            line-height: 1.6;
+            direction: ltr;
+        }
+        .instructions strong { color: #0066FF; }
+
+        .slide-label {
+            color: #555;
+            font-size: 14px;
+            font-family: monospace;
+            margin-bottom: -30px;
+            direction: ltr;
+        }
+
+        .slide {
+            width: 1080px;
+            height: 1350px;
+            background: #0A0A0A;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #FFFFFF;
+            padding: 80px;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(0, 102, 255, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .slide > * { position: relative; z-index: 1; }
+
+        .slide-number {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+        }
+        .slide-number .dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: #333;
+        }
+        .slide-number .dot.active { background: #0066FF; }
+
+        .swipe-hint {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #555;
+            font-size: 18px;
+            letter-spacing: 2px;
+            z-index: 2;
+            direction: ltr;
+        }
+
+        .divider {
+            width: 80px;
+            height: 4px;
+            background: #0066FF;
+            border-radius: 2px;
+            margin: 28px 0;
+        }
+
+        /* ========== HOOK SLIDE ========== */
+        .hook-title {
+            font-size: 68px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+        .hook-sub {
+            font-size: 30px;
+            color: #A0A0A0;
+            line-height: 1.5;
+            max-width: 800px;
+        }
+        .accent { color: #0066FF; }
+
+        /* ========== TIME SLIDES ========== */
+        .time-slide .time-badge {
+            font-size: 64px;
+            font-weight: 900;
+            color: #0066FF;
+            margin-bottom: 32px;
+            direction: ltr;
+            font-family: 'Inter', sans-serif;
+        }
+        .time-slide .time-title {
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 32px;
+            max-width: 880px;
+        }
+        .time-slide .time-desc {
+            font-size: 28px;
+            color: #A0A0A0;
+            line-height: 1.6;
+            max-width: 780px;
+        }
+        .time-slide .time-detail {
+            margin-top: 24px;
+            background: #1A1A1A;
+            border-radius: 16px;
+            padding: 24px 40px;
+            font-size: 24px;
+            color: #A0A0A0;
+            max-width: 780px;
+            border-right: 4px solid #0066FF;
+        }
+
+        /* ========== RESULT SLIDE ========== */
+        .result-slide .result-label {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0066FF;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+        }
+        .result-slide .result-title {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 48px;
+        }
+        .result-slide .result-list {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 750px;
+        }
+        .result-slide .result-item {
+            font-size: 28px;
+            color: #A0A0A0;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .result-slide .check {
+            color: #0066FF;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        /* ========== CTA SLIDE ========== */
+        .cta-title {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .cta-handle {
+            font-size: 36px;
+            color: #0066FF;
+            font-weight: 700;
+            margin-top: 40px;
+            direction: ltr;
+            font-family: 'Inter', sans-serif;
+        }
+        .cta-sub {
+            font-size: 26px;
+            color: #A0A0A0;
+            margin-top: 16px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+<div class="instructions">
+    <strong>CAROUSEL 003 - "הבוקר שלי עם AI - צעד אחר צעד"</strong><br>
+    Screenshot each slide individually at 1080x1350px. Hebrew RTL carousel. 9 slides total.
+</div>
+
+<!-- SLIDE 1 - HOOK -->
+<div class="slide-label">Slide 1 / 9 — HOOK</div>
+<div class="slide">
+    <div class="hook-title">הבוקר שלי עם <span class="accent">AI</span><br>צעד אחר צעד</div>
+    <div class="divider"></div>
+    <div class="hook-sub">איך אני מסיים את כל מה שחשוב<br>עד 8 בבוקר - בלי לחץ</div>
+    <div class="swipe-hint">&larr; Swipe</div>
+    <div class="slide-number">
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 2 - 6:00 -->
+<div class="slide-label">Slide 2 / 9 — 6:00 AM</div>
+<div class="slide time-slide">
+    <div class="time-badge">6:00</div>
+    <div class="time-title">קם. קפה. שקט.</div>
+    <div class="divider"></div>
+    <div class="time-desc">לפני שהילדים קמים יש לי חלון של 30 דקות. אני לא נוגע בטלפון. רק קפה ושקט.</div>
+    <div class="time-detail">הבוקר מתחיל בלי מסכים. הסוכנים כבר עובדים ברקע.</div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot active"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 3 - 6:15 -->
+<div class="slide-label">Slide 3 / 9 — 6:15 AM</div>
+<div class="slide time-slide">
+    <div class="time-badge">6:15</div>
+    <div class="time-title">תקציר חדשות <span class="accent">AI</span></div>
+    <div class="divider"></div>
+    <div class="time-desc">סוכן שבניתי סורק את כל מקורות החדשות שחשובים לי ומכין פודקאסט אישי. אני שומע אותו תוך כדי שתיית הקפה.</div>
+    <div class="time-detail">במקום לגלול 30 דקות בחדשות - אני מקבל 5 דקות של מה שחשוב. בקול, בעברית.</div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div><div class="dot active"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 4 - 6:30 -->
+<div class="slide-label">Slide 4 / 9 — 6:30 AM</div>
+<div class="slide time-slide">
+    <div class="time-badge">6:30</div>
+    <div class="time-title">תוכנית אימון</div>
+    <div class="divider"></div>
+    <div class="time-desc">סוכן הכושר שלי מכין תוכנית מותאמת לפי מה שעשיתי אתמול, איך ישנתי, ומה המטרות שלי השבוע.</div>
+    <div class="time-detail">אני לא צריך לחשוב מה לעשות. אני פשוט עושה.</div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 5 - 7:00 -->
+<div class="slide-label">Slide 5 / 9 — 7:00 AM</div>
+<div class="slide time-slide">
+    <div class="time-badge">7:00</div>
+    <div class="time-title">הילדים קמים</div>
+    <div class="divider"></div>
+    <div class="time-desc">ארוחת בוקר עם עתי, אלה ואיתן. אני לא על הטלפון. אני לא בלחץ. אני שם.</div>
+    <div class="time-detail">כשהראש פנוי - אתה באמת נוכח למשפחה.</div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot active"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 6 - 7:30 -->
+<div class="slide-label">Slide 6 / 9 — 7:30 AM</div>
+<div class="slide time-slide">
+    <div class="time-badge">7:30</div>
+    <div class="time-title">סקירת משימות</div>
+    <div class="divider"></div>
+    <div class="time-desc">פותח את Claude ורואה מה הסוכנים הכינו לי בלילה: סיכומי מיילים, עדכוני פרויקטים, משימות מתועדפות.</div>
+    <div class="time-detail">אני לא מחליט מה לעשות היום. המערכת כבר החליטה. אני רק מאשר.</div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot active"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 7 - 8:00 -->
+<div class="slide-label">Slide 7 / 9 — 8:00 AM</div>
+<div class="slide time-slide">
+    <div class="time-badge">8:00</div>
+    <div class="time-title"><span class="accent">Deep Work</span></div>
+    <div class="divider"></div>
+    <div class="time-desc">שעתיים של עבודה ממוקדת על הדבר הכי חשוב. בלי הסחות. בלי כיבוי שריפות. הסוכנים מטפלים בשאר.</div>
+    <div class="time-detail">8 בבוקר ואני כבר אחרי חדשות, אימון, ילדים, וסקירת משימות. עכשיו זה זמן שלי.</div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 8 - RESULT -->
+<div class="slide-label">Slide 8 / 9 — RESULT</div>
+<div class="slide result-slide">
+    <div class="result-label">התוצאה</div>
+    <div class="result-title">הכל מטופל<br>עד <span class="accent">8 בבוקר</span></div>
+    <div class="divider"></div>
+    <div class="result-list">
+        <div class="result-item"><span class="check">&check;</span> חדשות - נשמעו בפודקאסט</div>
+        <div class="result-item"><span class="check">&check;</span> אימון - הושלם לפי תוכנית</div>
+        <div class="result-item"><span class="check">&check;</span> ילדים - קיבלו נוכחות מלאה</div>
+        <div class="result-item"><span class="check">&check;</span> משימות - מסודרות ומתועדפות</div>
+        <div class="result-item"><span class="check">&check;</span> עבודה עמוקה - התחילה</div>
+    </div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot active"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- SLIDE 9 - CTA -->
+<div class="slide-label">Slide 9 / 9 — CTA</div>
+<div class="slide">
+    <div class="cta-title">רוצה ללמוד<br>איך לבנות את זה?</div>
+    <div class="divider"></div>
+    <div class="cta-handle">@kaniel.ai</div>
+    <div class="cta-sub">עוקבים ← טיפים יומיים על AI שבאמת חוסכים שעות<br>לינק בביו ← מדריך חינמי</div>
+    <div class="slide-number">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot active"></div>
+    </div>
+</div>
+
+</body>
+</html>

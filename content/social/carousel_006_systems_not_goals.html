@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel 006 - Why Systems Beat Goals Every Time</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Heebo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding: 40px;
+            font-family: 'Inter', 'Heebo', sans-serif;
+        }
+
+        .instructions {
+            background: #1A1A1A;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 24px 32px;
+            color: #A0A0A0;
+            font-size: 14px;
+            max-width: 1080px;
+            width: 100%;
+            line-height: 1.6;
+        }
+        .instructions strong { color: #0066FF; }
+
+        .slide-label {
+            color: #555;
+            font-size: 14px;
+            font-family: monospace;
+            margin-bottom: -30px;
+        }
+
+        .slide {
+            width: 1080px;
+            height: 1350px;
+            background: #0A0A0A;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #FFFFFF;
+            padding: 80px;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(0, 102, 255, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .slide > * { position: relative; z-index: 1; }
+
+        .dots {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+        }
+        .dots .d { width: 10px; height: 10px; border-radius: 50%; background: #333; }
+        .dots .d.a { background: #0066FF; }
+
+        .swipe-hint {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #555;
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .divider { width: 80px; height: 4px; background: #0066FF; border-radius: 2px; margin: 28px 0; }
+        .accent { color: #0066FF; }
+        .label { font-size: 20px; font-weight: 700; color: #0066FF; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 36px; }
+        .title { font-size: 60px; font-weight: 900; line-height: 1.15; margin-bottom: 32px; max-width: 900px; }
+        .desc { font-size: 28px; color: #A0A0A0; line-height: 1.6; max-width: 780px; }
+
+        /* ========== VS SLIDE ========== */
+        .vs-container {
+            display: flex;
+            gap: 40px;
+            width: 100%;
+            max-width: 900px;
+        }
+        .vs-col {
+            flex: 1;
+            border-radius: 20px;
+            padding: 40px 32px;
+            text-align: left;
+        }
+        .vs-goal {
+            background: #1a1010;
+            border: 2px solid #ff4444;
+        }
+        .vs-system {
+            background: #101a10;
+            border: 2px solid #44ff44;
+        }
+        .vs-col h3 {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 24px;
+        }
+        .vs-goal h3 { color: #ff6666; }
+        .vs-system h3 { color: #66ff66; }
+        .vs-col p {
+            font-size: 22px;
+            color: #A0A0A0;
+            line-height: 1.6;
+        }
+
+        /* ========== EXAMPLE SLIDES ========== */
+        .example-box {
+            width: 100%;
+            max-width: 860px;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: left;
+            margin-bottom: 24px;
+        }
+        .example-goal {
+            background: #1a1010;
+            border-left: 4px solid #ff4444;
+        }
+        .example-system {
+            background: #101a10;
+            border-left: 4px solid #44ff44;
+        }
+        .example-box .ex-label {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .example-goal .ex-label { color: #ff6666; }
+        .example-system .ex-label { color: #66ff66; }
+        .example-box .ex-text {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        /* ========== RESULT SLIDE ========== */
+        .result-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            max-width: 860px;
+            width: 100%;
+        }
+        .result-card {
+            background: #1A1A1A;
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+        }
+        .result-num {
+            font-size: 48px;
+            font-weight: 900;
+            color: #0066FF;
+            margin-bottom: 8px;
+        }
+        .result-label {
+            font-size: 20px;
+            color: #A0A0A0;
+        }
+
+        .cta-title { font-size: 56px; font-weight: 900; line-height: 1.2; margin-bottom: 20px; }
+        .cta-handle { font-size: 36px; color: #0066FF; font-weight: 700; margin-top: 40px; }
+        .cta-sub { font-size: 26px; color: #A0A0A0; margin-top: 16px; line-height: 1.5; max-width: 700px; }
+    </style>
+</head>
+<body>
+
+<div class="instructions">
+    <strong>CAROUSEL 006 - "Why Systems Beat Goals Every Time"</strong><br>
+    Screenshot each slide at 1080x1350px. 8 slides.
+</div>
+
+<!-- SLIDE 1 - HOOK -->
+<div class="slide-label">Slide 1 / 8 — HOOK</div>
+<div class="slide">
+    <div class="title">Why <span class="accent">Systems</span> Beat<br>Goals Every Time</div>
+    <div class="divider"></div>
+    <div class="desc">Goals are what you want. Systems are how you get there. Most people have one without the other.</div>
+    <div class="swipe-hint">Swipe &rarr;</div>
+    <div class="dots"><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 2 - GOALS VS SYSTEMS -->
+<div class="slide-label">Slide 2 / 8 — GOALS VS SYSTEMS</div>
+<div class="slide">
+    <div class="label">The Difference</div>
+    <div class="vs-container">
+        <div class="vs-col vs-goal">
+            <h3>GOAL</h3>
+            <p>"I want to lose 10kg"</p>
+            <p style="margin-top: 16px;">"I want to make 1M"</p>
+            <p style="margin-top: 16px;">"I want more free time"</p>
+            <p style="margin-top: 24px; font-size: 18px; color: #ff6666;">Depends on willpower. Fades over time.</p>
+        </div>
+        <div class="vs-col vs-system">
+            <h3>SYSTEM</h3>
+            <p>"AI plans my meals + training daily"</p>
+            <p style="margin-top: 16px;">"AI handles 3 hours of repetitive work"</p>
+            <p style="margin-top: 16px;">"Automated tasks run while I sleep"</p>
+            <p style="margin-top: 24px; font-size: 18px; color: #66ff66;">Runs on autopilot. Compounds daily.</p>
+        </div>
+    </div>
+    <div class="dots"><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 3 - FITNESS EXAMPLE -->
+<div class="slide-label">Slide 3 / 8 — EXAMPLE: FITNESS</div>
+<div class="slide">
+    <div class="label">Example: Fitness</div>
+    <div class="example-box example-goal">
+        <div class="ex-label">Goal Approach</div>
+        <div class="ex-text">"I'll go to the gym 4x a week"<br><span style="color: #A0A0A0; font-size: 22px; font-weight: 400;">Works for 3 weeks. Then life happens.</span></div>
+    </div>
+    <div class="example-box example-system">
+        <div class="ex-label">System Approach</div>
+        <div class="ex-text">"My AI agent creates my daily plan based on sleep, soreness, and goals"<br><span style="color: #A0A0A0; font-size: 22px; font-weight: 400;">Never have to decide. Just execute.</span></div>
+    </div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 4 - REVENUE EXAMPLE -->
+<div class="slide-label">Slide 4 / 8 — EXAMPLE: REVENUE</div>
+<div class="slide">
+    <div class="label">Example: Revenue</div>
+    <div class="example-box example-goal">
+        <div class="ex-label">Goal Approach</div>
+        <div class="ex-text">"I need to close 10 more deals this quarter"<br><span style="color: #A0A0A0; font-size: 22px; font-weight: 400;">Pressure. Stress. Feast-or-famine cycle.</span></div>
+    </div>
+    <div class="example-box example-system">
+        <div class="ex-label">System Approach</div>
+        <div class="ex-text">"AI qualifies leads, follows up, and schedules calls. I only talk to ready buyers."<br><span style="color: #A0A0A0; font-size: 22px; font-weight: 400;">Pipeline that fills itself. Predictable revenue.</span></div>
+    </div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 5 - THE AI ADVANTAGE -->
+<div class="slide-label">Slide 5 / 8 — THE AI ADVANTAGE</div>
+<div class="slide">
+    <div class="label">The AI Advantage</div>
+    <div class="title">AI makes systems<br><span class="accent">actually work</span></div>
+    <div class="divider"></div>
+    <div class="desc">Before AI, building systems required employees, tools, and money. Now one person with the right AI agents can run systems that used to need a team of 5.</div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 6 - HOW TO BUILD -->
+<div class="slide-label">Slide 6 / 8 — HOW TO START</div>
+<div class="slide">
+    <div class="label">How to Build Your First System</div>
+    <div style="text-align: left; max-width: 800px; width: 100%; display: flex; flex-direction: column; gap: 28px;">
+        <div style="display: flex; align-items: flex-start; gap: 20px;">
+            <div style="background: #0066FF; color: #fff; min-width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 22px;">1</div>
+            <div><div style="font-size: 28px; font-weight: 700;">Pick ONE repetitive task</div><div style="font-size: 22px; color: #A0A0A0; margin-top: 6px;">Something you do daily. Something that bores you.</div></div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 20px;">
+            <div style="background: #0066FF; color: #fff; min-width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 22px;">2</div>
+            <div><div style="font-size: 28px; font-weight: 700;">Document how YOU do it</div><div style="font-size: 22px; color: #A0A0A0; margin-top: 6px;">Write down every step. AI can't help if it doesn't know the process.</div></div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 20px;">
+            <div style="background: #0066FF; color: #fff; min-width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 22px;">3</div>
+            <div><div style="font-size: 28px; font-weight: 700;">Give it to an AI agent</div><div style="font-size: 22px; color: #A0A0A0; margin-top: 6px;">Claude, ChatGPT, whatever. Feed it your process. Let it run.</div></div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 20px;">
+            <div style="background: #0066FF; color: #fff; min-width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 22px;">4</div>
+            <div><div style="font-size: 28px; font-weight: 700;">Iterate daily</div><div style="font-size: 22px; color: #A0A0A0; margin-top: 6px;">The system gets better every day. You spend less time. That's compounding.</div></div>
+        </div>
+    </div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 7 - MY RESULTS -->
+<div class="slide-label">Slide 7 / 8 — MY RESULTS</div>
+<div class="slide">
+    <div class="label">My Results After 3 Months</div>
+    <div class="result-grid">
+        <div class="result-card">
+            <div class="result-num">3h</div>
+            <div class="result-label">saved per day</div>
+        </div>
+        <div class="result-card">
+            <div class="result-num">5</div>
+            <div class="result-label">AI agents running</div>
+        </div>
+        <div class="result-card">
+            <div class="result-num">0</div>
+            <div class="result-label">fires to put out</div>
+        </div>
+        <div class="result-card">
+            <div class="result-num">100%</div>
+            <div class="result-label">family dinners attended</div>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="desc" style="font-size: 24px;">I didn't work less. I worked smarter. The system handles the boring stuff. I handle what matters.</div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 8 - CTA -->
+<div class="slide-label">Slide 8 / 8 — CTA</div>
+<div class="slide">
+    <div class="cta-title">Stop setting goals.<br>Start building <span class="accent">systems.</span></div>
+    <div class="divider"></div>
+    <div class="cta-handle">@kaniel.ai</div>
+    <div class="cta-sub">Save this post. Build your first system this week.<br>DM me "SYSTEM" and I'll send you a template to start.</div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div></div>
+</div>
+
+</body>
+</html>

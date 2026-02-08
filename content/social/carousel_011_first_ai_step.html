@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel 011 - הצעד הראשון שלך עם AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Heebo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #111; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px; font-family: 'Heebo', 'Inter', sans-serif; }
+        .instructions { background: #1A1A1A; border: 1px solid #333; border-radius: 12px; padding: 24px 32px; color: #A0A0A0; font-size: 14px; max-width: 1080px; width: 100%; line-height: 1.6; direction: ltr; }
+        .instructions strong { color: #0066FF; }
+        .slide-label { color: #555; font-size: 14px; font-family: monospace; margin-bottom: -30px; direction: ltr; }
+        .slide {
+            width: 1080px; height: 1350px; background: #0A0A0A; position: relative; overflow: hidden;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; color: #FFFFFF; padding: 80px;
+        }
+        .slide::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 50% 0%, rgba(0,102,255,0.04) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+        .slide > * { position: relative; z-index: 1; }
+        .dots { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 2; }
+        .dots .d { width: 10px; height: 10px; border-radius: 50%; background: #333; }
+        .dots .d.a { background: #0066FF; }
+        .swipe-hint { position: absolute; bottom: 80px; left: 50%; transform: translateX(-50%); color: #555; font-size: 18px; letter-spacing: 2px; z-index: 2; direction: ltr; }
+        .divider { width: 80px; height: 4px; background: #0066FF; border-radius: 2px; margin: 28px 0; }
+        .accent { color: #0066FF; }
+        .label { font-size: 20px; font-weight: 700; color: #0066FF; letter-spacing: 3px; margin-bottom: 36px; }
+        .title { font-size: 60px; font-weight: 900; line-height: 1.2; margin-bottom: 32px; max-width: 900px; }
+        .desc { font-size: 28px; color: #A0A0A0; line-height: 1.6; max-width: 780px; }
+
+        .step-card {
+            width: 100%;
+            max-width: 860px;
+            background: #1A1A1A;
+            border-radius: 20px;
+            padding: 48px;
+            text-align: right;
+        }
+        .step-num-big {
+            font-size: 100px;
+            font-weight: 900;
+            color: #0066FF;
+            opacity: 0.15;
+            position: absolute;
+            top: 80px;
+            left: 80px;
+            direction: ltr;
+            font-family: 'Inter', sans-serif;
+        }
+        .step-title {
+            font-size: 52px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 28px;
+        }
+        .step-desc {
+            font-size: 26px;
+            color: #A0A0A0;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        .step-action {
+            display: inline-block;
+            background: rgba(0,102,255,0.12);
+            border: 1px solid rgba(0,102,255,0.3);
+            border-radius: 12px;
+            padding: 16px 28px;
+            font-size: 22px;
+            color: #0066FF;
+            font-weight: 600;
+            direction: ltr;
+            font-family: 'Inter', monospace;
+        }
+
+        .result-card {
+            background: #1A1A1A;
+            border-radius: 16px;
+            padding: 28px 36px;
+            max-width: 780px;
+            width: 100%;
+            text-align: right;
+            margin-bottom: 16px;
+        }
+        .result-check { color: #0066FF; font-weight: 700; margin-left: 12px; }
+
+        .cta-title { font-size: 56px; font-weight: 900; line-height: 1.2; margin-bottom: 20px; }
+        .cta-handle { font-size: 36px; color: #0066FF; font-weight: 700; margin-top: 40px; direction: ltr; font-family: 'Inter', sans-serif; }
+        .cta-sub { font-size: 26px; color: #A0A0A0; margin-top: 16px; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<div class="instructions">
+    <strong>CAROUSEL 011 - "הצעד הראשון שלך עם AI (בדיוק מה לעשות)"</strong><br>
+    Screenshot each slide at 1080x1350px. Hebrew RTL. 8 slides. Actionable tutorial carousel.
+</div>
+
+<!-- SLIDE 1 - HOOK -->
+<div class="slide-label">Slide 1 / 8 — HOOK</div>
+<div class="slide">
+    <div class="title">הצעד הראשון שלך<br>עם <span class="accent">AI</span></div>
+    <div class="divider"></div>
+    <div class="desc">בלי להתחכם. בלי לסבך. בדיוק מה לעשות - היום. עכשיו. תוך 10 דקות.</div>
+    <div class="swipe-hint">&larr; Swipe</div>
+    <div class="dots"><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 2 - STOP OVERTHINKING -->
+<div class="slide-label">Slide 2 / 8 — STOP OVERTHINKING</div>
+<div class="slide">
+    <div class="title">תפסיק<br>לחשוב <span class="accent">על זה</span></div>
+    <div class="divider"></div>
+    <div class="desc">אני יודע. יש מיליון כלים. מיליון סרטונים. מיליון דעות. אתה מרגיש שצריך ללמוד שנה לפני שמתחילים. לא. צריך רק לפתוח ולהתחיל.</div>
+    <div class="dots"><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 3 - STEP 1 -->
+<div class="slide-label">Slide 3 / 8 — STEP 1</div>
+<div class="slide">
+    <div class="step-num-big">01</div>
+    <div class="label">צעד 1</div>
+    <div class="step-title">תתקין את <span class="accent">Claude</span></div>
+    <div class="divider"></div>
+    <div class="step-desc">נכנסים ל-claude.ai ומתחברים. חינם. לוקח דקה. זה הכלי שאני משתמש בו לכל דבר - מכתיבת מיילים ועד ניהול כל העסק.</div>
+    <div class="step-action">claude.ai &rarr; Sign Up &rarr; Free</div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 4 - STEP 2 -->
+<div class="slide-label">Slide 4 / 8 — STEP 2</div>
+<div class="slide">
+    <div class="step-num-big">02</div>
+    <div class="label">צעד 2</div>
+    <div class="step-title">השיחה <span class="accent">הראשונה</span></div>
+    <div class="divider"></div>
+    <div class="step-desc">אל תשאל "מה אתה יכול לעשות". תתן לו משימה אמיתית. משהו שאתה צריך לעשות היום. תתפלא מהתוצאה.</div>
+    <div class="step-action">"כתוב לי מייל ללקוח שלא שילם כבר חודש. הטון: מקצועי אבל נחוש."</div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 5 - STEP 3 -->
+<div class="slide-label">Slide 5 / 8 — STEP 3</div>
+<div class="slide">
+    <div class="step-num-big">03</div>
+    <div class="label">צעד 3</div>
+    <div class="step-title">תן לו <span class="accent">משימה אמיתית</span></div>
+    <div class="divider"></div>
+    <div class="step-desc">לא "ספר לי בדיחה". לא "מה דעתך על...". תן לו דבר אחד מרשימת המשימות שלך היום. משהו שלוקח לך 30 דקות ידנית.</div>
+    <div class="step-action">"יש לי 15 מיילים שצריך לענות עליהם. הנה הם. כתוב לי טיוטת תשובה לכל אחד."</div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 6 - STEP 4 -->
+<div class="slide-label">Slide 6 / 8 — STEP 4</div>
+<div class="slide">
+    <div class="step-num-big">04</div>
+    <div class="label">צעד 4</div>
+    <div class="step-title">תעשה את זה <span class="accent">כל יום</span></div>
+    <div class="divider"></div>
+    <div class="step-desc">אחרי שבוע, אתה לא חוזר אחורה. כל יום תמצא עוד משימה שאפשר לתת ל-AI. עוד 15 דקות שנחסכות. זה מצטבר.</div>
+    <div class="step-action">יום 1: מיילים | יום 2: סיכומים | יום 3: תכנון | יום 4: מחקר | יום 5: תוכן</div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 7 - RESULTS -->
+<div class="slide-label">Slide 7 / 8 — RESULTS AFTER 1 WEEK</div>
+<div class="slide">
+    <div class="label">אחרי שבוע אחד</div>
+    <div class="result-card">
+        <span class="result-check">&check;</span> חסכת לפחות 5 שעות בשבוע
+    </div>
+    <div class="result-card">
+        <span class="result-check">&check;</span> למדת מתי AI עוזר ומתי לא
+    </div>
+    <div class="result-card">
+        <span class="result-check">&check;</span> יש לך עוזר שזמין 24/7
+    </div>
+    <div class="result-card">
+        <span class="result-check">&check;</span> אתה כבר מקדים 90% מהאנשים סביבך
+    </div>
+    <div class="divider"></div>
+    <div style="font-size: 26px; color: #A0A0A0;">וזה רק שבוע אחד. בלי קורס. בלי לשלם כלום.</div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div><div class="d"></div></div>
+</div>
+
+<!-- SLIDE 8 - CTA -->
+<div class="slide-label">Slide 8 / 8 — CTA</div>
+<div class="slide">
+    <div class="cta-title">מוכן <span class="accent">להתחיל?</span></div>
+    <div class="divider"></div>
+    <div style="font-size: 28px; color: #A0A0A0; line-height: 1.6; max-width: 700px; margin-bottom: 24px;">שמור את הפוסט הזה. פתח את Claude. תן לו את המשימה הראשונה. ותספר לי בהודעה מה קרה.</div>
+    <div class="cta-handle">@kaniel.ai</div>
+    <div class="cta-sub">לינק בביו ← מדריך חינמי "5 עוזרי AI לבעלי עסקים"</div>
+    <div class="dots"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d a"></div></div>
+</div>
+
+</body>
+</html>

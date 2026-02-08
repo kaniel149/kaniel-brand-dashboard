@@ -9,7 +9,7 @@
 
 ```
 📹 סרטונים מוכנים לפרסום:  5 (001-004, 007)
-🤖 סרטוני HeyGen בעיבוד:   2 (טכנולוגיה+מתים, אינטרו לקורס)
+🤖 סרטוני HeyGen מוכנים:   2 ✅ (טכנולוגיה+מתים, אינטרו לקורס)
 🎤 Voiceovers:              9 (7 סרטונים + 2 אווטר)
 📝 תסריטים כתובים:          7 (001-007)
 🎨 Carousel מוכן:           1 (10 slides)
@@ -260,14 +260,14 @@ Send this to someone who needs to hear it 📩
 ### סטטוס:
 - [x] אווטר נוצר (avatar ID: `f797a9283348475cb913174cdcc65fa8`)
 - [x] 2 סרטונים נשלחו לעיבוד (עם הקול המשובט!)
-- [ ] לבדוק תוצאות ולהוריד
+- [x] לבדוק תוצאות ולהוריד
 - [ ] ליצור סרטונים נוספים עם האווטר
 
 ### סרטוני אווטר:
 | # | נושא | Video ID | סטטוס |
 |---|------|----------|-------|
-| AV-01 | טכנולוגיה ומתים - AI Memory | `16d067f491c44d8b8fed60826700d0ca` | ⏳ מעבד |
-| AV-02 | אינטרו לקורס AI | `bd5ee1fcb0d3484e96a5ba6bd9d80463` | ⏳ מעבד |
+| AV-01 | טכנולוגיה ומתים - AI Memory | `872f8bbe92f54131bf21f7a9064c7013` | ✅ הורד! |
+| AV-02 | אינטרו לקורס AI | `bf7a379e06554c22b8ed9736a7c59a34` | ✅ הורד! |
 
 ### אפשרויות לסרטוני אווטר נוספים:
 - [ ] אינטרו קצר לפרופיל (30 שניות)
@@ -311,36 +311,61 @@ Send this to someone who needs to hear it 📩
 
 ---
 
-## 📁 קבצים חשובים
+## 📁 מבנה תיקיות
 
 ```
-content/edited/
-├── 001_intro_KANIEL_v1.mp4      ← הקול של קניאל! מוכן לפרסום
-├── 001_voiceover_kaniel_speed115.mp3
-├── 002_morning_routine.mp4
-├── 002_voiceover.mp3
-├── 003_island_english_v2.mp4
-├── 003_voiceover_v2.mp3
-├── 004_muaythai.mp4
-├── 004_voiceover.mp3
-├── 005_voiceover.mp3            ← חסר סרטון (צריך B-Roll)
-├── 006_voiceover.mp3            ← חסר סרטון (צריך B-Roll)
-├── 007_being_present.mp4
-└── 007_voiceover.mp3
-
-content/avatar/
-├── 01_tech_and_dead_kaniel.mp4  ← סרטון עם הקול המשובט
-├── 01_tech_and_dead_original.mov
-├── 01_voiceover_kaniel.mp3
-├── 02_course_intro_kaniel.mp4   ← סרטון עם הקול המשובט
-├── 02_course_intro_original.mov
-└── 02_voiceover_kaniel.mp3
-
-content/scripts/
-├── SCRIPTS.md                   ← כל 7 התסריטים
-├── SHOTS_TO_FILM.md             ← רשימת צילומים
-├── FILMING_MASTER_LIST.md       ← 100 B-Rolls + 20 Talking Heads
-└── 001-intro-ai-first.md
+kaniel personal brand/
+├── CLAUDE.md                        ← אסטרטגיה וזהות
+├── TODO.md                          ← רשימת משימות (הקובץ הזה)
+├── PROGRESS.md                      ← מעקב התקדמות
+│
+├── docs/                            ← מסמכי אסטרטגיה ומחקר
+│   ├── STRATEGY_UPGRADE.md
+│   ├── SHOOTING_GUIDE.md
+│   ├── VOICE_CLONE_RECORDING_GUIDE.md
+│   └── ... (10 קבצים)
+│
+├── agents/                          ← הגדרות סוכני AI (5 סוכנים)
+├── course/                          ← תסריטי קורס (3 שפות)
+├── landing/                         ← דף נחיתה (React)
+│
+├── assets/brand/                    ← תמונות פרופיל וכיסוי
+│
+├── content/
+│   ├── scripts/                     ← תסריטים + לוח שבועי
+│   │   ├── SCRIPTS.md               ← כל 7 התסריטים
+│   │   ├── WEEK1_CALENDAR.md        ← לוח שבוע 1
+│   │   ├── SHOTS_TO_FILM.md
+│   │   └── FILMING_MASTER_LIST.md
+│   │
+│   ├── edited/                      ← סרטונים מוכנים לפרסום
+│   │   ├── 001_intro_KANIEL_v1.mp4  ← הקול של קניאל!
+│   │   ├── 002_morning_routine.mp4
+│   │   ├── 003_island_english_v2.mp4
+│   │   ├── 004_muaythai.mp4
+│   │   ├── 007_being_present.mp4
+│   │   ├── 005/006_voiceover.mp3    ← חסרים סרטונים
+│   │   └── XXX_clips/               ← קליפים ששימשו לעריכה
+│   │
+│   ├── avatar/                      ← סרטוני HeyGen אווטר
+│   │   ├── 01_tech_dead_heygen.mp4  ← 🆕 אווטר מוכן!
+│   │   ├── 02_course_intro_heygen.mp4 ← 🆕 אווטר מוכן!
+│   │   └── ... (originals + voiceovers)
+│   │
+│   ├── social/                      ← תבניות סושיאל
+│   │   ├── carousel_001_framework.html
+│   │   └── stories_week1.html
+│   │
+│   ├── raw/                         ← חומרי גלם
+│   │   ├── panama/                  ← 146 סרטונים מפנמה
+│   │   ├── koh-phangan/             ← 25 סרטונים מקו פנגאן
+│   │   ├── personal-photos/         ← 17 תמונות
+│   │   └── inbox/                   ← חומר חדש
+│   │
+│   ├── catalog/                     ← קטלוג סרטונים
+│   └── voice_samples/               ← דגימות קול
+│
+└── personal/avidan/                 ← 🕯️ אבידן ז"ל
 ```
 
 ---

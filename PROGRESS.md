@@ -212,6 +212,41 @@
 5. 🔧 **PRODUCE 005 + 006** - combine new B-Roll with voiceovers
 6. 🎤 **RECORD PVC SAMPLES** - 60 min with microphone (see VOICE_CLONE_RECORDING_GUIDE.md)
 
+### February 6, 2026 - Session 4 (Voice Clone + Avatar Videos)
+
+**Part 1 - File Cleanup:**
+- ✅ Cleaned `content/edited/` folder - deleted 51 old/test files
+- ✅ Kept only 12 final production files (5 videos + 7 voiceovers)
+
+**Part 2 - Avatar Video Production:**
+- ✅ Organized 2 avatar recording videos into `content/avatar/`
+- ✅ Transcribed both Hebrew recordings (ElevenLabs Scribe v1)
+- ✅ Generated voiceovers with Kaniel's cloned voice (IVC + eleven_v3)
+  - Voice settings: stability=0.5, similarity=0.85, style=0.3, speed=1.15
+- ✅ Replaced audio in both videos with ElevenLabs voice via FFmpeg
+  - `01_tech_and_dead_kaniel.mp4` (15MB, 1:21) - about deadbots & AI memory
+  - `02_course_intro_kaniel.mp4` (16MB, 1:29) - AI course introduction
+
+**Part 3 - HeyGen Avatar Videos:**
+- ✅ Found actual avatar ID via API: `f797a9283348475cb913174cdcc65fa8`
+- ✅ Submitted 2 videos with ElevenLabs voice directly integrated
+  - AV-01: `16d067f491c44d8b8fed60826700d0ca` (Tech & Dead)
+  - AV-02: `bd5ee1fcb0d3484e96a5ba6bd9d80463` (Course Intro)
+- ✅ Cleared queue (deleted 5 old test videos)
+- ⏳ Videos processing in HeyGen queue
+
+**Part 4 - Git & TODO:**
+- ✅ Pushed comprehensive TODO.md to git (commit cf4a006)
+- ✅ Cleaned temp files from `content/avatar/`
+
+**Voice Clone Update (MAJOR FIX!):**
+| Language | Voice ID | Model | Status |
+|----------|----------|-------|--------|
+| 🇮🇱 Hebrew | `VLrfz4mF3uc2POuuhspF` (Kaniel Hebrew HQ) | eleven_v3 | ✅ IVC works! |
+| 🇺🇸 English | `WyIJsLL5wNpgaOUZYZR6` (kaniel PVC) | eleven_multilingual_v2 | ✅ PVC works great! |
+
+> **Key discovery**: IVC + eleven_v3 model = Hebrew voice clone that WORKS! (previous issue was model, not voice)
+
 ---
 
 *Last Updated: February 6, 2026*

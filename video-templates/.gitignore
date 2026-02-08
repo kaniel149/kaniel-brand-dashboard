@@ -1,0 +1,9 @@
+node_modules/
+dist/
+out/
+.cache/
+*.mp4
+*.webm
+*.png
+*.jpg
+!public/
